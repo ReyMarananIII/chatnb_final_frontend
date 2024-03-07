@@ -23,7 +23,9 @@ const AdminDashboard = () => {
               to="/admin_dashboard"
               className="d-flex align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none"
             >
-              <span className="fs-5 fw-bolder d-none d-sm-inline">ChatNB</span>
+              <span className="fs-5 fw-bolder d-none d-sm-inline">
+                Admin ChatNB
+              </span>
             </Link>
             <ul
               className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
@@ -60,7 +62,7 @@ const AdminDashboard = () => {
         </div>
         <div className="col p-0 m-0">
           <div className="p-2 d-flex justify-content-center shadow">
-            <h4>ChatNB</h4>
+            <h4>Admin ChatNB</h4>
           </div>
           <Outlet />
         </div>

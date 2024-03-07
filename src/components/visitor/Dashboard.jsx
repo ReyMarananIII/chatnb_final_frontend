@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Outlet } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
 
@@ -24,6 +24,17 @@ const Dashboard = () => {
               className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
               id="menu"
             >
+              <li className="w-100">
+                <Link
+                  to="/dashboard"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-people ms-2"></i>
+                  <span className="ms-2 d-none d-sm-inline">
+                    Notable Batangaueños
+                  </span>
+                </Link>
+              </li>
               <li className="w-100" onClick={handleLogout}>
                 <Link className="nav-link px-0 align-middle text-white">
                   <i className="fs-4 bi-power ms-2"></i>
@@ -32,6 +43,12 @@ const Dashboard = () => {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="col p-0 m-0">
+          <div className="p-2 d-flex justify-content-center shadow">
+            <h4>ChatNB</h4>
+          </div>
+          <Outlet />
         </div>
       </div>
     </div>

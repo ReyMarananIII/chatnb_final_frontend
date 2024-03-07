@@ -46,7 +46,7 @@ const AdminLogin = () => {
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="p-3 rounded w-25 border loginForm">
         <div className="text-warning">{error && error}</div>
-        <h2>Login Page</h2>
+        <h2>Admin Login Page</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name">

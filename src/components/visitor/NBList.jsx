@@ -2,13 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const NB = () => {
+const NBList = () => {
   const [nb, setNB] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/admin/nb")
+      .get("http://localhost:3000/visitor/nb")
       .then((result) => {
         if (result.data.Status) {
           setNB(result.data.Result);
@@ -19,24 +19,13 @@ const NB = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleDelete = (nbID) => {
-    axios
-      .delete("http://localhost:3000/admin/delete_nb/" + nbID)
-      .then((result) => {
-        if (result.data.Status) {
-          window.location.reload();
-        } else {
-          alert(result.data.Error);
-        }
-      });
-  };
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
         <h3>Notable Batangaueños List</h3>
       </div>
       <Link to="/admin_dashboard/add_nb" className="btn btn-success">
-        Add Notable Batangaueños
+        Notable Batangaueños
       </Link>
       <div className="mt-3">
         <table className="table">
@@ -61,17 +50,11 @@ const NB = () => {
                 <td>{e.information}</td>
                 <td>
                   <Link
-                    to={`/admin_dashboard/edit_nb/` + e.nbID}
+                    to={`/dashboard/chat_nb/` + e.nbID}
                     className="btn btn-success btn-sm me-2"
                   >
-                    Edit
+                    Chat
                   </Link>
-                  <button
-                    className="btn btn-warning btn-sm"
-                    onClick={() => handleDelete(e.nbID)}
-                  >
-                    Delete
-                  </button>
                 </td>
               </tr>
             ))}
@@ -82,4 +65,4 @@ const NB = () => {
   );
 };
 
-export default NB;
+export default NBList;

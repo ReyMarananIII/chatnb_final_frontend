@@ -102,7 +102,7 @@ const AddNB = () => {
             />
           </div>
           <div className="col-12">
-            <button type="submit" className="btn btn-primary w-100">
+            <button type="submit" className="btn btn-success w-100">
               Add Notable Batangaueños
             </button>
           </div>

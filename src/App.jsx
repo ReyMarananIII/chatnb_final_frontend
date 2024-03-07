@@ -12,6 +12,8 @@ import PrivateRoute from "./components/route/PrivateRoute";
 import Dashboard from "./components/visitor/Dashboard";
 import Login from "./components/visitor/Login";
 import AdminPrivateRoute from "./components/route/AdminPrivateRoute";
+import NBList from "./components/visitor/NBList";
+import ChatNB from "./components/visitor/ChatNB";
 
 function App() {
   return (
@@ -27,7 +29,8 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route path="/dashboard" element={<NB />}></Route>
+          <Route path="/dashboard" element={<NBList />}></Route>
+          <Route path="/dashboard/chat_nb/:nbID" element={<ChatNB />}></Route>
         </Route>
         <Route
           path="/admin_dashboard"
