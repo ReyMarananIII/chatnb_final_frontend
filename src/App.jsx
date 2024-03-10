@@ -14,12 +14,13 @@ import Login from "./components/visitor/Login";
 import AdminPrivateRoute from "./components/route/AdminPrivateRoute";
 import NBList from "./components/visitor/NBList";
 import ChatNB from "./components/visitor/ChatNB";
-
+import AboutUs from "./components/visitor/AboutUs";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />}></Route>
+        <Route path="/AboutUs" element={<AboutUs />}></Route>
         <Route path="/admin" element={<AdminLogin />}></Route>
         <Route
           path="/dashboard"
@@ -54,6 +55,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+
   );
 }
 
