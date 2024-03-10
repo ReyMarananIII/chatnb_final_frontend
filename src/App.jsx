@@ -15,12 +15,15 @@ import AdminPrivateRoute from "./components/route/AdminPrivateRoute";
 import NBList from "./components/visitor/NBList";
 import ChatNB from "./components/visitor/ChatNB";
 import AboutUs from "./components/visitor/AboutUs";
+import AdminAboutUs from "./components/admin/AdminAboutUs";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/AboutUs" element={<AboutUs />}></Route>
+        <Route path="/AdminAboutUs" element={<AdminAboutUs />}></Route>
         <Route path="/admin" element={<AdminLogin />}></Route>
         <Route
           path="/dashboard"

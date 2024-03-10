@@ -2,16 +2,3 @@
   box-sizing: border-box;
 }
 
-.text-align-justify{
-  
-  text-align: justify
-
-}
-
-.row{
-  display:flex;
-  flex-direction:row;
-  justify-content: flex-start;
-
-}
-

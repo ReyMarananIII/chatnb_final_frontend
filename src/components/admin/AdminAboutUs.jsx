@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
-const AboutUs = () => {
+const AdminAboutUs = () => {
   const containerStyle = {
     padding: '20px', // Optional: Add padding for better visual appearance
   };
@@ -26,12 +26,12 @@ const AboutUs = () => {
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link" to={'/'}>
+            <Link className="nav-link" to={'/admin'}>
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to={'/AboutUs'}>
+            <Link className="nav-link" to={'/AdminAboutUs'}>
               About us
             </Link>
           </li>
@@ -72,4 +72,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default AdminAboutUs;
