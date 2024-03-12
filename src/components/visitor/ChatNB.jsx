@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const ChatNB = () => {
   const { nbID } = useParams();
@@ -10,7 +10,25 @@ const ChatNB = () => {
     information: "",
     voiceID: "",
   });
-  const navigate = useNavigate();
+  const [response, setResponse] = useState("");
+
+  // To track messages
+  // The content needs nb information for creating AI
+  const [allMessages, setAllMessages] = useState([
+    {
+      role: "system",
+      content: "", // nb information needed for question and answering data
+    },
+  ]);
+
+  // For chatnb information
+  const addNBInfo = (role, information) => {
+    setAllMessages((prevItems) =>
+      prevItems.map((item) =>
+        item.role === role ? { ...item, content: information } : item
+      )
+    );
+  };
 
   useEffect(() => {
     axios
@@ -22,13 +40,31 @@ const ChatNB = () => {
           information: result.data.Result[0].information,
           voiceID: result.data.Result[0].voiceID,
         });
+        addNBInfo("system", result.data.Result[0].information); // For chat database
       })
       .catch((err) => console.log(err));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(chat);
+
+    const updatedAllMessages = [
+      ...allMessages,
+      { role: "user", content: chat },
+    ];
+
+    axios
+      .post("http://localhost:3000/visitor/chat_nb", {
+        prompt: updatedAllMessages,
+      })
+      .then((res) => {
+        setResponse(res.data);
+        setAllMessages([
+          ...updatedAllMessages,
+          { role: "assistant", content: res.data },
+        ]);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -52,6 +88,7 @@ const ChatNB = () => {
             </button>
           </div>
         </form>
+        <p className="text-center">{response}</p>
       </div>
     </div>
   );
