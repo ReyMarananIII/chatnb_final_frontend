@@ -1,11 +1,72 @@
-.loginForm {
-  background-color: rgba(2, 99, 14, 0.6);
-  color: white;
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  background: #ffffff !important;
+  min-height: 100vh;
+  display: flex;
+  font-weight: 400;
+  font-family: 'Fira Sans', sans-serif;
+
 }
 
-ul li :hover {
-  background-color: rgba(0, 164, 19, 0.6);
-}
+
+ul {
+    list-style: none;
+    a {
+      position: relative;
+      display: block;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #262626;
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      transition: .5s;
+      z-index: 1;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-bottom: 2px solid #123e55;
+        transform: scaleY(2);
+        opacity: 0;
+        transition: .3s;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00c3a6b8;
+        transform: scale(0);
+        opacity: 0;
+        transition: .3s;
+        z-index: -1;
+      }
+      &:hover {
+        color: #fff;
+        &:before {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        &:after {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
 
 .nb_image {
   width: 40px;
@@ -19,13 +80,6 @@ ul li :hover {
   border-radius: 50%;
 }
 
-body {
-  background: #ffffff !important;
-  min-height: 100vh;
-  display: flex;
-  font-weight: 400;
-}
-
 h1,
 h2,
 h3,
@@ -35,6 +89,7 @@ h6,
 label,
 span {
   font-weight: 500;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 body,
@@ -54,7 +109,7 @@ html,
 }
 .auth-inner {
   width: 600px;
-  height: 700px;
+  height: 900px;
   margin: -5em;
   background: #ddcdb35d;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
@@ -86,7 +141,12 @@ html,
   font-style: italic;
   color: #123e55;
 }
-
+.ChatNB-Visitor {
+  padding-bottom: 5%;
+  font-size: 80px;
+  font-style: italic;
+  color: #123e55;
+}
 .Text1 {
   color: #123e55;
 }
@@ -101,7 +161,10 @@ html,
   padding-top: 5%;
   float: right;
 }
-
+.logoimage {
+  height: 600px;
+  width: 600px;
+}
 .btn-primary {
   padding: 10px 20px;
   font-weight: 500;

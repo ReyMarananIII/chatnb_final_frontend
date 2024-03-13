@@ -69,14 +69,14 @@ const Login = () => {
       </nav>
       <div className="auth-inner">
         <form onSubmit={handleSubmit}>
-          <h1 className="ChatNB">Chat NB</h1>
+          <h1 className="ChatNB-Visitor">Chat NB</h1>
           <h3 className="Text1">Artificial Intelligence Application</h3>
           <h3 className="Text1">to talk to Notable Batanguenos</h3>
 
           <h6 className="Text2">Welcome! Please login to your account</h6>
           <div className="mb-3">
             <label>Username</label>
-            <input
+            <input className="form-control"
               type="text"
               name="name"
               placeholder="Enter Username"
@@ -87,7 +87,7 @@ const Login = () => {
           </div>
           <div className="mb-3">
             <label>Password</label>
-            <input
+            <input className="form-control"
               type="password"
               name="password"
               placeholder="Enter Password"
@@ -96,7 +96,10 @@ const Login = () => {
               }
             />
           </div>
+          <div className="text-warning">{error && error}</div>
+
           <div className="d-grid">
+            
             <button type="submit" className="btn-primary">
               Login
             </button>
