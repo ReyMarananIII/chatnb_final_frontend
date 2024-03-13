@@ -25,15 +25,8 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />}></Route>
         <Route path="/AdminAboutUs" element={<AdminAboutUs />}></Route>
         <Route path="/admin" element={<AdminLogin />}></Route>
-        <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        >
-          <Route path="/dashboard" element={<NBList />}></Route>
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/dashboard/chat_nb/:nbID" element={<ChatNB />}></Route>
         </Route>
         <Route
@@ -58,7 +51,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-
   );
 }
 

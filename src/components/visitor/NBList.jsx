@@ -20,13 +20,10 @@ const NBList = () => {
   }, []);
 
   return (
-    <div className="px-5 mt-3">
+    <div>
       <div className="d-flex justify-content-center">
         <h3>Notable Batangaueños List</h3>
       </div>
-      <Link to="/admin_dashboard/add_nb" className="btn btn-success">
-        Notable Batangaueños
-      </Link>
       <div className="mt-3">
         <table className="table">
           <thead>

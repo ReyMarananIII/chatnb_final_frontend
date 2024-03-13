@@ -2,54 +2,35 @@ import React from "react";
 import { Link, useNavigate, Outlet } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
+import NBList from "./NBList";
 
 const Dashboard = () => {
-  const anvigate = useNavigate();
+  const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
     axios.get("http://localhost:3000/visitor/logout").then((result) => {
       if (result.data.Status) {
         localStorage.removeItem("valid");
-        anvigate("/");
+        navigate("/");
       }
     });
   };
   return (
-    <div className="container-fluid">
-      <div className="row flex-nowrap">
-        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success">
-          <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-            <ul
-              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-              id="menu"
-            >
-              <li className="w-100">
-                <Link
-                  to="/dashboard"
-                  className="nav-link px-0 align-middle text-white"
-                >
-                  <i className="fs-4 bi-people ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">
-                    Notable Batangaueños
-                  </span>
-                </Link>
-              </li>
-              <li className="w-100" onClick={handleLogout}>
-                <Link className="nav-link px-0 align-middle text-white">
-                  <i className="fs-4 bi-power ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Logout</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
+    <div>
+      <div className="d-flex justify-content-between">
+        <div className="d-flex">
+          <h3>Score: 0</h3>
         </div>
-        <div className="col p-0 m-0">
-          <div className="p-2 d-flex justify-content-center shadow">
-            <h4>ChatNB</h4>
-          </div>
-          <Outlet />
+        <div className="d-flex" onClick={handleLogout}>
+          <Link className="px-0 align-middle bg-success btn btn-sm text-white">
+            <i className="fs-4 bi-power ms-2"></i>
+            <span className="d-none d-sm-inline p-2">Logout</span>
+          </Link>
         </div>
+      </div>
+      <div>
+        <NBList />
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ChatNB = () => {
+  const navigate = useNavigate();
   const { nbID } = useParams();
   const [chat, setChat] = useState();
   const [nb, setNB] = useState({
@@ -88,7 +89,19 @@ const ChatNB = () => {
             </button>
           </div>
         </form>
-        <p className="text-center">{response}</p>
+        <div className="col-12 pt-2">
+          <button
+            onClick={() => {
+              navigate("/dashboard");
+            }}
+            className="btn btn-success w-100"
+          >
+            Back
+          </button>
+        </div>
+        <p className="text-center">
+          {response ? "Response:" : ""} {response}
+        </p>
       </div>
     </div>
   );

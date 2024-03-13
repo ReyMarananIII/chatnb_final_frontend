@@ -1,8 +1,8 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
-const PrivateRoute = ({ children }) => {
-  return localStorage.getItem("valid") ? children : <Navigate to="/" />;
+const PrivateRoute = () => {
+  return localStorage.getItem("valid") ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default PrivateRoute;
