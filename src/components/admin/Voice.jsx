@@ -20,9 +20,9 @@ const Voice = () => {
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
-        <h3>Voice List</h3>
+        <h4>Voice List</h4>
       </div>
-      <Link to="/admin_dashboard/add_voice" className="btn btn-success">
+      <Link to="/admin_dashboard/add_voice" className="btn admin-button ">
         Add Voice
       </Link>
       <div className="mt-3">

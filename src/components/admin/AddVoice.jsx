@@ -27,7 +27,7 @@ const AddVoice = () => {
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="voice">
-              <strong>Vioce:</strong>
+              <strong>Voice:</strong>
             </label>
             <input
               type="text"
@@ -37,7 +37,7 @@ const AddVoice = () => {
               className="form-control rounded-0"
             />
           </div>
-          <button className="btn btn-success w-100 rounded-0 mb-2">
+          <button className="btn admin-button w-100 rounded-0 mb-2">
             Add Voice
           </button>
         </form>

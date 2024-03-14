@@ -100,8 +100,8 @@ const EditNB = () => {
             </select>
           </div>
           <div className="col-12">
-            <button type="submit" className="btn btn-success w-100">
-              Edit Notable Batangaueños
+            <button type="submit" className="btn admin-button w-100">
+              Save
             </button>
           </div>
         </form>

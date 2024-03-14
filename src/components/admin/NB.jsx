@@ -33,9 +33,9 @@ const NB = () => {
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
-        <h3>Notable Batangaueños List</h3>
+        <h4>Notable Batangaueños List</h4>
       </div>
-      <Link to="/admin_dashboard/add_nb" className="btn btn-success">
+      <Link to="/admin_dashboard/add_nb" className="btn admin-button">
         Add Notable Batangaueños
       </Link>
       <div className="mt-3">
@@ -62,12 +62,12 @@ const NB = () => {
                 <td>
                   <Link
                     to={`/admin_dashboard/edit_nb/` + e.nbID}
-                    className="btn btn-success btn-sm me-2"
+                    className="btn admin-button btn-sm me-2"
                   >
                     Edit
                   </Link>
                   <button
-                    className="btn btn-warning btn-sm"
+                    className="btn btn-danger btn-sm"
                     onClick={() => handleDelete(e.nbID)}
                   >
                     Delete

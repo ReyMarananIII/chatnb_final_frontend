@@ -42,13 +42,13 @@ const AddNB = () => {
           alert(result.data.Error);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(() => alert("Please fill in all fields"));
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center mt-3">
       <div className="p-3 rounded w-50 border">
-        <h3 className="text-center">Add Notable Batangaueños</h3>
+        <h4 className="text-center">Add Notable Batangaueños</h4>
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
             <label for="inputName" className="form-label">
@@ -82,6 +82,7 @@ const AddNB = () => {
               name="voice"
               id="voice"
               className="form-select"
+              value={nb.voiceID}
               onChange={(e) => setNB({ ...nb, voiceID: e.target.value })}
             >
               {voice.map((c) => {
@@ -102,8 +103,8 @@ const AddNB = () => {
             />
           </div>
           <div className="col-12">
-            <button type="submit" className="btn btn-success w-100">
-              Add Notable Batangaueños
+            <button type="submit" className="btn admin-button w-100">
+              Add
             </button>
           </div>
         </form>

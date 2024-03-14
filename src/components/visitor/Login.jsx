@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/CHATNB_LOGO.png";
 import { Link } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -45,16 +46,13 @@ const Login = () => {
   };
 
   return (
-    <div className="Login">
-      <div className="logo">
-      <img src={logo} alt="" className="logoimage"/>
-      </div>
+    <div className="container-fluid">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link" to={"/"}>
+                <Link className="nav-link" to={"/dashboard"}>
                   Home
                 </Link>
               </li>
@@ -67,19 +65,20 @@ const Login = () => {
           </div>
         </div>
       </nav>
-      <div className="auth-inner">
-        <form onSubmit={handleSubmit}>
-          <h1 className="ChatNB-Visitor">Chat NB</h1>
+      <div className="d-flex flex-sm-col justify-between justify-content-between">
+        <form onSubmit={handleSubmit} className="auth-inner">
+          <h1 className="ChatNB">Chat NB</h1>
           <h3 className="Text1">Artificial Intelligence Application</h3>
           <h3 className="Text1">to talk to Notable Batanguenos</h3>
-
           <h6 className="Text2">Welcome! Please login to your account</h6>
           <div className="mb-3">
             <label>Username</label>
-            <input className="form-control"
+            <input
+              className="form-control"
               type="text"
               name="name"
               placeholder="Enter Username"
+              value={values.username}
               onChange={(e) =>
                 setValues({ ...values, username: e.target.value })
               }
@@ -87,24 +86,29 @@ const Login = () => {
           </div>
           <div className="mb-3">
             <label>Password</label>
-            <input className="form-control"
+            <input
+              className="form-control"
               type="password"
               name="password"
               placeholder="Enter Password"
+              value={values.password}
               onChange={(e) =>
                 setValues({ ...values, password: e.target.value })
               }
             />
           </div>
-          <div className="text-warning">{error && error}</div>
-
+          <div className="text-warning">{error}</div>
           <div className="d-grid">
-            
             <button type="submit" className="btn-primary">
               Login
             </button>
           </div>
         </form>
+        <div className="w-50">
+          <div className="h-100 w-100 d-flex justify-content-center align-items-center">
+            <img src={logo} alt="ChatNB Logo" className="logoimage" />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import pegasusLogo from "../../assets/images/pegasus.png";
 const AboutUs = () => {
   return (
     <div>
-      {/* Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -34,7 +33,7 @@ const AboutUs = () => {
         <div className="card mb-3">
           <div className="row">
             <div className="col-md-4">
-              <img src={pegasusLogo} alt="" width={400} height={400} />
+              <img src={pegasusLogo} alt="" width={380} height={380} />
             </div>
             <div className="col-md-8">
               <div className="card-body">
