@@ -47,7 +47,7 @@ const Login = () => {
   return (
     <div className="Login">
       <div className="logo">
-        <img src={logo} alt="" width={600} height={600} />
+      <img src={logo} alt="" className="logoimage"/>
       </div>
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">

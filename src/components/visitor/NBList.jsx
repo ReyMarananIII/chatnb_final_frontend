@@ -20,46 +20,17 @@ const NBList = () => {
   }, []);
 
   return (
-    <div>
-      <div className="d-flex justify-content-center">
-        <h3>Notable Batangaueños List</h3>
+    <div className="chat-head-grid">
+    {nb.map((e) => (
+      <div className="chat-head" key={e.nbID}>
+        <Link to={`/dashboard/chat_nb/${e.nbID}`}>
+          <img src={`http://localhost:3000/Images/${e.image}`} alt={e.name} className="nb_image" />
+        </Link>
+        <span className="name">{e.name}</span>
       </div>
-      <div className="mt-3">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Image</th>
-              <th>information</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {nb.map((e) => (
-              <tr>
-                <td>{e.name}</td>
-                <td>
-                  <img
-                    src={`http://localhost:3000/Images/` + e.image}
-                    className="nb_image"
-                  />
-                </td>
-                <td>{e.information}</td>
-                <td>
-                  <Link
-                    to={`/dashboard/chat_nb/` + e.nbID}
-                    className="btn btn-success btn-sm me-2"
-                  >
-                    Chat
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    ))}
+  </div>
   );
-};
+}
 
 export default NBList;
