@@ -15,18 +15,21 @@ const AdminLogin = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
       .get("http://localhost:3000/verify")
       .then((result) => {
         if (result.data.Status) {
-          navigate(
-            result.data.role === "admin" ? "/admin_dashboard" : "/dashboard"
-          );
+          if (result.data.role === "admin") {
+            navigate("/admin_dashboard");
+          } else {
+            navigate(`/dashboard/${result.data.id}`); // This is visitor ID from verify. It is called id instead visitorID because it is use for both admin and visitor
+          }
         }
       })
-      .catch((err) => console.error("Verification error:", err));
-  }, [navigate]);
+      .catch((err) => console.log(err));
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import sendIcon from '../../assets/images/send.png'
+import "../utils/style.css";
+import sendIcon from "../../assets/images/send.png";
 
 const ChatNB = () => {
   const navigate = useNavigate();
@@ -72,48 +73,38 @@ const ChatNB = () => {
 
   return (
     <div className="chat-UI">
-    <div>
-    <div className="chat-auth-inner">
-        <form onSubmit={handleSubmit}>
-        <h2 className=" Text1">{nb.name}</h2>
+      <div>
+        <div className="chat-auth-inner">
+          <form onSubmit={handleSubmit}>
+            <h2 className=" Text1">{nb.name}</h2>
 
-          <h5 className="Text1">Ask me a question</h5>
-          <div class="messenger-input-container">
-            <div class="input-wrapper"> 
-            <input
-                type="text"
-                className="form-control-chat"
-                id="inputName"
-                placeholder="Type something . . ."
-                value={chat}
-                onChange={(e) => setChat(e.target.value)}
-              />
-                </div>
-            <button type="submit" class="send-button">
-            <img src={sendIcon} alt="" width={25} height={25}/>
+            <h5 className="Text1">Ask me a question</h5>
+            <div class="messenger-input-container">
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  className="form-control-chat"
+                  id="inputName"
+                  placeholder="Type something . . ."
+                  value={chat}
+                  onChange={(e) => setChat(e.target.value)}
+                />
+              </div>
+              <button type="submit" class="send-button">
+                <img src={sendIcon} alt="" width={25} height={25} />
               </button>
-          </div>
-          <div className="d-grid">
-          </div>
-        </form>
-      </div>
-    </div>
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/dashboard"}>
-                  Back
-                </Link>
-              </li>
-            </ul>
-          </div>
+            </div>
+            <div className="d-grid"></div>
+          </form>
         </div>
-      </nav>
-          <p className="text-center">
-          {response ? "Response:" : ""} {response}
-        </p>
+      </div>
+      <div className="d-flex justify-content-center py-5">
+        {response ? (
+          <p className="bg-dark text-white px-1">Response: {response}</p>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

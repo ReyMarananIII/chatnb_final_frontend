@@ -39,10 +39,14 @@ const AddNB = () => {
         if (result.data.Status) {
           navigate("/admin_dashboard");
         } else {
-          alert(result.data.Error);
+          console.log(result.data.Error);
+          alert("Please fill in all fields");
         }
       })
-      .catch(() => alert("Please fill in all fields"));
+      .catch((err) => {
+        console.log(err);
+        alert("Please fill in all fields");
+      });
   };
 
   return (

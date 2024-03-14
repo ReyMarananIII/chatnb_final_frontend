@@ -12,7 +12,6 @@ import PrivateRoute from "./components/route/PrivateRoute";
 import Dashboard from "./components/visitor/Dashboard";
 import Login from "./components/visitor/Login";
 import AdminPrivateRoute from "./components/route/AdminPrivateRoute";
-import NBList from "./components/visitor/NBList";
 import ChatNB from "./components/visitor/ChatNB";
 import AboutUs from "./components/visitor/AboutUs";
 import AdminAboutUs from "./components/admin/AdminAboutUs";
@@ -26,7 +25,7 @@ function App() {
         <Route path="/AdminAboutUs" element={<AdminAboutUs />}></Route>
         <Route path="/admin" element={<AdminLogin />}></Route>
         <Route element={<PrivateRoute />}>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/dashboard/:visitorID" element={<Dashboard />}></Route>
           <Route path="/dashboard/chat_nb/:nbID" element={<ChatNB />}></Route>
         </Route>
         <Route

@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Login = () => {
-  const [values, setValues] = useState({
+  const [visitor, setVisitor] = useState({
     username: "",
     password: "",
+    visitorID: "",
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -23,7 +24,8 @@ const Login = () => {
           if (result.data.role === "admin") {
             navigate("/admin_dashboard");
           } else {
-            navigate("/dashboard");
+            setVisitor({ ...visitor, visitorID: result.data.id });
+            navigate(`/dashboard/${result.data.id}`); // This is visitor ID from verify. It is called id instead visitorID because it is use for both admin and visitor
           }
         }
       })
@@ -33,11 +35,11 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/visitor/visitor_login", values)
+      .post("http://localhost:3000/visitor/visitor_login", visitor)
       .then((result) => {
         if (result.data.loginStatus) {
           localStorage.setItem("valid", true);
-          navigate("/dashboard");
+          navigate(`/dashboard/${result.data.visitorID}`);
         } else {
           setError(result.data.Error);
         }
@@ -52,7 +54,7 @@ const Login = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link" to={"/dashboard"}>
+                <Link className="nav-link" to={"/"}>
                   Home
                 </Link>
               </li>
@@ -78,9 +80,9 @@ const Login = () => {
               type="text"
               name="name"
               placeholder="Enter Username"
-              value={values.username}
+              value={visitor.username}
               onChange={(e) =>
-                setValues({ ...values, username: e.target.value })
+                setVisitor({ ...visitor, username: e.target.value })
               }
             />
           </div>
@@ -91,9 +93,9 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Enter Password"
-              value={values.password}
+              value={visitor.password}
               onChange={(e) =>
-                setValues({ ...values, password: e.target.value })
+                setVisitor({ ...visitor, password: e.target.value })
               }
             />
           </div>

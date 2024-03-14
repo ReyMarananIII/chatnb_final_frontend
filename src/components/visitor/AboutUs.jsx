@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import pegasusLogo from "../../assets/images/pegasus.png";
+import "../utils/style.css";
 
 const AboutUs = () => {
   return (

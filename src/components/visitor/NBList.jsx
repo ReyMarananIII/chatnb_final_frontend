@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../utils/style.css";
 
 const NBList = () => {
   const [nb, setNB] = useState([]);
@@ -21,16 +22,16 @@ const NBList = () => {
 
   return (
     <div className="chat-head-grid">
-    {nb.map((e) => (
-      <div className="chat-head" key={e.nbID}>
-        <Link to={`/dashboard/chat_nb/${e.nbID}`}>
-          <img src={`http://localhost:3000/Images/${e.image}`} alt={e.name} className="nb_image" />
-        </Link>
-        <span className="name">{e.name}</span>
-      </div>
-    ))}
-  </div>
+      {nb.map((e) => (
+        <div className="chat-head" key={e.nbID}>
+          <Link to={`/dashboard/chat_nb/${e.nbID}`}>
+            <img src={`http://localhost:3000/Images/${e.image}`} />
+          </Link>
+          <span className="name">{e.name}</span>
+        </div>
+      ))}
+    </div>
   );
-}
+};
 
 export default NBList;
