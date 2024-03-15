@@ -73,7 +73,8 @@ const EditNB = () => {
             <label for="inputInformation" className="form-label">
               Information
             </label>
-            <input
+            <textarea
+              rows={11}
               type="text"
               className="form-control rounded-0"
               id="inputInformation"

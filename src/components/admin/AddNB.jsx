@@ -71,11 +71,11 @@ const AddNB = () => {
               Information
             </label>
             <textarea
+              rows={11}
               type="text"
               className="form-control rounded-0"
               id="inputInformation"
               placeholder="Enter Information"
-              rows={11}
               onChange={(e) => setNB({ ...nb, information: e.target.value })}
             />
           </div>
