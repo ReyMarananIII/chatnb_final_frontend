@@ -70,11 +70,12 @@ const AddNB = () => {
             <label for="inputInformation" className="form-label">
               Information
             </label>
-            <input
+            <textarea
               type="text"
               className="form-control rounded-0"
               id="inputInformation"
               placeholder="Enter Information"
+              rows={11}
               onChange={(e) => setNB({ ...nb, information: e.target.value })}
             />
           </div>

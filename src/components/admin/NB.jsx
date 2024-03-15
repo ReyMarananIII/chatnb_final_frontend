@@ -62,12 +62,12 @@ const NB = () => {
                 <td>
                   <Link
                     to={`/admin_dashboard/edit_nb/` + e.nbID}
-                    className="btn admin-button btn-sm me-2"
+                    className="btn admin-button btn-sm me-2 my-2"
                   >
                     Edit
                   </Link>
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-danger btn-sm my-2"
                     onClick={() => handleDelete(e.nbID)}
                   >
                     Delete

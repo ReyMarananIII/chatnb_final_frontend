@@ -15,6 +15,8 @@ const ChatNB = () => {
     voiceID: "",
   });
   const [response, setResponse] = useState("");
+  const [loading, setLoading] = useState(false);
+  var loading2 = false;
 
   // To track messages
   // The content needs nb information for creating AI
@@ -51,7 +53,8 @@ const ChatNB = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setLoading(true);
+    setResponse("");
     const updatedAllMessages = [
       ...allMessages,
       { role: "user", content: chat },
@@ -67,6 +70,7 @@ const ChatNB = () => {
           ...updatedAllMessages,
           { role: "assistant", content: res.data },
         ]);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   };
@@ -79,8 +83,8 @@ const ChatNB = () => {
             <h2 className=" Text1">{nb.name}</h2>
 
             <h5 className="Text1">Ask me a question</h5>
-            <div class="messenger-input-container">
-              <div class="input-wrapper">
+            <div className="messenger-input-container">
+              <div className="input-wrapper">
                 <input
                   type="text"
                   className="form-control-chat"
@@ -90,9 +94,15 @@ const ChatNB = () => {
                   onChange={(e) => setChat(e.target.value)}
                 />
               </div>
-              <button type="submit" class="send-button">
-                <img src={sendIcon} alt="" width={25} height={25} />
-              </button>
+              {loading ? (
+                <div className="spinner-grow text-dark pr-2">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                <button type="submit" className="send-button">
+                  <img src={sendIcon} alt="" width={25} height={25} />
+                </button>
+              )}
             </div>
             <div className="d-grid"></div>
           </form>
