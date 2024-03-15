@@ -269,6 +269,7 @@ html,
 
 .input-wrapper {
   flex: 1;
+  margin-right: 10px;
 }
 ::placeholder {
   color: rgb(12, 12, 12);
@@ -290,7 +291,6 @@ html,
   color: #fff;
   border: none;
   border-radius: 20px;
-  margin-left: 10px;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s;

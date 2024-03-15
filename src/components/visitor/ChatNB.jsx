@@ -16,7 +16,17 @@ const ChatNB = () => {
   });
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
-  var loading2 = false;
+
+  // Wag gagalawin yung format
+  const template = `Ito ang mga pamantayan mo sa pagsasagot:
+
+Ang mga sagot mo ay dapat nakabatay lamang sa mga detalye na babangitin mamaya, kapag ang tanong sayo ay wala sa mga detalye dapat ang sagot mo ay hindi mo alam.
+Halimbawa tinanong ka "ano ang martial law?" ang sagot mo dapat ay "wala kang masasabi tungkol doon."
+Ang mga sagot mo sa mga tanong sayo ay dapat hindi hihigit sa tatlong pangungusap.
+Ang mga pamantayan na ito ay dapat masunod.
+
+Mga Detalye:\n
+`;
 
   // To track messages
   // The content needs nb information for creating AI
@@ -31,10 +41,17 @@ const ChatNB = () => {
   const addNBInfo = (role, information) => {
     setAllMessages((prevItems) =>
       prevItems.map((item) =>
-        item.role === role ? { ...item, content: information } : item
+        item.role === role
+          ? {
+              ...item,
+              content: template + information,
+            }
+          : item
       )
     );
   };
+
+  console.log(allMessages);
 
   useEffect(() => {
     axios
@@ -95,7 +112,7 @@ const ChatNB = () => {
                 />
               </div>
               {loading ? (
-                <div className="spinner-grow text-dark pr-2">
+                <div className="spinner-grow text-dark pl-5">
                   <span className="visually-hidden">Loading...</span>
                 </div>
               ) : (
