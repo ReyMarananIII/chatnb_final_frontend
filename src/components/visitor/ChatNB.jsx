@@ -1,14 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../utils/style.css";
 import sendIcon from "../../assets/images/send.png";
 
 const ChatNB = () => {
-  const navigate = useNavigate();
   const { nbID } = useParams();
-  const [chat, setChat] = useState();
+  const [chat, setChat] = useState("");
   const [nb, setNB] = useState({
     name: "",
     information: "",
@@ -17,7 +15,7 @@ const ChatNB = () => {
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Wag gagalawin yung format
+  // To tell the pretrained model how  to response
   const template = `Ito ang mga pamantayan mo sa pagsasagot:
 
 Ang mga sagot mo ay dapat nakabatay lamang sa mga detalye na babangitin mamaya, kapag ang tanong sayo ay wala sa mga detalye dapat ang sagot mo ay hindi mo alam.
@@ -51,8 +49,6 @@ Mga Detalye:\n
     );
   };
 
-  console.log(allMessages);
-
   useEffect(() => {
     axios
       .get("http://localhost:3000/visitor/nb/" + nbID)
@@ -76,7 +72,6 @@ Mga Detalye:\n
       ...allMessages,
       { role: "user", content: chat },
     ];
-
     axios
       .post("http://localhost:3000/visitor/chat_nb", {
         prompt: updatedAllMessages,
@@ -89,7 +84,12 @@ Mga Detalye:\n
         ]);
         setLoading(false);
       })
-      .catch((err) => console.log(err));
+
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+        alert("Something wrong please try again later!");
+      });
   };
 
   return (
