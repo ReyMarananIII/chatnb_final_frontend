@@ -16,17 +16,6 @@ const ChatNB = () => {
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // To tell the pretrained model how  to response
-  const template = `Ito ang mga pamantayan mo sa pagsasagot:
-
-Ang mga sagot mo ay dapat nakabatay lamang sa mga detalye na babangitin mamaya, kapag ang tanong sayo ay wala sa mga detalye dapat ang sagot mo ay hindi mo alam.
-Halimbawa tinanong ka "ano ang martial law?" ang sagot mo dapat ay "wala kang masasabi tungkol doon."
-Ang mga sagot mo sa mga tanong sayo ay dapat hindi hihigit sa tatlong pangungusap.
-Ang mga pamantayan na ito ay dapat masunod.
-
-Mga Detalye:\n
-`;
-
   // To track messages
   // The content needs nb information for creating AI
   const [allMessages, setAllMessages] = useState([
@@ -37,13 +26,25 @@ Mga Detalye:\n
   ]);
 
   // For chatnb information
-  const addNBInfo = (role, information) => {
+  const addNBInfo = (role, information, name) => {
+    // To tell the pretrained model how  to response
+    const nbInformation = `Ito ang mga pamantayan mo sa pagsasagot:
+
+  Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}.
+  Ang mga sagot mo ay dapat nakabatay lamang sa mga detalye na babangitin mamaya. Kapag ang tanong sayo ay wala sa mga detalye, dapat ang sagot mo ay wala kang masabi tungkol doon.
+  Ang sagot mo sa mga tanong sayo ay dapat hindi hihigit sa tatlong pangungusap.
+  Ang mga pamantayang ito ay dapat masunod.
+  
+  Mga Detalye:\n
+  ${information}
+  `;
+
     setAllMessages((prevItems) =>
       prevItems.map((item) =>
         item.role === role
           ? {
               ...item,
-              content: template + information,
+              content: nbInformation,
             }
           : item
       )
@@ -60,7 +61,11 @@ Mga Detalye:\n
           information: result.data.Result[0].information,
           voiceID: result.data.Result[0].voiceID,
         });
-        addNBInfo("system", result.data.Result[0].information); // For chat database
+        addNBInfo(
+          "system",
+          result.data.Result[0].information,
+          result.data.Result[0].name
+        ); // For chat database
       })
       .catch((err) => console.log(err));
   }, []);
