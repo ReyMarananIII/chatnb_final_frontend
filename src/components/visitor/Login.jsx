@@ -51,8 +51,8 @@ const Login = () => {
     <div className="container-fluid">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav">
+          <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+          <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold">
               <li className="nav-item">
                 <Link className="nav-link" to={"/"}>
                   Home

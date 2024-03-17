@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../utils/style.css";
 import sendIcon from "../../assets/images/send.png";
+import { Link } from "react-router-dom";
 
 const ChatNB = () => {
   const { nbID } = useParams();
@@ -98,12 +99,12 @@ Mga Detalye:\n
         <div className="chat-auth-inner">
           <form onSubmit={handleSubmit}>
             <h2 className=" Text1">{nb.name}</h2>
-
             <h5 className="Text1">Ask me a question</h5>
             <div className="messenger-input-container">
               <div className="input-wrapper">
                 <input
                   type="text"
+                  autoComplete="off"
                   className="form-control-chat"
                   id="inputName"
                   placeholder="Type something . . ."

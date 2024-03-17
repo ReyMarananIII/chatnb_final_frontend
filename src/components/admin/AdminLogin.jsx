@@ -50,8 +50,8 @@ const AdminLogin = () => {
     <div className="container-fluid">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav">
+          <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+            <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold">
               <li className="nav-item">
                 <Link className="nav-link" to={"/admin"}>
                   Home
@@ -66,6 +66,7 @@ const AdminLogin = () => {
           </div>
         </div>
       </nav>
+
       <div className="d-flex flex-sm-col justify-between justify-content-between">
         <form onSubmit={handleSubmit} className="auth-inner">
           <h1 className="ChatNB">Chat NB Admin</h1>
