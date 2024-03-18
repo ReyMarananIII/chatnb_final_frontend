@@ -42,7 +42,7 @@ export function Avatar(props) {
     setMessage("");
   }, [message]);
 
-  const { animations: idleAnimation } = useFBX("/public/Animations/Idle.fbx");
+  const { animations: idleAnimation } = useFBX("/Animations/Idle.fbx");
 
   idleAnimation[0].name = "Idle";
 
