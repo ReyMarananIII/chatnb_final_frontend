@@ -100,9 +100,11 @@ const ChatNB = () => {
         setMessage(res.data);
         console.log(res.data);
         setLoading(false);
+        setChat("");
       })
 
       .catch((err) => {
+        setChat("");
         setLoading(false);
         console.log(err);
         alert("Something wrong please try again later!");
@@ -110,13 +112,13 @@ const ChatNB = () => {
   };
 
   return (
-    <div className="chat-UI d-flex flex-col justify-content-between h-100 w-100 align-items-center">
+    <div className="standard-visitor-background d-flex flex-col justify-content-between h-100 w-100 align-items-center">
       <div className="w-100 h-100">
         <Canvas shadows camera={{ position: [1, 0, 1], fov: 8 }}>
           <Experience nb={nb} />
         </Canvas>
       </div>
-      <div className="chat-auth-inner pl-2">
+      <div className="chat-auth-inner pl-2 bg-white">
         <form onSubmit={handleSubmit}>
           <h2 className=" Text1">{nb.name}</h2>
           <h5 className="Text1">Ask me a question</h5>
@@ -126,6 +128,7 @@ const ChatNB = () => {
                 type="text"
                 autoComplete="off"
                 className="form-control-chat"
+                disabled={loading}
                 id="inputName"
                 placeholder="Type something . . ."
                 value={chat}
@@ -137,7 +140,7 @@ const ChatNB = () => {
                 <span className="visually-hidden">Loading...</span>
               </div>
             ) : (
-              <button type="submit" className="send-button">
+              <button type="submit" className="send-button" disabled={loading}>
                 <img src={sendIcon} alt="" width={25} height={25} />
               </button>
             )}

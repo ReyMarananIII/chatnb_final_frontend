@@ -30,9 +30,12 @@ const NBList = () => {
               e.preventDefault();
               navigate(`/dashboard/chat_nb/${nb.nbID}`);
             }}
-            className="btn btn-primary-outline"
+            className="btn btn-primary-outline border-0"
           >
-            <img src={`http://localhost:3000/Uploaded/${nb.image}`} />
+            <img
+              src={`http://localhost:3000/Uploaded/${nb.image}`}
+              className="bg-white"
+            />
           </button>
           <span className="name">{nb.name}</span>
         </div>
