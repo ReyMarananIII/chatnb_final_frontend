@@ -112,7 +112,7 @@ const ChatNB = () => {
   return (
     <div className="chat-UI d-flex flex-col justify-content-between h-100 w-100 align-items-center">
       <div className="w-100 h-100">
-        <Canvas shadows camera={{ position: [1, 0, 1], fov: 9 }}>
+        <Canvas shadows camera={{ position: [1, 0, 1], fov: 8 }}>
           <Experience nb={nb} />
         </Canvas>
       </div>

@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const HooksContext = createContext();
 
 export const HooksProvider = ({ children }) => {
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState("");
 
   return (
     <HooksContext.Provider
