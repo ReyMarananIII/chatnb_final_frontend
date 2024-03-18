@@ -8,30 +8,19 @@ const AddNB = () => {
     information: "",
     voiceID: "",
     image: "",
+    model: "",
   });
-  const [voice, setVoice] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/admin/voice")
-      .then((result) => {
-        if (result.data.Status) {
-          setVoice(result.data.Result);
-        } else {
-          alert(result.data.Error);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
   const handleSubmit = (e) => {
+    console.log(nb);
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", nb.name);
     formData.append("information", nb.information);
     formData.append("voiceID", nb.voiceID);
     formData.append("image", nb.image);
+    formData.append("model", nb.model);
 
     axios
       .post("http://localhost:3000/admin/add_nb", formData)
@@ -50,12 +39,12 @@ const AddNB = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center mt-3">
+    <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
       <div className="p-3 rounded w-50 border">
         <h4 className="text-center">Add Notable Batangaueños</h4>
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
-            <label for="inputName" className="form-label">
+            <label htmlFor="inputName" className="form-label">
               Name
             </label>
             <input
@@ -67,7 +56,7 @@ const AddNB = () => {
             />
           </div>
           <div className="col-12">
-            <label for="inputInformation" className="form-label">
+            <label htmlFor="inputInformation" className="form-label">
               Information
             </label>
             <textarea
@@ -80,23 +69,19 @@ const AddNB = () => {
             />
           </div>
           <div className="col-12">
-            <label for="voice" className="form-label">
-              Voice
+            <label htmlFor="inputVoiceID" className="form-label">
+              Voice ID
             </label>
-            <select
-              name="voice"
-              id="voice"
-              className="form-select"
-              value={nb.voiceID}
+            <input
+              type="text"
+              className="form-control rounded-0"
+              id="inputVoiceID"
+              placeholder="Enter Voice ID"
               onChange={(e) => setNB({ ...nb, voiceID: e.target.value })}
-            >
-              {voice.map((c) => {
-                return <option value={c.voiceID}>{c.name}</option>;
-              })}
-            </select>
+            />
           </div>
           <div className="col-12 mb-3">
-            <label className="form-label" for="inputGroupFile01">
+            <label className="form-label" htmlFor="inputGroupFile01">
               Select Image
             </label>
             <input
@@ -105,6 +90,18 @@ const AddNB = () => {
               id="inputGroupFile01"
               name="image"
               onChange={(e) => setNB({ ...nb, image: e.target.files[0] })}
+            />
+          </div>
+          <div className="col-12 mb-3">
+            <label className="form-label" htmlFor="inputGroupFile02">
+              Select Model
+            </label>
+            <input
+              type="file"
+              className="form-control rounded-0"
+              id="inputGroupFile02"
+              name="model"
+              onChange={(e) => setNB({ ...nb, model: e.target.files[0] })}
             />
           </div>
           <div className="col-12">

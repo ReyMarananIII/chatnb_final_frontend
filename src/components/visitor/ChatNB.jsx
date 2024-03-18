@@ -14,6 +14,8 @@ const ChatNB = () => {
     name: "",
     information: "",
     voiceID: "",
+    image: "",
+    model: "",
   });
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
@@ -64,6 +66,8 @@ const ChatNB = () => {
           name: result.data.Result[0].name,
           information: result.data.Result[0].information,
           voiceID: result.data.Result[0].voiceID,
+          image: result.data.Result[0].image,
+          model: result.data.Result[0].model,
         });
         addNBInfo(
           "system",
@@ -85,6 +89,7 @@ const ChatNB = () => {
     axios
       .post("http://localhost:3000/visitor/chat_nb", {
         prompt: updatedAllMessages,
+        nb: nb,
       })
       .then((res) => {
         setResponse(res.data);
@@ -93,6 +98,7 @@ const ChatNB = () => {
           { role: "assistant", content: res.data.message },
         ]);
         setMessage(res.data);
+        console.log(res.data);
         setLoading(false);
       })
 
@@ -106,8 +112,8 @@ const ChatNB = () => {
   return (
     <div className="chat-UI d-flex flex-col justify-content-between h-100 w-100 align-items-center">
       <div className="w-100 h-100">
-        <Canvas shadows camera={{ position: [1, 0, 1], fov: 7 }}>
-          <Experience />
+        <Canvas shadows camera={{ position: [1, 0, 1], fov: 9 }}>
+          <Experience nb={nb} />
         </Canvas>
       </div>
       <div className="chat-auth-inner pl-2">

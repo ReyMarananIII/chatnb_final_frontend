@@ -14,17 +14,6 @@ const EditNB = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/admin/voice")
-      .then((result) => {
-        if (result.data.Status) {
-          setVoice(result.data.Result);
-        } else {
-          alert(result.data.Error);
-        }
-      })
-      .catch((err) => console.log(err));
-
-    axios
       .get("http://localhost:3000/admin/nb/" + nbID)
       .then((result) => {
         setNB({
@@ -83,22 +72,18 @@ const EditNB = () => {
               onChange={(e) => setNB({ ...nb, information: e.target.value })}
             />
           </div>
-
           <div className="col-12">
-            <label for="voice" className="form-label">
-              Voice
+            <label htmlFor="inputVoiceID" className="form-label">
+              Voice ID
             </label>
-            <select
-              name="voice"
-              id="voice"
-              className="form-select"
+            <input
+              type="text"
+              className="form-control rounded-0"
+              id="inputVoiceID"
+              placeholder="Enter Voice ID"
               value={nb.voiceID}
               onChange={(e) => setNB({ ...nb, voiceID: e.target.value })}
-            >
-              {voice.map((c) => {
-                return <option value={c.voiceID}>{c.name}</option>;
-              })}
-            </select>
+            />
           </div>
           <div className="col-12">
             <button type="submit" className="btn admin-button w-100">

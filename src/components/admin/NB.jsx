@@ -66,7 +66,7 @@ const NB = () => {
                 <td>{e.name}</td>
                 <td>
                   <img
-                    src={`http://localhost:3000/Images/` + e.image}
+                    src={`http://localhost:3000/Uploaded/` + e.image}
                     className="nb_image"
                     alt={e.name}
                   />
@@ -91,22 +91,28 @@ const NB = () => {
           </tbody>
         </table>
       </div>
-    {/* Confirmation Popup */}
-    {showConfirmation && (
-          <div className="pop-up-overlay d-flex justify-content-center align-items-center">
-            <div className="confirmation-popup">
-              <h3 className="fw-semibold">Confirm Delete</h3>
-              <p>Are you sure you want to delete?</p>
-              <div className="pop-up-btns d-grid gap-2 d-md-flex justify-content-md-end">
-                
-                <button className="btn btn-danger " onClick={handleDelete}>Save</button>
-                <button className="btn btn-secondary" onClick={() => setShowConfirmation(false)}>Cancel</button>
-              </div>
+      {/* Confirmation Popup */}
+      {showConfirmation && (
+        <div className="pop-up-overlay d-flex justify-content-center align-items-center">
+          <div className="confirmation-popup">
+            <h3 className="fw-semibold">Confirm Delete</h3>
+            <p>Are you sure you want to delete?</p>
+            <div className="pop-up-btns d-grid gap-2 d-md-flex justify-content-md-end">
+              <button className="btn btn-danger " onClick={handleDelete}>
+                Delete
+              </button>
+              <button
+                className="btn btn-secondary"
+                onClick={() => setShowConfirmation(false)}
+              >
+                Cancel
+              </button>
             </div>
           </div>
-        )}
-      </div>
-    );
-  };
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default NB;

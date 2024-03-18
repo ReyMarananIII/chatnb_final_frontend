@@ -42,15 +42,6 @@ const AdminDashboard = () => {
                   </span>
                 </Link>
               </li>
-              <li className="w-100">
-                <Link
-                  to="/admin_dashboard/voice"
-                  className="nav-link px-0 align-middle text-black"
-                >
-                  <i className="fs-4 bi-columns ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Voice</span>
-                </Link>
-              </li>
               <li className="w-100" onClick={handleLogout}>
                 <Link className="nav-link px-0 align-middle text-black">
                   <i className="fs-4 bi-power ms-2"></i>

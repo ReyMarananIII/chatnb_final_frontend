@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../utils/style.css";
+import { useHooks } from "../../hooks/useHooks";
 
 const NBList = () => {
   const [nb, setNB] = useState([]);
@@ -22,12 +23,18 @@ const NBList = () => {
 
   return (
     <div className="chat-head-grid">
-      {nb.map((e) => (
-        <div className="chat-head" key={e.nbID}>
-          <Link to={`/dashboard/chat_nb/${e.nbID}`}>
-            <img src={`http://localhost:3000/Images/${e.image}`} />
-          </Link>
-          <span className="name">{e.name}</span>
+      {nb.map((nb) => (
+        <div className="chat-head" key={nb.nbID}>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(`/dashboard/chat_nb/${nb.nbID}`);
+            }}
+            className="btn btn-primary-outline"
+          >
+            <img src={`http://localhost:3000/Uploaded/${nb.image}`} />
+          </button>
+          <span className="name">{nb.name}</span>
         </div>
       ))}
     </div>

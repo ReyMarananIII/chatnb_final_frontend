@@ -2,7 +2,7 @@ import { CameraControls, ContactShadows, Environment } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { Avatar } from "./Avatar";
 
-export const Experience = () => {
+export const Experience = (props) => {
   const cameraControls = useRef();
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export const Experience = () => {
     <>
       <CameraControls ref={cameraControls} />
       <Environment preset="sunset" />
-      <Avatar />
+      <Avatar nb={props.nb} />
       <ContactShadows opacity={0.7} />
     </>
   );
