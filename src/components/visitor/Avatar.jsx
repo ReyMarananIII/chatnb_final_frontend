@@ -105,7 +105,7 @@ let setupMode = false;
 
 export function Avatar(props) {
   const { nodes, materials, scene } = useGLTF(
-    "/models/65f72033c5afc05a01f1f279.glb"
+    "/models/65f7c9b2542d9947905ca1bd.glb"
   );
 
   const { message } = useHooks();
@@ -266,7 +266,7 @@ export function Avatar(props) {
       />
       <skinnedMesh
         geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
-        material={materials["aleksandr@readyplayer"]}
+        material={materials.Wolf3D_Outfit_Footwear}
         skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
       />
       <skinnedMesh
@@ -278,4 +278,4 @@ export function Avatar(props) {
   );
 }
 
-useGLTF.preload("/models/65f72033c5afc05a01f1f279.glb");
+useGLTF.preload("/models/65f7c9b2542d9947905ca1bd.glb");
