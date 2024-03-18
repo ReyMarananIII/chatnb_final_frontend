@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../utils/style.css";
 import sendIcon from "../../assets/images/send.png";
-import { Link } from "react-router-dom";
+import { Canvas } from "@react-three/fiber";
+import { Experience } from "./Experience";
+import { useHooks } from "../../hooks/useHooks.jsx";
 
 const ChatNB = () => {
   const { nbID } = useParams();
@@ -15,6 +17,8 @@ const ChatNB = () => {
   });
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { setMessage } = useHooks();
 
   // To track messages
   // The content needs nb information for creating AI
@@ -32,7 +36,7 @@ const ChatNB = () => {
 
   Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}.
   Ang mga sagot mo ay dapat nakabatay lamang sa mga detalye na babangitin mamaya. Kapag ang tanong sayo ay wala sa mga detalye, dapat ang sagot mo ay wala kang masabi tungkol doon.
-  Ang sagot mo sa mga tanong sayo ay dapat hindi hihigit sa tatlong pangungusap.
+  Ang sagot mo sa mga tanong sayo ay dapat hindi hihigit sa isang pangungusap.
   Ang mga pamantayang ito ay dapat masunod.
   
   Mga Detalye:\n
@@ -86,8 +90,9 @@ const ChatNB = () => {
         setResponse(res.data);
         setAllMessages([
           ...updatedAllMessages,
-          { role: "assistant", content: res.data },
+          { role: "assistant", content: res.data.message },
         ]);
+        setMessage(res.data);
         setLoading(false);
       })
 
@@ -99,44 +104,40 @@ const ChatNB = () => {
   };
 
   return (
-    <div className="chat-UI">
-      <div>
-        <div className="chat-auth-inner">
-          <form onSubmit={handleSubmit}>
-            <h2 className=" Text1">{nb.name}</h2>
-            <h5 className="Text1">Ask me a question</h5>
-            <div className="messenger-input-container">
-              <div className="input-wrapper">
-                <input
-                  type="text"
-                  autoComplete="off"
-                  className="form-control-chat"
-                  id="inputName"
-                  placeholder="Type something . . ."
-                  value={chat}
-                  onChange={(e) => setChat(e.target.value)}
-                />
-              </div>
-              {loading ? (
-                <div className="spinner-grow text-dark pl-5">
-                  <span className="visually-hidden">Loading...</span>
-                </div>
-              ) : (
-                <button type="submit" className="send-button">
-                  <img src={sendIcon} alt="" width={25} height={25} />
-                </button>
-              )}
-            </div>
-            <div className="d-grid"></div>
-          </form>
-        </div>
+    <div className="chat-UI d-flex flex-col justify-content-between h-100 w-100 align-items-center">
+      <div className="w-100 h-100">
+        <Canvas shadows camera={{ position: [1, 0, 1], fov: 7 }}>
+          <Experience />
+        </Canvas>
       </div>
-      <div className="d-flex justify-content-center py-5">
-        {response ? (
-          <p className="bg-dark text-white px-1">Response: {response}</p>
-        ) : (
-          ""
-        )}
+      <div className="chat-auth-inner pl-2">
+        <form onSubmit={handleSubmit}>
+          <h2 className=" Text1">{nb.name}</h2>
+          <h5 className="Text1">Ask me a question</h5>
+          <div className="messenger-input-container">
+            <div className="input-wrapper">
+              <input
+                type="text"
+                autoComplete="off"
+                className="form-control-chat"
+                id="inputName"
+                placeholder="Type something . . ."
+                value={chat}
+                onChange={(e) => setChat(e.target.value)}
+              />
+            </div>
+            {loading ? (
+              <div className="spinner-grow text-dark pl-5">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : (
+              <button type="submit" className="send-button">
+                <img src={sendIcon} alt="" width={25} height={25} />
+              </button>
+            )}
+          </div>
+          <div className="d-grid"></div>
+        </form>
       </div>
     </div>
   );
