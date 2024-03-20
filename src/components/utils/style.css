@@ -216,11 +216,11 @@ html,
     auto-fill,
     minmax(calc(33.33% - 20px), 1fr)
   ); /* Three chat heads per row */
-  gap: 20px; /* Space between chat heads */
 }
 
 .chat-head {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .chat-head img {

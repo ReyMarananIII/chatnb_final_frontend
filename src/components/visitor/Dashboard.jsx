@@ -40,7 +40,7 @@ const Dashboard = () => {
     });
   };
   return (
-    <div className="container-fluid h-100 standard-visitor-background">
+    <div className="container-fluid min-vh-100 standard-visitor-background">
       <div className="d-flex justify-content-between mb-5 pt-2">
         <div className="d-flex align-items-center p-4 square reward-points rounded-pill">
           <img src={pegasusLogo} alt="" width={45} height={45} />
