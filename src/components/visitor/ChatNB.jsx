@@ -37,8 +37,8 @@ const ChatNB = () => {
     const nbInformation = `Ito ang mga pamantayan mo sa pagsasagot:
 
   Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}.
-  Ang mga sagot mo ay dapat nakabatay lamang sa mga detalye na babangitin mamaya. Kapag ang tanong sayo ay wala sa mga detalye, dapat ang sagot mo ay wala kang masabi tungkol doon.
-  Ang sagot mo sa mga tanong sayo ay dapat hindi hihigit sa tatlong pangungusap.
+  Ang mga sagot mo ay dapat nakabatay lamang sa mga detalye na babangitin mamaya. Kapag ang tanong sayo ay wala sa mga detalye, dapat ang sagot mo ay wala kang masabi.
+  Ang sagot mo sa mga tanong sayo ay dapat sobrang maikli lamang, direkta sa punto at hindi hihigit sa limang salita.
   Ang mga pamantayang ito ay dapat masunod.
   
   Mga Detalye:\n
