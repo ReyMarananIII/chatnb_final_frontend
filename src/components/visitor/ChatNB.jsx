@@ -17,7 +17,6 @@ const ChatNB = () => {
     image: "",
     model: "",
   });
-  const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
 
   const { setMessage } = useHooks();
@@ -36,9 +35,10 @@ const ChatNB = () => {
     // To tell the pretrained model how  to response
     const nbInformation = `Ito ang mga pamantayan mo sa pagsasagot:
 
-  Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}.
-  Ang mga sagot mo ay dapat nakabatay lamang sa mga detalye na babangitin mamaya. Kapag ang tanong sayo ay wala sa mga detalye, dapat ang sagot mo ay wala kang masabi.
-  Ang sagot mo sa mga tanong sayo ay dapat sobrang maikli lamang, direkta sa punto at hindi hihigit sa limang salita.
+  Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}. 
+  Kapag ang tanong sayo ay wala sa mga detalye na babangitin mamaya, dapat ang sagot mo ay "Paumanhin, wala akong masasabi."
+  Huwag na huwag kang magbibigay ng inpormasyon o sasagot ng wala sa mga detalye na babangitin mamaya.
+  Ang sagot mo sa mga tanong sayo ay dapat sobrang maikli lamang, direkta sa punto at hindi hihigit sa pitong salita.
   Ang mga pamantayang ito ay dapat masunod.
   
   Mga Detalye:\n
@@ -81,7 +81,6 @@ const ChatNB = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setResponse("");
     const updatedAllMessages = [
       ...allMessages,
       { role: "user", content: chat },
@@ -92,7 +91,6 @@ const ChatNB = () => {
         nb: nb,
       })
       .then((res) => {
-        setResponse(res.data);
         setAllMessages([
           ...updatedAllMessages,
           { role: "assistant", content: res.data.message },
