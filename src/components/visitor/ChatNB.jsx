@@ -20,7 +20,7 @@ const ChatNB = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const { setMessage } = useHooks();
+  const { setMessage, visitor } = useHooks();
 
   // To track messages
   // The content needs nb information for creating AI
@@ -145,24 +145,25 @@ const ChatNB = () => {
             )}
           </div>
           <div className="d-grid">
-          <nav className="navbar navbar-expand-lg navbar-light fixed-top ">
-        <div className="container">
-          <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
-          <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold ">
-              <li className="nav-item ">
-                <Link className="nav-link" to={"/"}>
-                  Back
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/dashboard/chat_nb/Asessment"}>
-                  Take Assessment
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+            <nav className="navbar navbar-expand-lg navbar-light fixed-top ">
+              <div className="container">
+                <div
+                  className="collapse navbar-collapse "
+                  id="navbarTogglerDemo02"
+                >
+                  <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold ">
+                    <li className="nav-item ">
+                      <Link
+                        className="nav-link"
+                        to={`/dashboard/${visitor.visitorID}`}
+                      >
+                        Back
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
           </div>
         </form>
       </div>

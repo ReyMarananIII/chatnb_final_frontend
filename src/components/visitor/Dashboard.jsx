@@ -5,15 +5,11 @@ import axios from "axios";
 import NBList from "./NBList";
 import "../utils/style.css";
 import pegasusLogo from "../../assets/images/TROPHY.png";
+import { useHooks } from "../../hooks/useHooks";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
-  const [visitor, setVisitor] = useState({
-    username: "",
-    password: "",
-    rewardPoints: "",
-  });
+  const { visitor, setVisitor } = useHooks();
   const { visitorID } = useParams();
 
   useEffect(() => {
@@ -22,6 +18,7 @@ const Dashboard = () => {
       .then((result) => {
         setVisitor({
           ...visitor,
+          visitorID: result.data.Result[0].visitorID,
           username: result.data.Result[0].name,
           password: result.data.Result[0].password,
           rewardPoints: result.data.Result[0].rewardPoints,

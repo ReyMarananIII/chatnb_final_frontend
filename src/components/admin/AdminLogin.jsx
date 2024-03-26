@@ -7,9 +7,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import LoginBG from "../../assets/images/Login-bg.png";
 import CHATNB from "../../assets/images/ChatNB2.png";
 
-
-axios.defaults.withCredentials = true;
-
 const AdminLogin = () => {
   const [values, setValues] = useState({
     username: "",
@@ -17,6 +14,8 @@ const AdminLogin = () => {
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  axios.defaults.withCredentials = true;
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
@@ -50,74 +49,88 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="container-fluid " style={{ 
-      backgroundImage: `url(${LoginBG})`, 
-      backgroundSize: 'cover', 
-      backgroundRepeat: 'no-repeat', 
-      backgroundPosition: 'center',
-      height: '100vh',
-      overflow: 'hidden'
-      
-       }}>
+    <div
+      className="container-fluid "
+      style={{
+        backgroundImage: `url(${LoginBG})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        height: "100vh",
+        overflow: "hidden",
+      }}
+    >
       <nav class=" Header-login navbar navbar-expand-lg ">
-      <div class="container-fluid ">
-        <a class="navbar-brand fs-2 text-white"><img src={CHATNB} alt=""  /></a>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <Link class="nav-link text-white ms-4" to={"/admin"}>Home</Link>
-            <Link class="nav-link text-white " to={"/AdminAboutUs"}>About Us</Link>
-              </div>
+        <div class="container-fluid ">
+          <a class="navbar-brand fs-2 text-white">
+            <img src={CHATNB} alt="" />
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <Link class="nav-link text-white ms-4" to={"/admin"}>
+                Home
+              </Link>
+              <Link class="nav-link text-white " to={"/AdminAboutUs"}>
+                About Us
+              </Link>
             </div>
           </div>
+        </div>
       </nav>
 
-
-<div className="d-flex flex-sm-col justify-content-between ">
-  <form onSubmit={handleSubmit} class="auth-inner bg-white text-black mx-auto ">
-    <div className="container-fluid">
-      <h1 className="ChatNB text-center fw-bold">LOGIN YOUR ACCOUNT</h1>
-      <h6 className="Text2">Welcome! Please login to your account</h6>
-      <div className="Input-login mb-3 ">
-        <label className="mb-2">Username</label>
-        <input
-              className="form-control"
-              type="text"
-              name="name"
-              placeholder="Enter Username"
-              value={values.username}
-              onChange={(e) =>
-                setValues({ ...values, username: e.target.value })
-              }
+      <div className="d-flex flex-sm-col justify-content-between ">
+        <form
+          onSubmit={handleSubmit}
+          class="auth-inner bg-white text-black mx-auto "
+        >
+          <div className="container-fluid">
+            <h1 className="ChatNB text-center fw-bold">LOGIN YOUR ACCOUNT</h1>
+            <h6 className="Text2">Welcome! Please login to your account</h6>
+            <div className="Input-login mb-3 ">
+              <label className="mb-2">Username</label>
+              <input
+                className="form-control"
+                type="text"
+                name="name"
+                placeholder="Enter Username"
+                value={values.username}
+                onChange={(e) =>
+                  setValues({ ...values, username: e.target.value })
+                }
+              />
+            </div>
+            <div className="Input-login mb-3 ">
+              <label className="mb-2">Password</label>
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                placeholder="Enter Password"
+                value={values.password}
+                onChange={(e) =>
+                  setValues({ ...values, password: e.target.value })
+                }
+              />
+            </div>
+            <div className="text-warning">{error}</div>
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary mt-4">
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+        <div className="w-50 h-50">
+          <div className="w-100 h-100 d-flex align-items-center">
+            <img
+              src={logo}
+              alt="ChatNB Logo"
+              className="logoimage img-fluid d-flex"
             />
-      </div>
-      <div className="Input-login mb-3 ">
-        <label className="mb-2">Password</label>
-        <input
-              className="form-control"
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              value={values.password}
-              onChange={(e) =>
-                setValues({ ...values, password: e.target.value })
-              }
-            />
-      </div>
-      <div className="text-warning">{error}</div>
-      <div className="d-grid">
-        <button type="submit" className="btn btn-primary mt-4">
-          Login
-        </button>
+          </div>
+        </div>
       </div>
     </div>
-  </form>
-  <div className="w-50 h-50">
-    <div className="w-100 h-100 d-flex align-items-center">
-      <img src={logo} alt="ChatNB Logo" className="logoimage img-fluid d-flex" />
-    </div>
-  </div>
-</div>
-</div>
   );
 };
 

@@ -4,12 +4,20 @@ const HooksContext = createContext();
 
 export const HooksProvider = ({ children }) => {
   const [message, setMessage] = useState("");
+  const [visitor, setVisitor] = useState({
+    visitorID: "",
+    username: "",
+    password: "",
+    rewardPoints: "",
+  });
 
   return (
     <HooksContext.Provider
       value={{
         message,
         setMessage,
+        visitor,
+        setVisitor,
       }}
     >
       {children}
