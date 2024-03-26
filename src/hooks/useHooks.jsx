@@ -4,12 +4,8 @@ const HooksContext = createContext();
 
 export const HooksProvider = ({ children }) => {
   const [message, setMessage] = useState("");
-  const [visitor, setVisitor] = useState({
-    visitorID: "",
-    username: "",
-    password: "",
-    rewardPoints: "",
-  });
+  const [visitor, setVisitor] = useState("");
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   return (
     <HooksContext.Provider
@@ -18,6 +14,8 @@ export const HooksProvider = ({ children }) => {
         setMessage,
         visitor,
         setVisitor,
+        currentQuestionIndex,
+        setCurrentQuestionIndex,
       }}
     >
       {children}

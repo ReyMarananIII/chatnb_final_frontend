@@ -17,9 +17,8 @@ const Dashboard = () => {
       .get("http://localhost:3000/visitor/detail/" + visitorID)
       .then((result) => {
         setVisitor({
-          ...visitor,
           visitorID: result.data.Result[0].visitorID,
-          username: result.data.Result[0].name,
+          username: result.data.Result[0].username,
           password: result.data.Result[0].password,
           rewardPoints: result.data.Result[0].rewardPoints,
         });
@@ -50,6 +49,16 @@ const Dashboard = () => {
           <div className="container">
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link
+                    className="nav-link"
+                    to={`/dashboard/${visitorID}/assessment`}
+                  >
+                    <span className="d-none d-sm-inline p-2 ms-2 fs-5">
+                      Take Assessment
+                    </span>
+                  </Link>
+                </li>
                 <li className="nav-item" onClick={handleLogout}>
                   <Link className="nav-link text-danger">
                     <i className="fs-4 bi-power ms-2 "></i>
