@@ -6,6 +6,7 @@ import sendIcon from "../../assets/images/send.png";
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./Experience";
 import { useHooks } from "../../hooks/useHooks.jsx";
+import { Link } from "react-router-dom";
 
 const ChatNB = () => {
   const { nbID } = useParams();
@@ -143,7 +144,26 @@ const ChatNB = () => {
               </button>
             )}
           </div>
-          <div className="d-grid"></div>
+          <div className="d-grid">
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top ">
+        <div className="container">
+          <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
+          <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold ">
+              <li className="nav-item ">
+                <Link className="nav-link" to={"/"}>
+                  Back
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/dashboard/chat_nb/Asessment"}>
+                  Take Assessment
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+          </div>
         </form>
       </div>
     </div>

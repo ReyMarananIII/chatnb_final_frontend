@@ -13,6 +13,8 @@ import AdminPrivateRoute from "./components/route/AdminPrivateRoute";
 import ChatNB from "./components/visitor/ChatNB";
 import AboutUs from "./components/visitor/AboutUs";
 import AdminAboutUs from "./components/admin/AdminAboutUs";
+import Assessment from "./components/visitor/Assessment";
+
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard/:visitorID" element={<Dashboard />}></Route>
           <Route path="/dashboard/chat_nb/:nbID" element={<ChatNB />}></Route>
+          <Route path="/dashboard/chat_nb/Asessment" element={<Assessment />}></Route>
+
         </Route>
         <Route
           path="/admin_dashboard"

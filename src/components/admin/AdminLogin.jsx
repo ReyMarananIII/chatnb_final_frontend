@@ -4,6 +4,9 @@ import axios from "axios";
 import logo from "../../assets/images/CHATNB_LOGO.png";
 import "../utils/style.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import LoginBG from "../../assets/images/Login-bg.png";
+import CHATNB from "../../assets/images/ChatNB2.png";
+
 
 axios.defaults.withCredentials = true;
 
@@ -47,35 +50,36 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="container-fluid">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-            <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/admin"}>
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/AdminAboutUs"}>
-                  About us
-                </Link>
-              </li>
-            </ul>
+    <div className="container-fluid " style={{ 
+      backgroundImage: `url(${LoginBG})`, 
+      backgroundSize: 'cover', 
+      backgroundRepeat: 'no-repeat', 
+      backgroundPosition: 'center',
+      height: '100vh',
+      overflow: 'hidden'
+      
+       }}>
+      <nav class=" Header-login navbar navbar-expand-lg ">
+      <div class="container-fluid ">
+        <a class="navbar-brand fs-2 text-white"><img src={CHATNB} alt=""  /></a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <Link class="nav-link text-white ms-4" to={"/admin"}>Home</Link>
+            <Link class="nav-link text-white " to={"/AdminAboutUs"}>About Us</Link>
+              </div>
+            </div>
           </div>
-        </div>
       </nav>
 
-      <div className="d-flex flex-sm-col justify-between justify-content-between">
-        <form onSubmit={handleSubmit} className="auth-inner">
-          <h1 className="ChatNB">Chat NB Admin</h1>
-          <h3 className="Text1">Artificial Intelligence Application</h3>
-          <h3 className="Text1">to talk to Notable Batanguenos</h3>
-          <h6 className="Text2">Welcome! Please login to your account</h6>
-          <div className="mb-3">
-            <label>Username</label>
-            <input
+
+<div className="d-flex flex-sm-col justify-content-between ">
+  <form onSubmit={handleSubmit} class="auth-inner bg-white text-black mx-auto ">
+    <div className="container-fluid">
+      <h1 className="ChatNB text-center fw-bold">LOGIN YOUR ACCOUNT</h1>
+      <h6 className="Text2">Welcome! Please login to your account</h6>
+      <div className="Input-login mb-3 ">
+        <label className="mb-2">Username</label>
+        <input
               className="form-control"
               type="text"
               name="name"
@@ -85,10 +89,10 @@ const AdminLogin = () => {
                 setValues({ ...values, username: e.target.value })
               }
             />
-          </div>
-          <div className="mb-3">
-            <label>Password</label>
-            <input
+      </div>
+      <div className="Input-login mb-3 ">
+        <label className="mb-2">Password</label>
+        <input
               className="form-control"
               type="password"
               name="password"
@@ -98,21 +102,22 @@ const AdminLogin = () => {
                 setValues({ ...values, password: e.target.value })
               }
             />
-          </div>
-          <div className="text-warning">{error}</div>
-          <div className="d-grid">
-            <button type="submit" className="btn-primary">
-              Login
-            </button>
-          </div>
-        </form>
-        <div className="w-50">
-          <div className="h-100 w-100 d-flex justify-content-center align-items-center">
-            <img src={logo} alt="ChatNB Logo" className="logoimage" />
-          </div>
-        </div>
+      </div>
+      <div className="text-warning">{error}</div>
+      <div className="d-grid">
+        <button type="submit" className="btn btn-primary mt-4">
+          Login
+        </button>
       </div>
     </div>
+  </form>
+  <div className="w-50 h-50">
+    <div className="w-100 h-100 d-flex align-items-center">
+      <img src={logo} alt="ChatNB Logo" className="logoimage img-fluid d-flex" />
+    </div>
+  </div>
+</div>
+</div>
   );
 };
 

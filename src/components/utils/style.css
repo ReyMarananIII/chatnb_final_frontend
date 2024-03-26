@@ -97,25 +97,30 @@ html,
   height: 100%;
 }
 
-.auth-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: left;
+.Header-login{
+  padding: 25px;
 }
 .auth-inner {
-  width: 40%;
-  height: 100vh;
-  margin-left: -10px;
-  background: #ddcdb35d;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 90px 55px 45px 55px;
+  width: 500px;
+  height: 80vh;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 8px;
+  padding: 50px 55px 45px 55px;
 }
+.auth-inner-aboutus{
+  width: 600px;
+  height: 80vh;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 8px;
+  padding: 30px 35px 25px 35px;
+}
+
 
 .auth-wrapper .form-control:focus {
   border-color: #167bff;
   box-shadow: none;
 }
+
 .auth-wrapper h3 {
   text-align: center;
   margin: 0;
@@ -127,9 +132,6 @@ html,
 }
 
 .ChatNB {
-  padding-bottom: 5%;
-  font-size: 60px;
-  font-style: italic;
   color: #123e55;
 }
 .ChatNB-Visitor {
@@ -147,14 +149,27 @@ html,
   font-size: 13px;
 }
 
+.Input-login input{
+  background-color: #EFEFEF;
+  border-radius: 2rem;
+
+}
+
+
 .logoimage {
   height: 85%;
   width: 85%;
-  margin-right: 100px;
+  margin-top: -65px;
+}
+
+.pegasus-logo{
+  height: 65%;
+  width: 65%;
+  margin-left: 80px;
 }
 
 .btn-primary {
-  padding: 10px 20px;
+    padding: 10px 20px;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
@@ -164,8 +179,7 @@ html,
   border: none;
   border-radius: 10px;
   box-shadow: 0 9px #999;
-  width: 150px;
-  margin-left: 35%;
+  border-radius: 2rem;
 }
 
 .btn-primary:hover {
