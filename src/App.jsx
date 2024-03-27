@@ -14,6 +14,7 @@ import ChatNB from "./components/visitor/ChatNB";
 import AboutUs from "./components/visitor/AboutUs";
 import AdminAboutUs from "./components/admin/AdminAboutUs";
 import Assessment from "./components/visitor/Assessment";
+import EditAssessment from "./components/admin/EditAssessment";
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
           <Route
             path="/admin_dashboard/edit_nb/:nbID"
             element={<EditNB />}
+          ></Route>
+          <Route
+            path="/admin_dashboard/edit_assessment"
+            element={<EditAssessment />}
           ></Route>
         </Route>
       </Routes>

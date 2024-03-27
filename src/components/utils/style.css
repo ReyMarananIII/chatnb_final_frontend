@@ -97,7 +97,7 @@ html,
   height: 100%;
 }
 
-.Header-login{
+.Header-login {
   padding: 25px;
 }
 .auth-inner {
@@ -107,14 +107,13 @@ html,
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 8px;
   padding: 50px 55px 45px 55px;
 }
-.auth-inner-aboutus{
+.auth-inner-aboutus {
   width: 600px;
   height: 80vh;
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 8px;
   padding: 30px 35px 25px 35px;
 }
-
 
 .auth-wrapper .form-control:focus {
   border-color: #167bff;
@@ -149,12 +148,10 @@ html,
   font-size: 13px;
 }
 
-.Input-login input{
-  background-color: #EFEFEF;
+.Input-login input {
+  background-color: #efefef;
   border-radius: 2rem;
-
 }
-
 
 .logoimage {
   height: 85%;
@@ -162,14 +159,14 @@ html,
   margin-top: -65px;
 }
 
-.pegasus-logo{
+.pegasus-logo {
   height: 65%;
   width: 65%;
   margin-left: 80px;
 }
 
 .btn-primary {
-    padding: 10px 20px;
+  padding: 10px 20px;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
@@ -210,7 +207,14 @@ html,
   background: #ddcdb35d;
 }
 
+.admin-question {
+  background: #ddcdb35d;
+}
+
 .admin-button {
+  background-color: #00c3a6b8;
+}
+.admin-questions {
   background-color: #00c3a6b8;
 }
 
