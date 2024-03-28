@@ -1,20 +1,16 @@
-import { CameraControls, ContactShadows, Environment } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Avatar } from "./Avatar";
 
 export const Experience = (props) => {
-  const cameraControls = useRef();
-
-  useEffect(() => {
-    cameraControls.current.setLookAt(0, 2, 5, 0, 1.5, 0);
-  }, []);
-
   return (
     <>
-      <CameraControls ref={cameraControls} />
+      <OrbitControls
+        enablePan={false}
+        enableRotate={false}
+        enableZoom={false}
+      />
       <Environment preset="sunset" />
-      <Avatar nb={props.nb} />
-      <ContactShadows opacity={0.7} />
+      <Avatar nb={props.nb} position={[0, -3, 5]} scale={2} />
     </>
   );
 };

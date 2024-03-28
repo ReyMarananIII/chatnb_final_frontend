@@ -110,6 +110,11 @@ export function Avatar(props) {
     });
   });
 
+  // To make the avatar look at the user
+  useFrame((state) => {
+    group.current.getObjectByName("Head").lookAt(state.camera.position);
+  });
+
   useEffect(() => {
     let blinkTimeout;
     const nextBlink = () => {

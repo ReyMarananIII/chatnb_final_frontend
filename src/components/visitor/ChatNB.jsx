@@ -125,7 +125,7 @@ const ChatNB = () => {
       }}
     >
       <div className="w-100 h-100">
-        <Canvas shadows camera={{ position: [1, 0, 1], fov: 8 }}>
+        <Canvas shadows camera={{ position: [0, 0, 8], fov: 26 }}>
           <Experience nb={nb} />
         </Canvas>
       </div>
@@ -163,10 +163,10 @@ const ChatNB = () => {
                   className="collapse navbar-collapse "
                   id="navbarTogglerDemo02"
                 >
-                  <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold ">
+                  <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold">
                     <li className="nav-item ">
                       <Link
-                        className="nav-link"
+                        className="nav-link text-white"
                         to={`/dashboard/${visitor.visitorID}`}
                       >
                         Back
