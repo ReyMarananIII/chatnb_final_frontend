@@ -8,6 +8,9 @@ const EditNB = () => {
     name: "",
     information: "",
     voiceID: "",
+    image: "",
+    model: "",
+    bgImage: "",
   });
   const [voice, setVoice] = useState([]);
   const navigate = useNavigate();
@@ -21,6 +24,9 @@ const EditNB = () => {
           name: result.data.Result[0].name,
           information: result.data.Result[0].information,
           voiceID: result.data.Result[0].voiceID,
+          image: result.data.Result[0].image,
+          model: result.data.Result[0].model,
+          bgImage: result.data.Result[0].bgImage,
         });
       })
       .catch((err) => console.log(err));
@@ -28,16 +34,27 @@ const EditNB = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", nb.name);
+    formData.append("information", nb.information);
+    formData.append("voiceID", nb.voiceID);
+    formData.append("image", nb.image);
+    formData.append("model", nb.model);
+    formData.append("bgImage", nb.bgImage);
     axios
-      .put("http://localhost:3000/admin/edit_nb/" + nbID, nb)
+      .put("http://localhost:3000/admin/edit_nb/" + nbID, formData)
       .then((result) => {
         if (result.data.Status) {
           navigate("/admin_dashboard");
         } else {
-          alert(result.data.Error);
+          console.log(result.data.Error);
+          alert("Please fill in all fields");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        alert("Please fill in all fields");
+      });
   };
 
   return (
@@ -46,7 +63,7 @@ const EditNB = () => {
         <h3 className="text-center">Edit Notable Batangaueños</h3>
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
-            <label for="inputName" className="form-label">
+            <label htmlFor="inputName" className="form-label">
               Name
             </label>
             <input
@@ -59,7 +76,7 @@ const EditNB = () => {
             />
           </div>
           <div className="col-12">
-            <label for="inputInformation" className="form-label">
+            <label htmlFor="inputInformation" className="form-label">
               Information
             </label>
             <textarea
@@ -83,6 +100,42 @@ const EditNB = () => {
               placeholder="Enter Voice ID"
               value={nb.voiceID}
               onChange={(e) => setNB({ ...nb, voiceID: e.target.value })}
+            />
+          </div>
+          <div className="col-12">
+            <label className="form-label" htmlFor="inputGroupFile01">
+              Add New Image
+            </label>
+            <input
+              type="file"
+              className="form-control rounded-0"
+              id="inputGroupFile01"
+              name="image"
+              onChange={(e) => setNB({ ...nb, image: e.target.files[0] })}
+            />
+          </div>
+          <div className="col-12">
+            <label className="form-label" htmlFor="inputGroupFile02">
+              Add New Model
+            </label>
+            <input
+              type="file"
+              className="form-control rounded-0"
+              id="inputGroupFile02"
+              name="model"
+              onChange={(e) => setNB({ ...nb, model: e.target.files[0] })}
+            />
+          </div>
+          <div className="col-12 mb-3">
+            <label className="form-label" htmlFor="inputGroupFile03">
+              Add New Background Image
+            </label>
+            <input
+              type="file"
+              className="form-control rounded-0"
+              id="inputGroupFile03"
+              name="bgImage"
+              onChange={(e) => setNB({ ...nb, bgImage: e.target.files[0] })}
             />
           </div>
           <div className="col-12">

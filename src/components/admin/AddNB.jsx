@@ -9,6 +9,7 @@ const AddNB = () => {
     voiceID: "",
     image: "",
     model: "",
+    bgImage: "",
   });
   const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ const AddNB = () => {
     formData.append("voiceID", nb.voiceID);
     formData.append("image", nb.image);
     formData.append("model", nb.model);
+    formData.append("bgImage", nb.bgImage);
 
     axios
       .post("http://localhost:3000/admin/add_nb", formData)
@@ -92,7 +94,7 @@ const AddNB = () => {
               onChange={(e) => setNB({ ...nb, image: e.target.files[0] })}
             />
           </div>
-          <div className="col-12 mb-3">
+          <div className="col-12">
             <label className="form-label" htmlFor="inputGroupFile02">
               Select Model
             </label>
@@ -102,6 +104,18 @@ const AddNB = () => {
               id="inputGroupFile02"
               name="model"
               onChange={(e) => setNB({ ...nb, model: e.target.files[0] })}
+            />
+          </div>
+          <div className="col-12 mb-3">
+            <label className="form-label" htmlFor="inputGroupFile03">
+              Select Background Image
+            </label>
+            <input
+              type="file"
+              className="form-control rounded-0"
+              id="inputGroupFile03"
+              name="bgImage"
+              onChange={(e) => setNB({ ...nb, bgImage: e.target.files[0] })}
             />
           </div>
           <div className="col-12">

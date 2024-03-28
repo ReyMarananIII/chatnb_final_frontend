@@ -17,6 +17,7 @@ const ChatNB = () => {
     voiceID: "",
     image: "",
     model: "",
+    bgImage: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -69,6 +70,7 @@ const ChatNB = () => {
           voiceID: result.data.Result[0].voiceID,
           image: result.data.Result[0].image,
           model: result.data.Result[0].model,
+          bgImage: result.data.Result[0].bgImage,
         });
         addNBInfo(
           "system",
@@ -111,7 +113,17 @@ const ChatNB = () => {
   };
 
   return (
-    <div className="standard-visitor-background d-flex flex-col justify-content-between h-100 w-100 align-items-center">
+    <div
+      className="d-flex flex-col justify-content-between align-items-center"
+      style={{
+        backgroundImage: `url(http://localhost:3000/Uploaded/${nb.bgImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        height: "100vh",
+        overflow: "hidden",
+      }}
+    >
       <div className="w-100 h-100">
         <Canvas shadows camera={{ position: [1, 0, 1], fov: 8 }}>
           <Experience nb={nb} />
