@@ -27,8 +27,8 @@ const AdminDashboard = () => {
                 ChatNB Admin
               </h1>
             </Link>
-            <ul
-              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            <ul 
+              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start ul-link"
               id="menu"
             >
               <li className="w-100">

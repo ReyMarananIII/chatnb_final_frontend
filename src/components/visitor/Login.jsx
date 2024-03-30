@@ -67,11 +67,11 @@ const Login = () => {
             <img src={CHATNB} alt="" />
           </a>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <Link class="nav-link text-white ms-4" to={"/"}>
+            <div class="navbar-nav ul-link">
+              <Link class="nav-link text-black ms-4" to={"/"}>
                 Home
               </Link>
-              <Link class="nav-link text-white " to={"/AboutUs"}>
+              <Link class="nav-link text-black " to={"/AboutUs"}>
                 About Us
               </Link>
             </div>

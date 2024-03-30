@@ -24,11 +24,11 @@ const AboutUs = () => {
         <div className="container-fluid">
         <a class="navbar-brand fs-2 text-white"><img src={CHATNB} alt=""  /></a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <Link className="nav-link text-white ms-4" to={"/"}>
+            <div className="navbar-nav ul-link">
+              <Link className="nav-link text-black ms-4" to={"/"}>
                 Home
               </Link>
-              <Link className="nav-link text-white" to={"/AboutUs"}>
+              <Link className="nav-link text-black" to={"/AboutUs"}>
                 About Us
               </Link>
             </div>

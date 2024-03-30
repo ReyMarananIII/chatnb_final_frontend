@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 
 * {
   box-sizing: border-box;
@@ -11,7 +13,7 @@ body {
   font-family: "Fira Sans", sans-serif;
 }
 
-ul {
+.ul-link {
   list-style: none;
   a {
     position: relative;
@@ -98,7 +100,7 @@ html,
 }
 
 .Header-login {
-  padding: 25px;
+  padding: 10px;
 }
 .auth-inner {
   width: 500px;
@@ -112,7 +114,7 @@ html,
   height: 80vh;
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 8px;
-  padding: 30px 35px 25px 35px;
+  padding: 20px 35px 25px 35px;
 }
 
 .auth-wrapper .form-control:focus {
@@ -226,6 +228,64 @@ html,
   background-color: #00c3a5;
 }
 
+.nav-links{
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20px 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.nav-links li{
+  list-style: none;
+  margin: 0 12px;
+}
+.nav-links li a{
+  position: relative;
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 0;
+  text-decoration: none;
+}
+.nav-links li a:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #34efdf;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+.nav-links li a:hover:before{
+  width: 100%;
+}
+.nav-links li.center a:before{
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-links li.upward a:before{
+  width: 100%;
+  bottom: -5px;
+  opacity: 0;
+}
+.nav-links li.upward a:hover:before{
+  bottom: 0px;
+  opacity: 1;
+}
+.nav-links li.forward a:before{
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+.nav-links li.forward a:hover:before{
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 /* NB LIST STYLE */
 
 .chat-head-grid {
@@ -238,18 +298,16 @@ html,
 
 .chat-head {
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .chat-head img {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  border: 1px solid #060606;
 }
 
 .chat-head img:hover {
-  border: 3px solid #00c3a5;
+  border: 5px solid #0e274094;
 }
 
 .standard-visitor-background {
@@ -258,9 +316,18 @@ html,
 
 .chat-head .name {
   display: block;
-  margin-top: 5px;
-  font-size: 25px;
+  font-size: 33px;
   font-weight: bold;
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.dashboard-nav-text{
+  font-size: 28px;
+  font-weight: bold;
+  font-family: "Dancing Script", cursive;
+
 }
 
 /* NB LIST STYLE */
@@ -344,3 +411,79 @@ html,
 }
 
 /* Admin pop-up UI */
+
+/* Assessment UI */
+
+
+.quiz-font {
+  font-weight: bold;
+  font-family: "Dancing Script", cursive;
+}
+
+.quiz-content-margin {
+  margin-left: 12%;
+}
+
+.card-margin{
+  margin-top: 5%;
+}
+
+/* Assessment UI */
+.quiz-text.card {
+
+  background-color: transparent !important;
+  border: none !important;
+
+}
+
+.quiz-text.card .card-body {
+  background-color: transparent !important;
+  
+}
+ .button-30 
+ { 
+  align-items: center; 
+  appearance: none; 
+  background-color: #00c3a6b8; 
+  border-radius: 4px; 
+  border-width: 0; 
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#00c3a5 0 -3px 0 inset; 
+  box-sizing: border-box; 
+  color: #36395A; 
+  cursor: pointer; 
+  display: inline-flex; 
+  font-family: "JetBrains Mono",monospace; 
+  height: 48px; 
+  justify-content: center; 
+  line-height: 1; 
+  list-style: none; 
+  overflow: hidden; 
+  padding-left: 16px; 
+  padding-right: 16px; 
+  position: relative; 
+  text-align: left; 
+  text-decoration: none; 
+  transition: box-shadow .15s,transform .15s; 
+  user-select: none; 
+  -webkit-user-select: none; 
+  touch-action: manipulation;
+  white-space: nowrap; 
+  will-change: box-shadow,transform; 
+  font-size: 18px; 
+
+} 
+  .button-30:focus 
+  {
+     box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+     } 
+  .button-30:hover 
+  { 
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset; 
+    transform: translateY(-2px); 
+  } 
+  .button-30:active 
+  { 
+    box-shadow: #D6D6E7 0 3px 7px inset; 
+    transform: translateY(2px); 
+  }
+ 

@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHooks } from "../../hooks/useHooks";
 import { useNavigate, useParams } from "react-router-dom";
+import quiz_bg from "../../assets/images/quiz_bg.png";
+import nblistbg from "../../assets/images/nb-list_bg2.png";
 
 function Assessment() {
   const [questions, setQuestions] = useState([]);
@@ -67,23 +69,46 @@ function Assessment() {
   };
 
   return (
-    <div className="container-fluid museum-bg p-4">
+    <div     style={{ 
+      backgroundImage: `url(${nblistbg})`,
+      backgroundSize: 'cover',
+      backgroundColor: 'transparent',
+      border: 'none',
+      height: '100vh' 
+       }}>
+
+    <div className="container-fluid museum-bg p-4"    
+    >
       <div className="row justify-content-center">
-        <div className="col-lg-8">
-          <div className="card museum-card shadow-lg">
-            <div className="card-body">
-              <h1 className="museum-header">Historical Quiz for Heroes</h1>
+        <div className="col-sm-11 ">
+          <div className="quiz-text card"            
+          style={{ 
+              backgroundImage: `url(${quiz_bg})`,
+              backgroundRepeat: 'no-repeat',
+              width: '100%',  // Adjust the width
+              backgroundPosition: 'center',
+              height:'90vh'
+    
+                    
+               }}  > 
+            <div className="card-body ms-5 p-5 card-margin" style={{ 
+              width: '85%',  // Adjust the width
+
+    
+                    
+               }}>
+              <h1 className="museum-header quiz-font mt-2 quiz-content-margin">Historical Quiz for Notable Batangauenos</h1>
               {questions.length > 0 ? (
                 <>
-                  <h2 className="card-title mt-4">
+                  <h2 className="card-title mt-2 quiz-font quiz-content-margin">
                     {questions[currentQuestion].question}
                   </h2>
-                  <ul className="list-group list-group-flush mt-4">
+                  <ul className="list-group-flush mt-4 fs-4  quiz-content-margin">
                     {questions[currentQuestion].choices.map((choice, index) => (
-                      <li key={index} className="list-group-item museum-item">
-                        <div className="form-check">
+                      <li key={index} >
+                        <div className="form-check quiz-font">
                           <input
-                            className="form-check-input"
+                            className="form-check-input "
                             type="radio"
                             id={`choice_${index}`}
                             name={`question_${currentQuestion}`}
@@ -94,7 +119,7 @@ function Assessment() {
                             }
                           />
                           <label
-                            className="form-check-label museum-label"
+                            className="quiz-font form-check-label museum-label fs-3"
                             htmlFor={`choice_${index}`}
                           >
                             {choice.choice}
@@ -103,7 +128,7 @@ function Assessment() {
                       </li>
                     ))}
                   </ul>
-                  <div className="d-flex justify-content-between mt-4">
+                  <div className="d-flex mt-4 gap-3 quiz-content-margin">
                     <button
                       className="btn btn-primary museum-btn"
                       onClick={handlePrev}
@@ -120,7 +145,7 @@ function Assessment() {
                     </button>
                     {currentQuestion === questions.length - 1 && (
                       <button
-                        className="btn btn-success museum-btn"
+                        className="btn btn-success museum-btn justify-content-between"
                         onClick={handleSubmit}
                       >
                         Submit
@@ -136,7 +161,8 @@ function Assessment() {
         </div>
       </div>
     </div>
+    </div>
+
   );
 }
-
 export default Assessment;

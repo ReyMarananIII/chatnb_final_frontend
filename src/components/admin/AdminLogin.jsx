@@ -66,11 +66,11 @@ const AdminLogin = () => {
             <img src={CHATNB} alt="" />
           </a>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <Link class="nav-link text-white ms-4" to={"/admin"}>
+            <div class="navbar-nav ul-link">
+              <Link class="nav-link text-black ms-4" to={"/admin"}>
                 Home
               </Link>
-              <Link class="nav-link text-white " to={"/AdminAboutUs"}>
+              <Link class="nav-link text-black " to={"/AdminAboutUs"}>
                 About Us
               </Link>
             </div>

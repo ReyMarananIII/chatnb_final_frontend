@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../utils/style.css";
 import { useHooks } from "../../hooks/useHooks";
+import Chatheadbg from "../../assets/images/Chathead-bg.png";
 
 const NBList = () => {
   const [nb, setNB] = useState([]);
@@ -30,11 +31,18 @@ const NBList = () => {
               e.preventDefault();
               navigate(`/dashboard/chat_nb/${nb.nbID}`);
             }}
-            className="btn btn-primary-outline border-0"
+            className="btn btn-primary-outline"             
+            style={{ 
+              backgroundImage: `url(${Chatheadbg})`,
+              backgroundRepeat: 'no-repeat', 
+              backgroundSize: 'cover', 
+              backgroundPosition: 'center',
+              width: '333px',
+              height: '333px'
+               }}  
           >
             <img
               src={`http://localhost:3000/Uploaded/${nb.image}`}
-              className="bg-white"
             />
           </button>
           <span className="name">{nb.name}</span>

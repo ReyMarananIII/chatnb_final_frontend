@@ -27,11 +27,11 @@ const AdminAboutUs = () => {
             <img src={CHATNB} alt="" />
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <Link className="nav-link text-white ms-4" to={"/admin"}>
+            <div className="navbar-nav ul-link">
+              <Link className="nav-link text-black ms-4" to={"/admin"}>
                 Home
               </Link>
-              <Link className="nav-link text-white" to={"/AdminAboutUs"}>
+              <Link className="nav-link text-black" to={"/AdminAboutUs"}>
                 About Us
               </Link>
             </div>

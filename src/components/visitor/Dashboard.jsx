@@ -6,11 +6,14 @@ import NBList from "./NBList";
 import "../utils/style.css";
 import pegasusLogo from "../../assets/images/TROPHY.png";
 import { useHooks } from "../../hooks/useHooks";
+import nblistbg from "../../assets/images/nb-list_bg1.png";
+import rewardpts_bg from "../../assets/images/reward-pts_bg.png";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const { visitor, setVisitor } = useHooks();
   const { visitorID } = useParams();
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     axios
@@ -22,6 +25,11 @@ const Dashboard = () => {
           password: result.data.Result[0].password,
           rewardPoints: result.data.Result[0].rewardPoints,
         });
+        const popupShown = localStorage.getItem("popupShown");
+        if (!popupShown) {
+          setShowPopup(true);
+        }
+
       })
       .catch((err) => console.log(err));
   }, []);
@@ -31,38 +39,91 @@ const Dashboard = () => {
     axios.get("http://localhost:3000/visitor/logout").then((result) => {
       if (result.data.Status) {
         localStorage.removeItem("valid");
+        localStorage.removeItem("popupShown");
         navigate("/");
       }
     });
   };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    localStorage.setItem("popupShown", "true");
+  };
+  
   return (
-    <div className="container-fluid min-vh-100 standard-visitor-background">
-      <div className="d-flex justify-content-between mb-5 pt-2">
-        <div className="d-flex align-items-center p-4 square reward-points rounded-pill">
+    <div className="container-fluid min-vh-100 standard-visitor-background"         
+    style={{ 
+      backgroundImage: `url(${nblistbg})`,
+      backgroundSize: 'cover', 
+       }}>
+
+      {showPopup && (
+        <div className="modal show pop-up-overlay" tabIndex="-1" role="dialog" style={{ display: 'block' }}>
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Welcome to CHATNB {visitor.username}!</h5>
+                <button type="button" className="btn-close" aria-label="Close" onClick={handleClosePopup}></button>
+              </div>
+              <div className="modal-body">
+                <h6>Instructions on how to operate CHATNB</h6>
+                <ul>
+                  <li><strong><i class="bi bi-house-fill"></i> Home Page</strong></li>
+                    <ul>
+                      <li className="mb-3"> NB Selection Panel: Browse available Notable Batanguenos to chat with.</li>
+                    </ul>
+                  <li><strong><i class="bi bi-chat-square-text-fill"></i> Chatting with Notable Batanguenos</strong></li>
+                  <ul>
+                    <li>Select NB: Click on a NB from the NB Selection Panel</li>
+                    <li className="mb-3">Start Chatting: Ask questions about the Notable Batanguenos' life, contribution to the province, and historical context.</li>
+                  </ul>
+                  <li><strong><i class="bi bi-bar-chart-line-fill"></i> Additional Features</strong></li>
+                  <ul>
+                    <li>Scoreboard: Track your reward points and the currently leading scorer.</li>
+                    <li className="mb-3">Assessment Features: Test your knowledge about Batangas history and heroes through quiz.</li>
+                  </ul>
+                  <li ><strong><i class="bi bi-book-fill"></i> Guidelines for Interacting with AI Chatbot</strong></li>
+                  <ul>
+                    <li>Be Respectful: Maintain a respectful and appropriate conversation.</li>
+                    <li>Ask Questions: Engage with the Notable Batanguenos and learn about their life and contributions.</li>
+                  </ul>
+                </ul>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-primary" onClick={handleClosePopup}>Got it!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className=" d-flex justify-content-between mb-5 pt-2">
+        <div className="d-flex align-items-center p-4 square reward-points rounded-pill"
+        
+        >
           <img src={pegasusLogo} alt="" width={45} height={45} />
-          <h4>
-            <span className="m-2">{visitor.rewardPoints}</span>Reward Point
+          <h4 className="dashboard-nav-text">
+            <span className="m-2 dashboard-nav-text">{visitor.rewardPoints}</span>Reward Point
             {visitor.rewardPoints > 1 ? <span>s</span> : ""}
           </h4>
         </div>
         <nav className="navbar navbar-expand-lg navbar-light">
-          <div className="container">
+          <div className=".container">
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link
+              <ul className="navbar-nav gap-2">
+                <li className="nav-item " class="button-30" role="button">
+                  <Link 
                     className="nav-link"
                     to={`/dashboard/${visitorID}/assessment`}
                   >
-                    <span className="d-none d-sm-inline p-2 ms-2 fs-5">
-                      Take Assessment
+                    <span className="d-none d-sm-inline p-2 ms-2 fs-5 "><i class="bi bi-pen-fill"></i>  Take Assessment
                     </span>
                   </Link>
                 </li>
-                <li className="nav-item" onClick={handleLogout}>
-                  <Link className="nav-link text-danger">
-                    <i className="fs-4 bi-power ms-2 "></i>
-                    <span className="d-none d-sm-inline p-2 ">Logout</span>
+                <li className="nav-item" class="button-30" role="button" onClick={handleLogout}>
+                  <Link className="nav-link">
+                    <i class="bi bi-box-arrow-right fs-5"></i>
+                    <span className="d-none d-sm-inline p-2 fs-5 ">Logout</span>
                   </Link>
                 </li>
               </ul>
