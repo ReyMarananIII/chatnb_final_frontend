@@ -43,7 +43,7 @@ const NB = () => {
   };
 
   return (
-    <div className="px-5 mt-3">
+    <div className="px-5 mt-3 mb-3">
       <div className="d-flex justify-content-center">
         <h4>Notable Batangaueños List</h4>
       </div>
@@ -51,43 +51,54 @@ const NB = () => {
         Add Notable Batangaueños
       </Link>
       <div className="mt-3">
-        <table className="table">
+        <table className="table table-hover">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Image</th>
-              <th>Information</th>
-              <th>Action</th>
+              <th className="border">Image</th>
+              <th className="border">Name</th>
+              <th className="border">Information</th>
+              <th className="border">Action</th>
             </tr>
           </thead>
           <tbody>
-            {nb.map((e) => (
-              <tr key={e.nbID}>
-                <td>{e.name}</td>
-                <td>
-                  <img
-                    src={`http://localhost:3000/Uploaded/` + e.image}
-                    className="nb_image"
-                    alt={e.name}
-                  />
+            {nb.length === 0 ? (
+              <tr>
+                <td></td>
+                <td className="border text-center">
+                  No Notable Batangaueños Added
                 </td>
-                <td>{e.information}</td>
-                <td>
-                  <Link
-                    to={`/admin_dashboard/edit_nb/` + e.nbID}
-                    className="btn admin-button btn-sm me-2 my-2"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    className="btn btn-danger btn-sm my-2"
-                    onClick={() => handleDeleteConfirmation(e.nbID)}
-                  >
-                    Delete
-                  </button>
-                </td>
+                <td></td>
+                <td></td>
               </tr>
-            ))}
+            ) : (
+              nb.map((e) => (
+                <tr key={e.nbID}>
+                  <td className="border">
+                    <img
+                      src={`http://localhost:3000/Uploaded/` + e.image}
+                      className="nb_image"
+                      alt={e.name}
+                    />
+                  </td>
+                  <td className="border">{e.name}</td>
+                  <td className="border">{e.information}</td>
+                  <td className="border">
+                    <Link
+                      to={`/admin_dashboard/edit_nb/` + e.nbID}
+                      className="btn admin-button btn-sm me-2 my-2"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      className="btn btn-danger btn-sm my-2"
+                      onClick={() => handleDeleteConfirmation(e.nbID)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

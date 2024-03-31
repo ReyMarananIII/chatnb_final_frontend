@@ -171,24 +171,40 @@ export function Avatar(props) {
         skeleton={nodes.Wolf3D_Hair.skeleton}
       />
       <skinnedMesh
-        geometry={nodes.Wolf3D_Body.geometry}
-        material={materials.Wolf3D_Body}
-        skeleton={nodes.Wolf3D_Body.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
-        material={materials.Wolf3D_Outfit_Bottom}
-        skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
-        material={materials.Wolf3D_Outfit_Footwear}
-        skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
-      />
-      <skinnedMesh
+        name="Wolf3D_Outfit_Top"
         geometry={nodes.Wolf3D_Outfit_Top.geometry}
         material={materials.Wolf3D_Outfit_Top}
         skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+        morphTargetDictionary={nodes.Wolf3D_Outfit_Top.morphTargetDictionary}
+        morphTargetInfluences={nodes.Wolf3D_Outfit_Top.morphTargetInfluences}
+      />
+      <skinnedMesh
+        name="Wolf3D_Outfit_Bottom"
+        geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
+        material={materials.Wolf3D_Outfit_Bottom}
+        skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
+        morphTargetDictionary={nodes.Wolf3D_Outfit_Bottom.morphTargetDictionary}
+        morphTargetInfluences={nodes.Wolf3D_Outfit_Bottom.morphTargetInfluences}
+      />
+      <skinnedMesh
+        name="Wolf3D_Outfit_Footwear"
+        geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
+        material={materials.Wolf3D_Outfit_Footwear}
+        skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+        morphTargetDictionary={
+          nodes.Wolf3D_Outfit_Footwear.morphTargetDictionary
+        }
+        morphTargetInfluences={
+          nodes.Wolf3D_Outfit_Footwear.morphTargetInfluences
+        }
+      />
+      <skinnedMesh
+        name="Wolf3D_Body"
+        geometry={nodes.Wolf3D_Body.geometry}
+        material={materials.Wolf3D_Body}
+        skeleton={nodes.Wolf3D_Body.skeleton}
+        morphTargetDictionary={nodes.Wolf3D_Body.morphTargetDictionary}
+        morphTargetInfluences={nodes.Wolf3D_Body.morphTargetInfluences}
       />
     </group>
   );

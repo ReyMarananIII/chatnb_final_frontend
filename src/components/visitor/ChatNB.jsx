@@ -163,10 +163,10 @@ const ChatNB = () => {
                   className="collapse navbar-collapse "
                   id="navbarTogglerDemo02"
                 >
-                  <ul className="navbar-nav d-grid gap-2 d-md-flex fw-semibold">
-                    <li className="nav-item ">
+                  <ul className="navbar-nav gap-2">
+                    <li className="nav-item button-30" role="button">
                       <Link
-                        className="nav-link text-white"
+                        className="nav-link"
                         to={`/dashboard/${visitor.visitorID}`}
                       >
                         Back

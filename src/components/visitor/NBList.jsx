@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../utils/style.css";
-import { useHooks } from "../../hooks/useHooks";
 import Chatheadbg from "../../assets/images/Chathead-bg.png";
 
 const NBList = () => {
@@ -31,19 +30,19 @@ const NBList = () => {
               e.preventDefault();
               navigate(`/dashboard/chat_nb/${nb.nbID}`);
             }}
-            className="btn btn-primary-outline"             
-            style={{ 
+            className="btn btn-primary-outline"
+            style={{
               backgroundImage: `url(${Chatheadbg})`,
-              backgroundRepeat: 'no-repeat', 
-              backgroundSize: 'cover', 
-              backgroundPosition: 'center',
-              width: '333px',
-              height: '333px'
-               }}  
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              width: "333px",
+              height: "333px",
+              border: 0,
+              boxShadow: "none",
+            }}
           >
-            <img
-              src={`http://localhost:3000/Uploaded/${nb.image}`}
-            />
+            <img src={`http://localhost:3000/Uploaded/${nb.image}`} />
           </button>
           <span className="name">{nb.name}</span>
         </div>

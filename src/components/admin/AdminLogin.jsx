@@ -4,7 +4,6 @@ import axios from "axios";
 import logo from "../../assets/images/CHATNB_LOGO.png";
 import "../utils/style.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import LoginBG from "../../assets/images/Login-bg.png";
 import CHATNB from "../../assets/images/ChatNB2.png";
 
 const AdminLogin = () => {
@@ -49,17 +48,7 @@ const AdminLogin = () => {
   };
 
   return (
-    <div
-      className="container-fluid "
-      style={{
-        backgroundImage: `url(${LoginBG})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        height: "100vh",
-        overflow: "hidden",
-      }}
-    >
+    <div className="container-fluid standard-admin-background h-100">
       <nav class=" Header-login navbar navbar-expand-lg ">
         <div class="container-fluid ">
           <a class="navbar-brand fs-2 text-white">
