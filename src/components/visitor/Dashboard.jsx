@@ -7,30 +7,17 @@ import "../utils/style.css";
 import pegasusLogo from "../../assets/images/TROPHY.png";
 import { useHooks } from "../../hooks/useHooks";
 import nblistbg from "../../assets/images/nb-list_bg1.png";
-import rewardpts_bg from "../../assets/images/reward-pts_bg.png";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { visitor, setVisitor } = useHooks();
-  const { visitorID } = useParams();
+  const { visitor, setVisitor, visitorID } = useHooks();
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/visitor/detail/" + visitorID)
-      .then((result) => {
-        setVisitor({
-          visitorID: result.data.Result[0].visitorID,
-          username: result.data.Result[0].username,
-          password: result.data.Result[0].password,
-          rewardPoints: result.data.Result[0].rewardPoints,
-        });
-        const popupShown = localStorage.getItem("popupShown");
-        if (!popupShown) {
-          setShowPopup(true);
-        }
-      })
-      .catch((err) => console.log(err));
+    const popupShown = localStorage.getItem("popupShown");
+    if (!popupShown) {
+      setShowPopup(true);
+    }
   }, []);
 
   axios.defaults.withCredentials = true;
@@ -39,6 +26,7 @@ const Dashboard = () => {
       if (result.data.Status) {
         localStorage.removeItem("valid");
         localStorage.removeItem("popupShown");
+        setVisitor("");
         navigate("/");
       }
     });

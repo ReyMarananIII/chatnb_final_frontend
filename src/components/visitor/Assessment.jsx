@@ -9,8 +9,7 @@ function Assessment() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const { visitor } = useHooks();
-  const { visitorID } = useParams();
+  const { visitor, visitorID, setVisitor } = useHooks();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,10 +39,14 @@ function Assessment() {
       }
     });
 
+    // To solve bug, The setvisitor does not update immediately
     const newVisitor = {
       ...visitor,
       rewardPoints: visitor.rewardPoints + score,
     };
+
+    // To keep track of visitor
+    setVisitor(newVisitor);
 
     axios
       .put(

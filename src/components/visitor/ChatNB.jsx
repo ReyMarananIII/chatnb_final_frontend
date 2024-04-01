@@ -21,7 +21,7 @@ const ChatNB = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const { setMessage, visitor } = useHooks();
+  const { setMessage, visitor, visitorID } = useHooks();
 
   // To track messages
   // The content needs nb information for creating AI
@@ -165,10 +165,7 @@ const ChatNB = () => {
                 >
                   <ul className="navbar-nav gap-2">
                     <li className="nav-item button-30" role="button">
-                      <Link
-                        className="nav-link"
-                        to={`/dashboard/${visitor.visitorID}`}
-                      >
+                      <Link className="nav-link" to={`/dashboard/${visitorID}`}>
                         Back
                       </Link>
                     </li>

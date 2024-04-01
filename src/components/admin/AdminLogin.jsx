@@ -15,11 +15,9 @@ const AdminLogin = () => {
   const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
-
-  axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:3000/verify")
+      .get("http://localhost:3000/getUser")
       .then((result) => {
         if (result.data.Status) {
           if (result.data.role === "admin") {

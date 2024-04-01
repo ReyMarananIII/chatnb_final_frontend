@@ -7,26 +7,22 @@ import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import LoginBG from "../../assets/images/Login-bg.png";
 import CHATNB from "../../assets/images/ChatNB2.png";
+import { useHooks } from "../../hooks/useHooks";
 
 const Login = () => {
-  const [visitor, setVisitor] = useState({
-    username: "",
-    password: "",
-    visitorID: "",
-  });
+  const { visitor, setVisitor } = useHooks();
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:3000/verify")
+      .get("http://localhost:3000/getUser")
       .then((result) => {
         if (result.data.Status) {
           if (result.data.role === "admin") {
             navigate("/admin_dashboard");
           } else {
-            setVisitor({ ...visitor, visitorID: result.data.id });
             navigate(`/dashboard/${result.data.id}`); // This is visitor ID from verify. It is called id instead visitorID because it is use for both admin and visitor
           }
         }
