@@ -47,8 +47,17 @@ const AdminDashboard = () => {
                   to="/admin_dashboard/edit_assessment"
                   className="nav-link px-0 align-middle text-black"
                 >
-                  <i className="fs-4 bi-envelope-paper ms-2"></i>
+                  <i className="fs-4 bi bi-pen ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Assessment</span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
+                  to="/admin_dashboard/feedback"
+                  className="nav-link px-0 align-middle text-black"
+                >
+                  <i className="fs-4 bi-envelope-paper ms-2"></i>
+                  <span className="ms-2 d-none d-sm-inline">Feedback</span>
                 </Link>
               </li>
               <li className="w-100" onClick={handleLogout}>

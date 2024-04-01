@@ -11,7 +11,7 @@ const AdminAboutUs = () => {
     <div className="container-fluid standard-admin-background h-100">
       <nav className="Header-login navbar navbar-expand-lg">
         <div className="container-fluid">
-          <a class="navbar-brand fs-2 text-white">
+          <a className="navbar-brand fs-2 text-white">
             <img src={CHATNB} alt="" />
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">

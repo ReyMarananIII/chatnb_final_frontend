@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import LoginBG from "../../assets/images/Login-bg.png";
 import CHATNB from "../../assets/images/ChatNB2.png";
-import { useHooks } from "../../hooks/useHooks";
+import { UseHooks } from "../../hooks/useHooks.jsx";
 
 const Login = () => {
-  const { visitor, setVisitor } = useHooks();
+  const { visitor, setVisitor } = UseHooks();
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -57,17 +57,17 @@ const Login = () => {
         overflow: "hidden",
       }}
     >
-      <nav class=" Header-login navbar navbar-expand-lg ">
-        <div class="container-fluid ">
-          <a class="navbar-brand fs-2 text-white">
+      <nav className=" Header-login navbar navbar-expand-lg ">
+        <div className="container-fluid ">
+          <a className="navbar-brand fs-2 text-white">
             <img src={CHATNB} alt="" />
           </a>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ul-link">
-              <Link class="nav-link text-black ms-4" to={"/"}>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav ul-link">
+              <Link className="nav-link text-black ms-4" to={"/"}>
                 Home
               </Link>
-              <Link class="nav-link text-black " to={"/AboutUs"}>
+              <Link className="nav-link text-black " to={"/AboutUs"}>
                 About Us
               </Link>
             </div>
@@ -78,7 +78,7 @@ const Login = () => {
       <div className="d-flex flex-sm-col justify-content-between ">
         <form
           onSubmit={handleSubmit}
-          class="auth-inner card bg-white text-black mx-auto "
+          className="auth-inner card bg-white text-black mx-auto "
         >
           <div className="container-fluid">
             <h1 className="ChatNB text-center fw-bold mb-4 fs-1">

@@ -47,17 +47,17 @@ const AdminLogin = () => {
 
   return (
     <div className="container-fluid standard-admin-background h-100">
-      <nav class=" Header-login navbar navbar-expand-lg ">
-        <div class="container-fluid ">
-          <a class="navbar-brand fs-2 text-white">
+      <nav className=" Header-login navbar navbar-expand-lg ">
+        <div className="container-fluid ">
+          <a className="navbar-brand fs-2 text-white">
             <img src={CHATNB} alt="" />
           </a>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ul-link">
-              <Link class="nav-link text-black ms-4" to={"/admin"}>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav ul-link">
+              <Link className="nav-link text-black ms-4" to={"/admin"}>
                 Home
               </Link>
-              <Link class="nav-link text-black " to={"/AdminAboutUs"}>
+              <Link className="nav-link text-black " to={"/AdminAboutUs"}>
                 About Us
               </Link>
             </div>
@@ -68,7 +68,7 @@ const AdminLogin = () => {
       <div className="d-flex flex-sm-col justify-content-between ">
         <form
           onSubmit={handleSubmit}
-          class="auth-inner bg-white text-black mx-auto "
+          className="auth-inner bg-white text-black mx-auto "
         >
           <div className="container-fluid">
             <h1 className="ChatNB text-center fw-bold">LOGIN YOUR ACCOUNT</h1>

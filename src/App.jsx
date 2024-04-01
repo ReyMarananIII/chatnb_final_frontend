@@ -15,15 +15,17 @@ import AboutUs from "./components/visitor/AboutUs";
 import AdminAboutUs from "./components/admin/AdminAboutUs";
 import Assessment from "./components/visitor/Assessment";
 import EditAssessment from "./components/admin/EditAssessment";
+import Feedback from "./components/visitor/Feedback";
+import ViewFeedback from "./components/admin/ViewFeedback";
 
 function App() {
   return (
     <BrowserRouter>
+      {/**Visitor Routes */}
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/AboutUs" element={<AboutUs />}></Route>
-        <Route path="/AdminAboutUs" element={<AdminAboutUs />}></Route>
-        <Route path="/admin" element={<AdminLogin />}></Route>
+
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard/:visitorID" element={<Dashboard />}></Route>
           <Route
@@ -31,7 +33,15 @@ function App() {
             element={<Assessment />}
           ></Route>
           <Route path="/dashboard/chat_nb/:nbID" element={<ChatNB />}></Route>
+          <Route
+            path="/dashboard/:visitorID/feedback"
+            element={<Feedback />}
+          ></Route>
         </Route>
+
+        {/**Admin Routes */}
+        <Route path="/AdminAboutUs" element={<AdminAboutUs />}></Route>
+        <Route path="/admin" element={<AdminLogin />}></Route>
         <Route
           path="/admin_dashboard"
           element={
@@ -41,6 +51,10 @@ function App() {
           }
         >
           <Route path="/admin_dashboard" element={<NB />}></Route>
+          <Route
+            path="/admin_dashboard/feedback"
+            element={<ViewFeedback />}
+          ></Route>
 
           <Route path="/admin_dashboard/add_nb" element={<AddNB />}></Route>
           <Route

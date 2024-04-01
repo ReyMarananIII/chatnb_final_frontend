@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useHooks } from "../../hooks/useHooks";
-import { useNavigate, useParams } from "react-router-dom";
+import { UseHooks } from "../../hooks/useHooks.jsx";
+import { useNavigate } from "react-router-dom";
 import quiz_bg from "../../assets/images/quiz_bg.png";
 import nblistbg from "../../assets/images/nb-list_bg2.png";
 
@@ -9,7 +9,7 @@ function Assessment() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const { visitor, visitorID, setVisitor } = useHooks();
+  const { visitor, visitorID, setVisitor } = UseHooks();
   const navigate = useNavigate();
 
   useEffect(() => {

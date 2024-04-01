@@ -5,7 +5,7 @@ import "../utils/style.css";
 import sendIcon from "../../assets/images/send.png";
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./Experience";
-import { useHooks } from "../../hooks/useHooks.jsx";
+import { UseHooks } from "../../hooks/useHooks.jsx";
 import { Link } from "react-router-dom";
 
 const ChatNB = () => {
@@ -21,7 +21,7 @@ const ChatNB = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const { setMessage, visitor, visitorID } = useHooks();
+  const { setMessage, visitor, visitorID } = UseHooks();
 
   // To track messages
   // The content needs nb information for creating AI
@@ -40,7 +40,7 @@ const ChatNB = () => {
   Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}. 
   Kapag ang tanong sayo ay wala sa mga detalye na babangitin mamaya, dapat ang sagot mo ay "Paumanhin, wala akong masasabi."
   Huwag na huwag kang magbibigay ng inpormasyon o sasagot ng wala sa mga detalye na babangitin mamaya.
-  Ang sagot mo sa mga tanong sayo ay dapat sobrang maikli lamang, direkta sa punto at hindi hihigit sa pitong salita.
+  Ang sagot mo sa mga tanong sayo ay dapat sobrang maikli lamang, direkta sa punto at hindi hihigit sa isang pangungusap.
   Ang mga pamantayang ito ay dapat masunod.
   
   Mga Detalye:\n

@@ -5,15 +5,16 @@ import axios from "axios";
 import NBList from "./NBList";
 import "../utils/style.css";
 import pegasusLogo from "../../assets/images/TROPHY.png";
-import { useHooks } from "../../hooks/useHooks";
+import { UseHooks } from "../../hooks/useHooks.jsx";
 import nblistbg from "../../assets/images/nb-list_bg1.png";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { visitor, setVisitor, visitorID } = useHooks();
+  const { visitor, setVisitor, visitorID, getVisitor } = UseHooks();
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
+    getVisitor();
     const popupShown = localStorage.getItem("popupShown");
     if (!popupShown) {
       setShowPopup(true);
@@ -26,7 +27,11 @@ const Dashboard = () => {
       if (result.data.Status) {
         localStorage.removeItem("valid");
         localStorage.removeItem("popupShown");
-        setVisitor("");
+        setVisitor({
+          username: "",
+          password: "",
+          rewardPoints: "",
+        });
         navigate("/");
       }
     });
@@ -170,6 +175,16 @@ const Dashboard = () => {
                   >
                     <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
                       <i className="bi bi-pen-fill"></i> Take Assessment
+                    </span>
+                  </Link>
+                </li>
+                <li className="nav-item button-30" role="button">
+                  <Link
+                    className="nav-link"
+                    to={`/dashboard/${visitorID}/feedback`}
+                  >
+                    <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
+                      <i className="bi bi-pen-fill"></i> Send Feedback
                     </span>
                   </Link>
                 </li>

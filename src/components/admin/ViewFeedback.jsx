@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
 
-const NB = () => {
-  const [nb, setNB] = useState([]);
+const ViewFeedback = () => {
+  const [feedback, setFeedback] = useState([]);
   const [deleteID, setDeleteID] = useState(null); // State to store the ID of the item to delete
   const [showConfirmation, setShowConfirmation] = useState(false); // State to manage the visibility of the confirmation popup
-  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/admin/nb")
+      .get("http://localhost:3000/admin/feedback")
       .then((result) => {
         if (result.data.Status) {
-          setNB(result.data.Result);
+          setFeedback(result.data.Result);
         } else {
           alert(result.data.Error);
         }
@@ -22,15 +20,15 @@ const NB = () => {
   }, []);
 
   // Function to handle the deletion confirmation
-  const handleDeleteConfirmation = (nbID) => {
-    setDeleteID(nbID);
+  const handleDeleteConfirmation = (id) => {
+    setDeleteID(id);
     setShowConfirmation(true);
   };
 
   // Function to delete the item
   const handleDelete = () => {
     axios
-      .delete("http://localhost:3000/admin/delete_nb/" + deleteID)
+      .delete("http://localhost:3000/admin/delete_feedback/" + deleteID)
       .then((result) => {
         if (result.data.Status) {
           window.location.reload();
@@ -45,53 +43,34 @@ const NB = () => {
   return (
     <div className="px-5 mt-3 mb-3">
       <div className="d-flex justify-content-center">
-        <h4>Notable Batangaueños List</h4>
+        <h4>Feedback</h4>
       </div>
-      <Link to="/admin_dashboard/add_nb" className="btn admin-button">
-        Add Notable Batangaueños
-      </Link>
+
       <div className="mt-3">
         <table className="table table-hover">
           <thead>
             <tr>
-              <th className="border">Image</th>
-              <th className="border">Name</th>
-              <th className="border">Information</th>
+              <th className="border">Visitor ID</th>
+              <th className="border">Feedback</th>
               <th className="border">Action</th>
             </tr>
           </thead>
           <tbody>
-            {nb.length === 0 ? (
+            {feedback.length === 0 ? (
               <tr>
                 <td className="border"></td>
-                <td className="border text-center">
-                  No Notable Batangaueños Added
-                </td>
-                <td className="border"></td>
+                <td className="border text-center">No Feedback</td>
                 <td className="border"></td>
               </tr>
             ) : (
-              nb.map((e) => (
-                <tr key={e.nbID}>
+              feedback.map((e) => (
+                <tr key={e.feedbackID}>
+                  <td className="border">{e.visitorID}</td>
+                  <td className="border">{e.feedback}</td>
                   <td className="border">
-                    <img
-                      src={`http://localhost:3000/Uploaded/` + e.image}
-                      className="nb_image"
-                      alt={e.name}
-                    />
-                  </td>
-                  <td className="border">{e.name}</td>
-                  <td className="border">{e.information}</td>
-                  <td className="border">
-                    <Link
-                      to={`/admin_dashboard/edit_nb/` + e.nbID}
-                      className="btn admin-button btn-sm me-2 my-2"
-                    >
-                      Edit
-                    </Link>
                     <button
                       className="btn btn-danger btn-sm my-2"
-                      onClick={() => handleDeleteConfirmation(e.nbID)}
+                      onClick={() => handleDeleteConfirmation(e.feedbackID)}
                     >
                       Delete
                     </button>
@@ -126,4 +105,4 @@ const NB = () => {
   );
 };
 
-export default NB;
+export default ViewFeedback;
