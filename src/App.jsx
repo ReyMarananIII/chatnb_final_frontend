@@ -17,6 +17,8 @@ import Assessment from "./components/visitor/Assessment";
 import EditAssessment from "./components/admin/EditAssessment";
 import Feedback from "./components/visitor/Feedback";
 import ViewFeedback from "./components/admin/ViewFeedback";
+import LeaderBoards from "./components/visitor/LeaderBoards";
+import ViewLeaderboards from "./components/admin/ViewLeaderboards";
 
 function App() {
   return (
@@ -36,6 +38,10 @@ function App() {
           <Route
             path="/dashboard/:visitorID/feedback"
             element={<Feedback />}
+          ></Route>
+          <Route
+            path="/dashboard/:visitorID/leaderboards"
+            element={<LeaderBoards />}
           ></Route>
         </Route>
 
@@ -64,6 +70,10 @@ function App() {
           <Route
             path="/admin_dashboard/edit_assessment"
             element={<EditAssessment />}
+          ></Route>
+          <Route
+            path="/admin_dashboard/viewLeaderboards"
+            element={<ViewLeaderboards />}
           ></Route>
         </Route>
       </Routes>

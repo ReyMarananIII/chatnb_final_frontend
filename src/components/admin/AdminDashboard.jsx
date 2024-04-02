@@ -36,7 +36,7 @@ const AdminDashboard = () => {
                   to="/admin_dashboard"
                   className="nav-link px-0 align-middle text-black"
                 >
-                  <i className="fs-4 bi-people ms-2"></i>
+                  <i className="fs-4 bi bi-people ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">
                     Notable Batangaueños
                   </span>
@@ -56,13 +56,22 @@ const AdminDashboard = () => {
                   to="/admin_dashboard/feedback"
                   className="nav-link px-0 align-middle text-black"
                 >
-                  <i className="fs-4 bi-envelope-paper ms-2"></i>
+                  <i className="fs-4 bi bi-envelope-paper ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Feedback</span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
+                  to="/admin_dashboard/viewLeaderboards"
+                  className="nav-link px-0 align-middle text-black"
+                >
+                  <i className="fs-4 bi bi-list-columns-reverse ms-2"></i>
+                  <span className="ms-2 d-none d-sm-inline">Leaderboards</span>
                 </Link>
               </li>
               <li className="w-100" onClick={handleLogout}>
                 <Link className="nav-link px-0 align-middle text-black">
-                  <i className="fs-4 bi-power ms-2"></i>
+                  <i className="fs-4 bi bi-power ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Logout</span>
                 </Link>
               </li>

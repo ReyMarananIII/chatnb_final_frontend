@@ -171,10 +171,20 @@ const Dashboard = () => {
                 <li className="nav-item button-30" role="button">
                   <Link
                     className="nav-link"
+                    to={`/dashboard/${visitorID}/leaderboards`}
+                  >
+                    <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
+                      <i className="bi bi-list-columns-reverse"></i> Leaderboard
+                    </span>
+                  </Link>
+                </li>
+                <li className="nav-item button-30" role="button">
+                  <Link
+                    className="nav-link"
                     to={`/dashboard/${visitorID}/assessment`}
                   >
                     <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
-                      <i className="bi bi-pen-fill"></i> Take Assessment
+                      <i className="bi bi-pencil"></i> Take Assessment
                     </span>
                   </Link>
                 </li>
@@ -184,7 +194,7 @@ const Dashboard = () => {
                     to={`/dashboard/${visitorID}/feedback`}
                   >
                     <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
-                      <i className="bi bi-pen-fill"></i> Send Feedback
+                      <i className="bi bi-envelope"></i> Send Feedback
                     </span>
                   </Link>
                 </li>

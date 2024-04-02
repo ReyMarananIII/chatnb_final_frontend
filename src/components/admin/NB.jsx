@@ -45,7 +45,7 @@ const NB = () => {
   return (
     <div className="px-5 mt-3 mb-3">
       <div className="d-flex justify-content-center">
-        <h4>Notable Batangaueños List</h4>
+        <h4>Notable Batangaueños</h4>
       </div>
       <Link to="/admin_dashboard/add_nb" className="btn admin-button">
         Add Notable Batangaueños

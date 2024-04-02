@@ -156,8 +156,11 @@ const EditAssessment = () => {
   };
 
   return (
-    <>
-      <div className="container-fluid mt-5">
+    <div className="px-5 mt-3 mb-3">
+      <div className="container-fluid">
+        <div className="d-flex justify-content-center">
+          <h4>Assessment</h4>
+        </div>
         <div className="row">
           <div className="col-md-4">
             <div className="card shadow-sm mb-4">
@@ -307,7 +310,7 @@ const EditAssessment = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
