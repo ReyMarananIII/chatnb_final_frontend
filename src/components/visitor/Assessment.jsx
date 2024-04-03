@@ -9,6 +9,8 @@ function Assessment() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [showModal, setShowModal] = useState(false); // State for displaying modal
+  const [score, setScore] = useState(0); // State
   const { visitor, visitorID, setVisitor } = UseHooks();
   const navigate = useNavigate();
 
@@ -45,6 +47,8 @@ function Assessment() {
       rewardPoints: visitor.rewardPoints + score,
     };
 
+    setScore(score); // Set the quiz score
+
     // To keep track of visitor
     setVisitor(newVisitor);
 
@@ -55,7 +59,7 @@ function Assessment() {
       )
       .then((result) => {
         if (result.data.Status) {
-          navigate(`/dashboard/${visitorID}`);
+          setShowModal(true); // Show the modal
         } else {
           alert(result.data.Error);
         }
@@ -69,6 +73,11 @@ function Assessment() {
 
   const handleNext = () => {
     setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Close the modal
+    navigate(`/dashboard/${visitorID}`); // Navigate to dashboard
   };
 
   return (
@@ -108,7 +117,10 @@ function Assessment() {
                     <h2 className="card-title mt-2 quiz-font quiz-content-margin">
                       {questions[currentQuestion].question}
                     </h2>
-                    <ul className="list-group-flush mt-4 fs-4  quiz-content-margin">
+                    <ul className="list-group-flush mt-4 fs-4  quiz-content-margin" 
+                    style={{
+                      listStyleType: "none",
+                    }}>
                       {questions[currentQuestion].choices.map(
                         (choice, index) => (
                           <li key={index}>
@@ -168,6 +180,28 @@ function Assessment() {
           </div>
         </div>
       </div>
+
+      {showModal && (
+          <div class="modal modal-overlay" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Congratulations!</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <p>You have earned {score} reward points in the quiz.</p>
+                </div>
+                <div class="modal-footer">
+                <button className="btn btn-primary" onClick={closeModal}>
+                  Return
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>          
+      )}
+
     </div>
   );
 }

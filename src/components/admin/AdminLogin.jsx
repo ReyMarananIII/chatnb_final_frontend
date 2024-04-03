@@ -4,7 +4,7 @@ import axios from "axios";
 import logo from "../../assets/images/CHATNB_LOGO.png";
 import "../utils/style.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import CHATNB from "../../assets/images/ChatNB2.png";
+import CHATNB from "../../assets/images/AdminNB.png";
 
 const AdminLogin = () => {
   const [values, setValues] = useState({
@@ -71,7 +71,7 @@ const AdminLogin = () => {
           className="auth-inner bg-white text-black mx-auto "
         >
           <div className="container-fluid">
-            <h1 className="ChatNB text-center fw-bold">LOGIN YOUR ACCOUNT</h1>
+          <h1 className="ChatNB text-center fw-bold mb-4 fs-1">LOGIN YOUR ACCOUNT</h1>
             <h6 className="Text2">Welcome! Please login to your account</h6>
             <div className="Input-login mb-3 ">
               <label className="mb-2">Username</label>

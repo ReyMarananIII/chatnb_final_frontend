@@ -3,6 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
 import NBList from "./NBList";
+import Feedback from "./Feedback";
+import Leaderboard from "./LeaderBoards";
 import "../utils/style.css";
 import pegasusLogo from "../../assets/images/TROPHY.png";
 import { UseHooks } from "../../hooks/useHooks.jsx";
@@ -12,12 +14,18 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const { visitor, setVisitor, visitorID, getVisitor } = UseHooks();
   const [showPopup, setShowPopup] = useState(false);
+  const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
     getVisitor();
     const popupShown = localStorage.getItem("popupShown");
     if (!popupShown) {
       setShowPopup(true);
+    }
+
+    const buttonShown= localStorage.getItem("buttonShown");
+    if (!buttonShown) {
+      setShowButton(false);
     }
   }, []);
 
@@ -171,30 +179,10 @@ const Dashboard = () => {
                 <li className="nav-item button-30" role="button">
                   <Link
                     className="nav-link"
-                    to={`/dashboard/${visitorID}/leaderboards`}
-                  >
-                    <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
-                      <i className="bi bi-list-columns-reverse"></i> Leaderboard
-                    </span>
-                  </Link>
-                </li>
-                <li className="nav-item button-30" role="button">
-                  <Link
-                    className="nav-link"
                     to={`/dashboard/${visitorID}/assessment`}
                   >
                     <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
                       <i className="bi bi-pencil"></i> Take Assessment
-                    </span>
-                  </Link>
-                </li>
-                <li className="nav-item button-30" role="button">
-                  <Link
-                    className="nav-link"
-                    to={`/dashboard/${visitorID}/feedback`}
-                  >
-                    <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
-                      <i className="bi bi-envelope"></i> Send Feedback
                     </span>
                   </Link>
                 </li>
@@ -215,6 +203,8 @@ const Dashboard = () => {
       </div>
       <div>
         <NBList />
+        <Feedback />
+        <Leaderboard />
       </div>
     </div>
   );
