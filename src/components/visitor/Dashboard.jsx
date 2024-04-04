@@ -23,7 +23,7 @@ const Dashboard = () => {
       setShowPopup(true);
     }
 
-    const buttonShown= localStorage.getItem("buttonShown");
+    const buttonShown = localStorage.getItem("buttonShown");
     if (!buttonShown) {
       setShowButton(false);
     }
@@ -51,19 +51,74 @@ const Dashboard = () => {
   };
 
   return (
-    <div
-      className="container-fluid min-vh-100 standard-visitor-background"
-      style={{
-        backgroundImage: `url(${nblistbg})`,
-        backgroundSize: "cover",
-      }}
-    >
+    <>
+      <div
+        className="container-fluid min-vh-100 standard-visitor-background"
+        style={{
+          backgroundImage: `url(${nblistbg})`,
+          backgroundSize: "cover",
+        }}
+      >
+        <div className=" d-flex justify-content-between mb-2 pt-2">
+          <div className="d-flex align-items-center p-4 square reward-points rounded-pill">
+            <img src={pegasusLogo} alt="" width={45} height={45} />
+            <h4 className="dashboard-nav-text">
+              <span className="m-2 dashboard-nav-text">
+                {visitor.rewardPoints}
+              </span>
+              Reward Point
+              {visitor.rewardPoints > 1 ? (
+                <span className="dashboard-nav-text">s</span>
+              ) : (
+                ""
+              )}
+            </h4>
+          </div>
+        </div>
+        <div>
+          <NBList />
+        </div>
+        <div>
+          <div className="Assessment-container">
+            <div
+              className="Assessment_button"
+              onClick={() => navigate(`/dashboard/${visitorID}/assessment`)}
+            >
+              <div className="icon">
+                <i className="bi bi-pencil fs-4"></i>
+              </div>
+              <span>Assessment</span>
+            </div>
+          </div>
+          <div className="Logout-container">
+            <div className="Logout_button" onClick={handleLogout}>
+              <div className="icon">
+                <i className="bi bi-box-arrow-right fs-4"></i>
+              </div>
+              <span>Logout</span>
+            </div>
+          </div>
+          <div className="Instructions-container">
+            <div
+              className="Instructions_button"
+              onClick={() => setShowPopup(true)}
+            >
+              <div className="icon">
+                <i className="bi bi-file-earmark-ruled fs-4"></i>
+              </div>
+              <span>Instructions</span>
+            </div>
+          </div>
+          <Leaderboard />
+          <Feedback />
+        </div>
+      </div>
       {showPopup && (
         <div
           className="modal show pop-up-overlay"
           tabIndex="-1"
           role="dialog"
-          style={{ display: "block" }}
+          style={{ display: "block", overflow: "hidden" }}
         >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -126,19 +181,15 @@ const Dashboard = () => {
                     </li>
                   </ul>
                   <li>
-                    <strong>
-                      <i className="bi bi-book-fill"></i> Guidelines for
-                      Interacting with AI Chatbot
+                    <strong className="text-danger">
+                      <i className="bi bi-exclamation-triangle-fill"></i>{" "}
+                      Warning
                     </strong>
                   </li>
                   <ul>
-                    <li>
-                      Be Respectful: Maintain a respectful and appropriate
-                      conversation.
-                    </li>
-                    <li>
-                      Ask Questions: Engage with the Notable Batanguenos and
-                      learn about their life and contributions.
+                    <li className="text-danger">
+                      This is only an AI-driven chatbot it does not represent
+                      the Notable Batanguenos point of view.
                     </li>
                   </ul>
                 </ul>
@@ -156,57 +207,7 @@ const Dashboard = () => {
           </div>
         </div>
       )}
-
-      <div className=" d-flex justify-content-between mb-5 pt-2">
-        <div className="d-flex align-items-center p-4 square reward-points rounded-pill">
-          <img src={pegasusLogo} alt="" width={45} height={45} />
-          <h4 className="dashboard-nav-text">
-            <span className="m-2 dashboard-nav-text">
-              {visitor.rewardPoints}
-            </span>
-            Reward Point
-            {visitor.rewardPoints > 1 ? (
-              <span className="dashboard-nav-text">s</span>
-            ) : (
-              ""
-            )}
-          </h4>
-        </div>
-        <nav className="navbar navbar-expand-lg navbar-light">
-          <div className=".container">
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul className="navbar-nav gap-2">
-                <li className="nav-item button-30" role="button">
-                  <Link
-                    className="nav-link"
-                    to={`/dashboard/${visitorID}/assessment`}
-                  >
-                    <span className="d-none d-sm-inline p-2 ms-2 fs-5 ">
-                      <i className="bi bi-pencil"></i> Take Assessment
-                    </span>
-                  </Link>
-                </li>
-                <li
-                  className="nav-item button-30"
-                  role="button"
-                  onClick={handleLogout}
-                >
-                  <Link className="nav-link">
-                    <i className="bi bi-box-arrow-right fs-5"></i>
-                    <span className="d-none d-sm-inline p-2 fs-5 ">Logout</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <div>
-        <NBList />
-        <Feedback />
-        <Leaderboard />
-      </div>
-    </div>
+    </>
   );
 };
 

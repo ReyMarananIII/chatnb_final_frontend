@@ -117,10 +117,12 @@ function Assessment() {
                     <h2 className="card-title mt-2 quiz-font quiz-content-margin">
                       {questions[currentQuestion].question}
                     </h2>
-                    <ul className="list-group-flush mt-4 fs-4  quiz-content-margin" 
-                    style={{
-                      listStyleType: "none",
-                    }}>
+                    <ul
+                      className="list-group-flush mt-4 fs-4  quiz-content-margin"
+                      style={{
+                        listStyleType: "none",
+                      }}
+                    >
                       {questions[currentQuestion].choices.map(
                         (choice, index) => (
                           <li key={index}>
@@ -182,26 +184,30 @@ function Assessment() {
       </div>
 
       {showModal && (
-          <div class="modal modal-overlay" tabindex="-1">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Congratulations!</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+        <div class="modal modal-overlay" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Congratulations!</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
                 <p>You have earned {score} reward points in the quiz.</p>
-                </div>
-                <div class="modal-footer">
+              </div>
+              <div class="modal-footer">
                 <button className="btn btn-primary" onClick={closeModal}>
                   Return
                 </button>
-                </div>
               </div>
             </div>
-          </div>          
+          </div>
+        </div>
       )}
-
     </div>
   );
 }

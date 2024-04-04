@@ -15,7 +15,7 @@ const AdminDashboard = () => {
     });
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid h-100vh" style={{ overflow: "hidden" }}>
       <div className="row flex-nowrap">
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 admin-dashboard">
           <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
@@ -78,8 +78,10 @@ const AdminDashboard = () => {
             </ul>
           </div>
         </div>
-        <div className="col p-0 m-0">
-          <Outlet />
+        <div className="col p-0 m-0" style={{ overflow: "auto" }}>
+          <div style={{ maxHeight: "100vh", overflowY: "auto" }}>
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>

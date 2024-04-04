@@ -389,7 +389,7 @@ html,
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-  z-index: 999; /* Ensure the overlay is above other content */
+  z-index: 100; /* Ensure the overlay is above other content */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -480,7 +480,6 @@ html,
 
 /* Assessment UI */
 
-
 /*Admin*/
 
 .standard-admin-background {
@@ -493,9 +492,9 @@ html,
 
 .feedback-container {
   position: fixed;
-  bottom: 10px;
+  bottom: 150px;
   right: 10px;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .feedback-button {
@@ -508,20 +507,20 @@ html,
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  z-index: 1001;  
+  z-index: 11;
 }
 
 .feedback-form {
   position: fixed;
-  bottom: 90px;
-  right: 30px;
-  width: 300px;
-  height: 300px;
+  bottom: 10px;
+  right: 10px;
+  width: 350px;
+  height: 450px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 1rem;
   padding: 15px;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .feedback-form h4 {
@@ -550,26 +549,26 @@ html,
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1002;
+  z-index: 100;
 }
 
-
-.feedback-container .feedback_button{
+.feedback-container .feedback_button {
   display: inline-block;
   height: 60px;
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  background: #fff;
+  background: #20bf9d;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-out;
 }
-.feedback-container .feedback_button:hover{
+.feedback-container .feedback_button:hover {
   width: 200px;
+  background: white;
 }
-.feedback-container .feedback_button .icon{
+.feedback-container .feedback_button .icon {
   display: inline-block;
   height: 60px;
   width: 60px;
@@ -579,33 +578,32 @@ html,
   line-height: 60px;
   transition: all 0.3s ease-out;
 }
-.feedback-container .feedback_button:nth-child(1):hover .icon{
-  background: #20BF9D;
+.feedback-container .feedback_button:nth-child(1):hover .icon {
+  background: #20bf9d;
 }
-.feedback-container .feedback_button:nth-child(2):hover .icon{
-  background: #20BF9D;
+.feedback-container .feedback_button:nth-child(2):hover .icon {
+  background: #20bf9d;
 }
 
-.feedback-container.feedback_button .icon i{
+.feedback-container.feedback_button .icon i {
   font-size: 25px;
   line-height: 60px;
   transition: all 0.3s ease-out;
 }
-.feedback-container .feedback_button:hover .icon i{
+.feedback-container .feedback_button:hover .icon i {
   color: #fff;
 }
-.feedback-container .feedback_button span{
+.feedback-container .feedback_button span {
   font-size: 20px;
   font-weight: 500;
   line-height: 60px;
   margin-left: 10px;
   transition: all 0.3s ease-out;
 }
-.feedback-container.feedback_button:nth-child(1) span{
-  color: #4267B2;
+.feedback-container.feedback_button:nth-child(1) span {
+  color: #4267b2;
 }
 /*Feedback UI*/
-
 
 /*Leaderboard UI*/
 
@@ -613,7 +611,7 @@ html,
   position: fixed;
   bottom: 80px;
   right: 10px;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .Leaderboard-button {
@@ -626,48 +624,26 @@ html,
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  z-index: 1001;  
+  z-index: 11;
 }
 
-.Leaderboard-form {
-  position: fixed;
-  bottom: 90px;
-  right: 30px;
-  width: 300px;
-  height: 300px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 1rem;
-  padding: 15px;
-  z-index: 1000;
-}
-
-.Leaderboard-form h4 {
-  margin-top: 0;
-  margin-bottom: 1Leaderboard
-}
-
-.Leaderboard-form .form-group {
-  margin-bottom: 15px;
-}
-
-
-.Leaderboard-container .Leaderboard_button{
+.Leaderboard-container .Leaderboard_button {
   display: inline-block;
   height: 60px;
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  background: #fff;
+  background: #20bf9d;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-out;
 }
-.Leaderboard-container .Leaderboard_button:hover{
+.Leaderboard-container .Leaderboard_button:hover {
   width: 200px;
+  background: white;
 }
-.Leaderboard-container .Leaderboard_button .icon{
+.Leaderboard-container .Leaderboard_button .icon {
   display: inline-block;
   height: 60px;
   width: 60px;
@@ -677,29 +653,254 @@ html,
   line-height: 60px;
   transition: all 0.3s ease-out;
 }
-.Leaderboard-container .Leaderboard_button:nth-child(1):hover .icon{
-  background: #20BF9D;
+.Leaderboard-container .Leaderboard_button:nth-child(1):hover .icon {
+  background: #20bf9d;
 }
-.Leaderboard-container .Leaderboard_button:nth-child(2):hover .icon{
-  background: #20BF9D;
+.Leaderboard-container .Leaderboard_button:nth-child(2):hover .icon {
+  background: #20bf9d;
 }
 
-.Leaderboard-container.Leaderboard_button .icon i{
+.Leaderboard-container.Leaderboard_button .icon i {
   font-size: 25px;
   line-height: 60px;
   transition: all 0.3s ease-out;
 }
-.Leaderboard-container .Leaderboard_button:hover .icon i{
+.Leaderboard-container .Leaderboard_button:hover .icon i {
   color: #fff;
 }
-.Leaderboard-container .Leaderboard_button span{
+.Leaderboard-container .Leaderboard_button span {
   font-size: 20px;
   font-weight: 500;
   line-height: 60px;
   margin-left: 10px;
   transition: all 0.3s ease-out;
 }
-.Leaderboard-container.Leaderboard_button:nth-child(1) span{
-  color: #4267B2;
+.Leaderboard-container.Leaderboard_button:nth-child(1) span {
+  color: #4267b2;
 }
 /*Leaderboard UI*/
+
+/*Assessment UI*/
+
+.Assessment-container {
+  position: fixed;
+  bottom: 220px;
+  right: 10px;
+  z-index: 10;
+}
+
+.Assessment-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: none;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.Assessment-container .Assessment_button {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 0 5px;
+  overflow: hidden;
+  background: #20bf9d;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+.Assessment-container .Assessment_button:hover {
+  width: 200px;
+  background: white;
+}
+.Assessment-container .Assessment_button .icon {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.Assessment-container .Assessment_button:nth-child(1):hover .icon {
+  background: #20bf9d;
+}
+.Assessment-container .Assessment_button:nth-child(2):hover .icon {
+  background: #20bf9d;
+}
+
+.Assessment-container.Assessment_button .icon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.Assessment-container .Assessment_button:hover .icon i {
+  color: #fff;
+}
+.Assessment-container .Assessment_button span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+.Assessment-container.Assessment_button:nth-child(1) span {
+  color: #4267b2;
+}
+/*Assessment UI*/
+
+/*Logout UI*/
+
+.Logout-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.Logout-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: none;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.Logout-container .Logout_button {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 0 5px;
+  overflow: hidden;
+  background: #20bf9d;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+.Logout-container .Logout_button:hover {
+  width: 200px;
+  background: white;
+}
+.Logout-container .Logout_button .icon {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.Logout-container .Logout_button:nth-child(1):hover .icon {
+  background: #20bf9d;
+}
+.Logout-container .Logout_button:nth-child(2):hover .icon {
+  background: #20bf9d;
+}
+
+.Logout-container.Logout_button .icon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.Logout-container .Logout_button:hover .icon i {
+  color: #fff;
+}
+.Logout-container .Logout_button span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+.Logout-container.Logout_button:nth-child(1) span {
+  color: #4267b2;
+}
+/*Logout UI*/
+
+/*Instructions UI*/
+
+.Instructions-container {
+  position: fixed;
+  bottom: 290px;
+  right: 10px;
+  z-index: 10;
+}
+
+.Instructions-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: none;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.Instructions-container .Instructions_button {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 0 5px;
+  overflow: hidden;
+  background: #20bf9d;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+.Instructions-container .Instructions_button:hover {
+  width: 200px;
+  background: white;
+}
+.Instructions-container .Instructions_button .icon {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.Instructions-container .Instructions_button:nth-child(1):hover .icon {
+  background: #20bf9d;
+}
+.Instructions-container .Instructions_button:nth-child(2):hover .icon {
+  background: #20bf9d;
+}
+
+.Instructions-container.Instructions_button .icon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.Instructions-container .Instructions_button:hover .icon i {
+  color: #fff;
+}
+.Instructions-container .Instructions_button span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+.Instructions-container.Instructions_button:nth-child(1) span {
+  color: #4267b2;
+}
+/*Logout UI*/
