@@ -61,7 +61,7 @@ const Feedback = () => {
             <h4 className="text-center col-11">Feedback</h4>
             <button
               type="button"
-              class="btn-close col me-2"
+              className="btn-close col me-2"
               aria-label="Close"
               onClick={toggleForm}
             ></button>
@@ -88,23 +88,23 @@ const Feedback = () => {
       )}
 
       {showModal && (
-        <div class="modal modal-overlay" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Feedback Sent</h5>
+        <div className="modal modal-overlay" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Feedback Sent</h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                   onClick={closeModal}
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <p>Your feedback has been successfully sent!</p>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button className="btn btn-primary" onClick={closeModal}>
                   Close
                 </button>

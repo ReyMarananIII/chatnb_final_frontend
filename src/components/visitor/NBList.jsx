@@ -22,7 +22,7 @@ const NBList = () => {
   }, []);
 
   return (
-    <div className="chat-head-grid">
+    <div className="chat-head-grid mt-5">
       {nb.map((nb) => (
         <div className="chat-head" key={nb.nbID}>
           <button
