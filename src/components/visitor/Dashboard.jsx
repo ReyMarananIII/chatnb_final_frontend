@@ -142,10 +142,13 @@ const Dashboard = () => {
                     </strong>
                   </li>
                   <ul>
-                    <li className="mb-3">
-                      {" "}
+                    <li>
                       NB Selection Panel: Browse available Notable Batanguenos
                       to chat with.
+                    </li>
+                    <li>Scoreboard: Check the currently leading scorer.</li>
+                    <li className="mb-2">
+                      Feedback: Send us your comments and recommendations.
                     </li>
                   </ul>
                   <li>
@@ -158,32 +161,27 @@ const Dashboard = () => {
                     <li>
                       Select NB: Click on a NB from the NB Selection Panel
                     </li>
-                    <li className="mb-3">
+                    <li className="mb-2">
                       Start Chatting: Ask questions about the Notable
-                      Batanguenos' life, contribution to the province, and
-                      historical context.
+                      Batanguenos' life.
                     </li>
                   </ul>
                   <li>
                     <strong>
-                      <i className="bi bi-bar-chart-line-fill"></i> Additional
-                      Features
+                      <i className="bi bi-pencil-fill"></i> Assessment
                     </strong>
                   </li>
                   <ul>
-                    <li>
-                      Scoreboard: Track your reward points and the currently
-                      leading scorer.
-                    </li>
-                    <li className="mb-3">
-                      Assessment Features: Test your knowledge about Batangas
-                      history and heroes through quiz.
+                    <li>Direction: Select the correct answer.</li>
+                    <li className="mb-2">
+                      Reward Points: One Reward points is given for each correct
+                      answer.
                     </li>
                   </ul>
                   <li>
                     <strong className="text-danger">
                       <i className="bi bi-exclamation-triangle-fill"></i>{" "}
-                      Warning
+                      Attention
                     </strong>
                   </li>
                   <ul>

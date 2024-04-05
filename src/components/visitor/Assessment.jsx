@@ -36,7 +36,7 @@ function Assessment() {
     e.preventDefault();
     let score = 0;
     questions.forEach((question, index) => {
-      if (question.choices[answers[index]].isCorrectChoice) {
+      if (question.choices[answers[index]]?.isCorrectChoice) {
         score++;
       }
     });
