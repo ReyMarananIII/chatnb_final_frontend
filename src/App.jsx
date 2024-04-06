@@ -15,19 +15,18 @@ import AboutUs from "./components/visitor/AboutUs";
 import AdminAboutUs from "./components/admin/AdminAboutUs";
 import Assessment from "./components/visitor/Assessment";
 import EditAssessment from "./components/admin/EditAssessment";
-import Feedback from "./components/visitor/Feedback";
 import ViewFeedback from "./components/admin/ViewFeedback";
-import LeaderBoards from "./components/visitor/LeaderBoards";
 import ViewLeaderboards from "./components/admin/ViewLeaderboards";
+import NoPage from "./components/utils/NoPage";
 
 function App() {
   return (
     <BrowserRouter>
       {/**Visitor Routes */}
       <Routes>
+        <Route path="*" element={<NoPage />}></Route>
         <Route path="/" element={<Login />}></Route>
         <Route path="/AboutUs" element={<AboutUs />}></Route>
-
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard/:visitorID" element={<Dashboard />}></Route>
           <Route
@@ -35,14 +34,6 @@ function App() {
             element={<Assessment />}
           ></Route>
           <Route path="/dashboard/chat_nb/:nbID" element={<ChatNB />}></Route>
-          <Route
-            path="/dashboard/:visitorID/feedback"
-            element={<Feedback />}
-          ></Route>
-          <Route
-            path="/dashboard/:visitorID/leaderboards"
-            element={<LeaderBoards />}
-          ></Route>
         </Route>
 
         {/**Admin Routes */}

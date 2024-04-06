@@ -416,6 +416,11 @@ html,
   font-family: "Dancing Script", cursive;
 }
 
+.no-page-font {
+  font-weight: bold;
+  font-family: "Dancing Script", cursive;
+}
+
 .quiz-content-margin {
   margin-left: 12%;
 }
