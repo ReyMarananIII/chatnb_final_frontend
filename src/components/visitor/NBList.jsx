@@ -22,7 +22,12 @@ const NBList = () => {
   }, []);
 
   return (
-    <div className="d-flex flex-wrap justify-content-center">
+    <div
+      className="d-flex flex-wrap"
+      style={{
+        justifyContent: nb.length <= 2 ? "center" : "start",
+      }}
+    >
       {nb.map((nb) => (
         <div
           className="chat-head mt-5 mb-3"
