@@ -6,7 +6,9 @@ import quiz_bg from "../../assets/images/quiz_bg.png";
 import nblistbg from "../../assets/images/nb-list_bg2.png";
 
 function Assessment() {
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState([
+    { assessmentID: "", choices: [], question: "" },
+  ]);
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showModal, setShowModal] = useState(false); // State for displaying modal
@@ -80,6 +82,8 @@ function Assessment() {
     navigate(`/dashboard/${visitorID}`); // Navigate to dashboard
   };
 
+  console.log(questions);
+
   return (
     <div
       style={{
@@ -90,94 +94,71 @@ function Assessment() {
         height: "100vh",
       }}
     >
-      <div className="container-fluid museum-bg p-4">
-        <div className="row justify-content-center">
-          <div className="col-sm-11 ">
-            <div
-              className="quiz-text card"
+      <div className="quiz-text d-flex justify-content-center align-items-center w-100 h-100">
+        <div
+          className="d-flex flex-column justify-content-center align-items-center"
+          style={{
+            backgroundImage: `url(${quiz_bg})`,
+            backgroundRepeat: "no-repeat",
+            width: "158vh", // Adjust the width
+            height: "69vh",
+          }}
+        >
+          <div>
+            <h1 className="quiz-font">
+              Historical Quiz for Notable Batangauenos
+            </h1>
+            <h2 className="quiz-font">{questions[currentQuestion].question}</h2>
+            <ul
+              className="list-group-flush fs-4"
               style={{
-                backgroundImage: `url(${quiz_bg})`,
-                backgroundRepeat: "no-repeat",
-                width: "100%", // Adjust the width
-                backgroundPosition: "center",
-                height: "90vh",
+                listStyleType: "none",
               }}
             >
-              <div
-                className="card-body ms-5 p-5 card-margin"
-                style={{
-                  width: "85%", // Adjust the width
-                }}
-              >
-                <h1 className="museum-header quiz-font mt-2 quiz-content-margin">
-                  Historical Quiz for Notable Batangauenos
-                </h1>
-                {questions.length > 0 ? (
-                  <>
-                    <h2 className="card-title mt-2 quiz-font quiz-content-margin">
-                      {questions[currentQuestion].question}
-                    </h2>
-                    <ul
-                      className="list-group-flush mt-4 fs-4  quiz-content-margin"
-                      style={{
-                        listStyleType: "none",
-                      }}
+              {questions[currentQuestion].choices.map((choice, index) => (
+                <li key={index}>
+                  <div className="form-check quiz-font">
+                    <input
+                      className="form-check-input "
+                      type="radio"
+                      id={`choice_${index}`}
+                      name={`question_${currentQuestion}`}
+                      value={index}
+                      checked={answers[currentQuestion] === index}
+                      onChange={() =>
+                        handleAnswerSelect(currentQuestion, index)
+                      }
+                    />
+                    <label
+                      className="quiz-font form-check-label museum-label fs-3"
+                      htmlFor={`choice_${index}`}
                     >
-                      {questions[currentQuestion].choices.map(
-                        (choice, index) => (
-                          <li key={index}>
-                            <div className="form-check quiz-font">
-                              <input
-                                className="form-check-input "
-                                type="radio"
-                                id={`choice_${index}`}
-                                name={`question_${currentQuestion}`}
-                                value={index}
-                                checked={answers[currentQuestion] === index}
-                                onChange={() =>
-                                  handleAnswerSelect(currentQuestion, index)
-                                }
-                              />
-                              <label
-                                className="quiz-font form-check-label museum-label fs-3"
-                                htmlFor={`choice_${index}`}
-                              >
-                                {choice.choice}
-                              </label>
-                            </div>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                    <div className="d-flex mt-4 gap-3 quiz-content-margin">
-                      <button
-                        className="btn btn-primary museum-btn"
-                        onClick={handlePrev}
-                        disabled={currentQuestion === 0}
-                      >
-                        Prev
-                      </button>
-                      <button
-                        className="btn btn-primary museum-btn"
-                        onClick={handleNext}
-                        disabled={currentQuestion === questions.length - 1}
-                      >
-                        Next
-                      </button>
-                      {currentQuestion === questions.length - 1 && (
-                        <button
-                          className="btn btn-success museum-btn justify-content-between"
-                          onClick={handleSubmit}
-                        >
-                          Submit
-                        </button>
-                      )}
-                    </div>
-                  </>
-                ) : (
-                  <p>Loading...</p>
-                )}
-              </div>
+                      {choice.choice}
+                    </label>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="d-flex gap-3">
+              <button
+                className="btn btn-primary"
+                onClick={handlePrev}
+                disabled={currentQuestion === 0}
+              >
+                Prev
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={handleNext}
+                disabled={currentQuestion === questions.length - 1}
+              >
+                Next
+              </button>
+              {currentQuestion === questions.length - 1 && (
+                <button className="btn btn-success" onClick={handleSubmit}>
+                  Submit
+                </button>
+              )}
             </div>
           </div>
         </div>
