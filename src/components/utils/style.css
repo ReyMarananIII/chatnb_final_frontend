@@ -286,14 +286,6 @@ html,
 
 /* NB LIST STYLE */
 
-.chat-head-grid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(calc(33.33% - 20px), 1fr)
-  ); /* Three chat heads per row */
-}
-
 .chat-head {
   text-align: center;
 }

@@ -81,7 +81,7 @@ const NB = () => {
                     />
                   </td>
                   <td className="border">{e.name}</td>
-                  <td className="border">{e.information}</td>
+                  <td className="border text-align-justify">{e.information}</td>
                   <td className="border">
                     <Link
                       to={`/admin_dashboard/edit_nb/` + e.nbID}

@@ -22,9 +22,13 @@ const NBList = () => {
   }, []);
 
   return (
-    <div className="chat-head-grid mt-5">
+    <div className="d-flex flex-wrap justify-content-center">
       {nb.map((nb) => (
-        <div className="chat-head" key={nb.nbID}>
+        <div
+          className="chat-head mt-5 mb-3"
+          key={nb.nbID}
+          style={{ flex: "0 0 33.33%" }}
+        >
           <button
             onClick={(e) => {
               e.preventDefault();
