@@ -100,6 +100,8 @@ function Assessment() {
           style={{
             backgroundImage: `url(${quiz_bg})`,
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
             width: "158vh", // Adjust the width
             height: "69vh",
           }}
