@@ -82,8 +82,6 @@ function Assessment() {
     navigate(`/dashboard/${visitorID}`); // Navigate to dashboard
   };
 
-  console.log(questions);
-
   return (
     <div
       style={{
@@ -143,24 +141,36 @@ function Assessment() {
             </ul>
             <div className="d-flex gap-3">
               <button
-                className="btn btn-primary"
+                className={
+                  currentQuestion === 0 ? "btn btn-disabled" : "btn btn-primary"
+                }
                 onClick={handlePrev}
                 disabled={currentQuestion === 0}
               >
                 Prev
               </button>
               <button
-                className="btn btn-primary"
+                className={
+                  currentQuestion === questions.length - 1
+                    ? "btn btn-disabled"
+                    : "btn btn-primary"
+                }
                 onClick={handleNext}
                 disabled={currentQuestion === questions.length - 1}
               >
                 Next
               </button>
-              {currentQuestion === questions.length - 1 && (
-                <button className="btn btn-success" onClick={handleSubmit}>
-                  Submit
-                </button>
-              )}
+              <button
+                className={
+                  currentQuestion !== questions.length - 1
+                    ? "btn btn-disabled"
+                    : "btn btn-success"
+                }
+                onClick={handleSubmit}
+                disabled={currentQuestion !== questions.length - 1}
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>
@@ -177,6 +187,7 @@ function Assessment() {
                   className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  onClick={closeModal}
                 ></button>
               </div>
               <div className="modal-body">
