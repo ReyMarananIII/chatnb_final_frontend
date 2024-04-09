@@ -34,7 +34,7 @@ const LeaderBoards = () => {
           </div>
           <span>Leaderboard</span>
         </div>
-      </div>{" "}
+      </div>
       {showModal && (
         <div className="modal modal-overlay" tabIndex="-1" role="dialog">
           <div
@@ -42,13 +42,12 @@ const LeaderBoards = () => {
             role="document"
             style={{
               width: "500px",
-              height: "80vh",
             }}
           >
             <div className="modal-content">
               <div className="modal-header">
                 <h4 className=" modal-title">
-                  <i className="bi bi-trophy-fill"></i> Leaderboard
+                  <i className="bi bi-trophy-fill text-warning"></i> Leaderboard
                 </h4>
                 <button
                   type="button"
