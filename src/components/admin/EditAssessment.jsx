@@ -116,8 +116,6 @@ const EditAssessment = () => {
           })),
         }
       );
-
-      setChoices([{ choice: "", isCorrectChoice: false }]);
       setQuestions((prevItems) =>
         prevItems.map((item) =>
           item.assessmentID === selectedQuestion.assessmentID
@@ -133,6 +131,7 @@ const EditAssessment = () => {
         )
       );
 
+      setChoices([{ choice: "", isCorrectChoice: false }]);
       setMessage("Question updated successfully");
       setSelectedQuestion(null);
       setQuestionText("");
