@@ -336,6 +336,14 @@ html,
   background: #ddcdb35d;
 }
 
+.assessment-text-visitor-background {
+  padding: 5px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #b9a591;
+}
+
 .chat-head .name {
   display: block;
   font-size: 33px;

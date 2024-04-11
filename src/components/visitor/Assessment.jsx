@@ -4,6 +4,7 @@ import { UseHooks } from "../../hooks/useHooks.jsx";
 import { useNavigate } from "react-router-dom";
 import quiz_bg from "../../assets/images/quiz_bg.png";
 import nblistbg from "../../assets/images/nb-list_bg2.png";
+import "../utils/style.css";
 
 function Assessment() {
   const [questions, setQuestions] = useState([
@@ -92,9 +93,12 @@ function Assessment() {
         height: "100vh",
       }}
     >
-      <div className="quiz-text d-flex justify-content-center align-items-center w-100 h-100">
+      <h2 className="quiz-font text-center assessment-text-visitor-background">
+        Notable Batangauenos Assessment
+      </h2>
+      <div className="quiz-text d-flex flex-column justify-content-center align-items-center w-100 h-100">
         <div
-          className="d-flex flex-column justify-content-center align-items-center"
+          className="d-flex flex-column justify-content-center"
           style={{
             backgroundImage: `url(${quiz_bg})`,
             backgroundRepeat: "no-repeat",
@@ -104,10 +108,7 @@ function Assessment() {
             height: "69vh",
           }}
         >
-          <div>
-            <h1 className="quiz-font">
-              Historical Quiz for Notable Batangauenos
-            </h1>
+          <div className="m-5 p-5">
             <h2 className="quiz-font">{questions[currentQuestion].question}</h2>
             <ul
               className="list-group-flush fs-4"

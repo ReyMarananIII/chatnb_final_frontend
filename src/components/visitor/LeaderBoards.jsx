@@ -78,9 +78,33 @@ const LeaderBoards = () => {
                       .map((e, index) =>
                         e.visitorID === visitorID ? (
                           <tr key={e.rewardpointsID}>
-                            <td className="border bg-info">{index + 1}</td>
-                            <td className="border bg-info">{e.username}</td>
-                            <td className="border bg-info">{e.totalPoints}</td>
+                            <td
+                              className="border"
+                              style={{
+                                color: "#223336",
+                                backgroundColor: "#00c3a5",
+                              }}
+                            >
+                              {index + 1}
+                            </td>
+                            <td
+                              className="border"
+                              style={{
+                                color: "#223336",
+                                backgroundColor: "#00c3a5",
+                              }}
+                            >
+                              {e.username}
+                            </td>
+                            <td
+                              className="border"
+                              style={{
+                                color: "#223336",
+                                backgroundColor: "#00c3a5",
+                              }}
+                            >
+                              {e.totalPoints}
+                            </td>
                           </tr>
                         ) : (
                           <tr key={e.rewardpointsID}>
