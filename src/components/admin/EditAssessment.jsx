@@ -61,11 +61,17 @@ const EditAssessment = () => {
       setMessage("Please fill in all input fields");
       return;
     }
+
+    // To remove empty choices
+    const filteredChoices = choices.filter(
+      (choice) => choice.choice.trim() !== ""
+    );
+
     try {
       await axios
         .post("http://localhost:3000/admin/questions", {
           question: questionText,
-          choices: choices.map((choice) => ({
+          choices: filteredChoices.map((choice) => ({
             choice: choice.choice,
             isCorrectChoice: choice.isCorrectChoice,
           })),
@@ -76,7 +82,7 @@ const EditAssessment = () => {
             {
               assessmentID: res.data,
               question: questionText,
-              choices: choices.map((choice) => ({
+              choices: filteredChoices.map((choice) => ({
                 choice: choice.choice,
                 isCorrectChoice: choice.isCorrectChoice,
               })),
@@ -94,12 +100,17 @@ const EditAssessment = () => {
   const handleUpdateQuestion = async () => {
     if (!selectedQuestion || !questionText || !choices.length) return;
 
+    // To remove empty choices
+    const filteredChoices = choices.filter(
+      (choice) => choice.choice.trim() !== ""
+    );
+
     try {
       await axios.put(
         `http://localhost:3000/admin/questions/${selectedQuestion.assessmentID}`,
         {
           question: questionText,
-          choices: choices.map((choice) => ({
+          choices: filteredChoices.map((choice) => ({
             choice: choice.choice,
             isCorrectChoice: choice.isCorrectChoice,
           })),
@@ -113,7 +124,7 @@ const EditAssessment = () => {
             ? {
                 ...item,
                 question: questionText,
-                choices: choices.map((choice) => ({
+                choices: filteredChoices.map((choice) => ({
                   choice: choice.choice,
                   isCorrectChoice: choice.isCorrectChoice,
                 })),
