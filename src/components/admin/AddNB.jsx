@@ -10,11 +10,11 @@ const AddNB = () => {
     image: "",
     model: "",
     bgImage: "",
+    reference: "",
   });
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    console.log(nb);
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", nb.name);
@@ -23,6 +23,7 @@ const AddNB = () => {
     formData.append("image", nb.image);
     formData.append("model", nb.model);
     formData.append("bgImage", nb.bgImage);
+    formData.append("reference", nb.reference);
 
     axios
       .post("http://localhost:3000/admin/add_nb", formData)
@@ -54,6 +55,7 @@ const AddNB = () => {
               className="form-control rounded-0"
               id="inputName"
               placeholder="Enter Name"
+              required
               onChange={(e) => setNB({ ...nb, name: e.target.value })}
             />
           </div>
@@ -64,10 +66,24 @@ const AddNB = () => {
             <textarea
               rows={11}
               type="text"
+              required
               className="form-control rounded-0"
               id="inputInformation"
               placeholder="Enter Information"
               onChange={(e) => setNB({ ...nb, information: e.target.value })}
+            />
+          </div>
+          <div className="col-12">
+            <label htmlFor="inputReference" className="form-label">
+              Reference
+            </label>
+            <textarea
+              rows={7}
+              type="text"
+              className="form-control rounded-0"
+              id="inputReference"
+              placeholder="Enter Reference"
+              onChange={(e) => setNB({ ...nb, reference: e.target.value })}
             />
           </div>
           <div className="col-12">
@@ -78,6 +94,7 @@ const AddNB = () => {
               type="text"
               className="form-control rounded-0"
               id="inputVoiceID"
+              required
               placeholder="Enter Voice ID"
               onChange={(e) => setNB({ ...nb, voiceID: e.target.value })}
             />
@@ -88,6 +105,7 @@ const AddNB = () => {
             </label>
             <input
               type="file"
+              required
               className="form-control rounded-0"
               id="inputGroupFile01"
               name="image"
@@ -100,6 +118,7 @@ const AddNB = () => {
             </label>
             <input
               type="file"
+              required
               className="form-control rounded-0"
               id="inputGroupFile02"
               name="model"
@@ -112,12 +131,14 @@ const AddNB = () => {
             </label>
             <input
               type="file"
+              required
               className="form-control rounded-0"
               id="inputGroupFile03"
               name="bgImage"
               onChange={(e) => setNB({ ...nb, bgImage: e.target.files[0] })}
             />
           </div>
+
           <div className="col-12">
             <button type="submit" className="btn admin-button w-100">
               Add

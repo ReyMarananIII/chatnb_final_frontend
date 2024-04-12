@@ -11,8 +11,8 @@ const EditNB = () => {
     image: "",
     model: "",
     bgImage: "",
+    reference: "",
   });
-  const [voice, setVoice] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,6 +27,7 @@ const EditNB = () => {
           image: result.data.Result[0].image,
           model: result.data.Result[0].model,
           bgImage: result.data.Result[0].bgImage,
+          reference: result.data.Result[0].reference,
         });
       })
       .catch((err) => console.log(err));
@@ -41,6 +42,7 @@ const EditNB = () => {
     formData.append("image", nb.image);
     formData.append("model", nb.model);
     formData.append("bgImage", nb.bgImage);
+    formData.append("reference", nb.reference);
     axios
       .put("http://localhost:3000/admin/edit_nb/" + nbID, formData)
       .then((result) => {
@@ -70,6 +72,7 @@ const EditNB = () => {
               type="text"
               className="form-control rounded-0"
               id="inputName"
+              required
               placeholder="Enter Name"
               value={nb.name}
               onChange={(e) => setNB({ ...nb, name: e.target.value })}
@@ -82,6 +85,7 @@ const EditNB = () => {
             <textarea
               rows={11}
               type="text"
+              required
               className="form-control rounded-0"
               id="inputInformation"
               placeholder="Enter Information"
@@ -90,11 +94,26 @@ const EditNB = () => {
             />
           </div>
           <div className="col-12">
+            <label htmlFor="inputReference" className="form-label">
+              Reference
+            </label>
+            <textarea
+              rows={7}
+              type="text"
+              value={nb.reference}
+              className="form-control rounded-0"
+              id="inputReference"
+              placeholder="Enter Reference"
+              onChange={(e) => setNB({ ...nb, reference: e.target.value })}
+            />
+          </div>
+          <div className="col-12">
             <label htmlFor="inputVoiceID" className="form-label">
               Voice ID
             </label>
             <input
               type="text"
+              required
               className="form-control rounded-0"
               id="inputVoiceID"
               placeholder="Enter Voice ID"

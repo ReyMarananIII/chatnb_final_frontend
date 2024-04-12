@@ -18,6 +18,7 @@ const ChatNB = () => {
     image: "",
     model: "",
     bgImage: "",
+    reference: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -71,6 +72,7 @@ const ChatNB = () => {
           image: result.data.Result[0].image,
           model: result.data.Result[0].model,
           bgImage: result.data.Result[0].bgImage,
+          reference: result.data.Result[0].reference,
         });
         addNBInfo(
           "system",
@@ -99,7 +101,6 @@ const ChatNB = () => {
           { role: "assistant", content: res.data.message },
         ]);
         setMessage(res.data);
-        console.log(res.data);
         setLoading(false);
         setChat("");
       })
@@ -160,7 +161,7 @@ const ChatNB = () => {
             <nav className="navbar navbar-expand-lg navbar-light fixed-top ">
               <div className="container">
                 <div
-                  className="collapse navbar-collapse "
+                  className="collapse navbar-collapse"
                   id="navbarTogglerDemo02"
                 >
                   <ul className="navbar-nav gap-2">
@@ -170,6 +171,19 @@ const ChatNB = () => {
                       </Link>
                     </li>
                   </ul>
+                </div>
+                <div className="reference-tooltip">
+                  <span className="tooltip-text p-3">
+                    <i className="bi bi-info-circle-fill fs-2"></i>
+                  </span>
+                  <div className="tooltip-content">
+                    <p className="text-center">Reference</p>
+                    {nb.reference.length === 0 ? (
+                      <p>No reference</p>
+                    ) : (
+                      <p>{nb.reference}</p>
+                    )}
+                  </div>
                 </div>
               </div>
             </nav>

@@ -941,3 +941,37 @@ html,
   color: #4267b2;
 }
 /*Logout UI*/
+
+/**Reference Display UI*/
+
+.reference-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  cursor: pointer;
+  color: white;
+}
+
+.tooltip-text:hover {
+  color: #00c3a5;
+}
+
+.tooltip-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+  left: -128px; /* Adjust as needed */
+  width: 290px; /* Fixed width */
+  overflow-wrap: break-word; /* Allow breaking long words */
+  border: 1px solid #00c3a5; /* Border added */
+}
+
+.reference-tooltip:hover .tooltip-content {
+  display: block;
+}

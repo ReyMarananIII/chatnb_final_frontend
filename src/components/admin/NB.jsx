@@ -57,12 +57,14 @@ const NB = () => {
               <th className="border">Image</th>
               <th className="border">Name</th>
               <th className="border">Information</th>
+              <th className="border">Reference</th>
               <th className="border">Action</th>
             </tr>
           </thead>
           <tbody>
             {nb.length === 0 ? (
               <tr>
+                <td className="border"></td>
                 <td className="border"></td>
                 <td className="border text-center">
                   No Notable Batangaueños Added
@@ -82,6 +84,9 @@ const NB = () => {
                   </td>
                   <td className="border">{e.name}</td>
                   <td className="border text-align-justify">{e.information}</td>
+                  <td className="border text-align-justify">
+                    {e.reference ? e.reference : "No reference"}
+                  </td>
                   <td className="border">
                     <Link
                       to={`/admin_dashboard/edit_nb/` + e.nbID}
