@@ -90,6 +90,33 @@ const AddNB = () => {
             <label htmlFor="inputVoiceID" className="form-label">
               Voice ID
             </label>
+            <div className="addNB-tooltip">
+              <span className="addNB-tooltip-text p-2">
+                <i className="bi bi-info-circle-fill fs-5"></i>
+              </span>
+              <div className="addNB-tooltip-content">
+                <h6>
+                  To create or get your Voice ID in Elevenlabs , follow these
+                  steps:
+                </h6>
+                <ol>
+                  <li>
+                    Open{" "}
+                    <a href="https://elevenlabs.io/" target="_blank">
+                      Elevenlabs
+                    </a>
+                  </li>
+                  <li>Go to the Voices section in your account settings.</li>
+                  <li>Click on "Add Generative or Cloned Voice"</li>
+                  <li>
+                    Follow the on-screen instructions to record your voice.
+                  </li>
+                  <li>
+                    Once created, you can get your Voice ID by clicking on "ID".
+                  </li>
+                </ol>
+              </div>
+            </div>
             <input
               type="text"
               className="form-control rounded-0"
@@ -116,6 +143,45 @@ const AddNB = () => {
             <label className="form-label" htmlFor="inputGroupFile02">
               Select Model
             </label>
+            <div className="addNB-tooltip">
+              <span className="addNB-tooltip-text p-2">
+                <i className="bi bi-info-circle-fill fs-5"></i>
+              </span>
+              <div className="addNB-tooltip-content">
+                <h6>
+                  To create your avatar in Ready Player Me, follow these steps:
+                </h6>
+                <ol>
+                  <li>
+                    Open{" "}
+                    <a href="https://readyplayer.me/" target="_blank">
+                      Ready Player Me
+                    </a>
+                  </li>
+                  <li>
+                    Click on "Try our Avatar Creator" to start the creation
+                    process.
+                  </li>
+                  <li>
+                    Follow the on-screen instructions to customize your avatar's
+                    appearance.
+                  </li>
+                  <li>
+                    Once you're happy with your avatar, click on "Save" or
+                    "Finish" to complete the process.
+                  </li>
+                  <li>
+                    Click <i class="bi bi-box-arrow-down"></i> button on the
+                    left side of claim avatar button and copy link
+                  </li>
+                  <li>
+                    Open new tab and paste the link and add
+                    "?morphTargets=ARKit,Oculus Visemes" to the link and press
+                    enter
+                  </li>
+                </ol>
+              </div>
+            </div>
             <input
               type="file"
               required

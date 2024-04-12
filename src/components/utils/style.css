@@ -975,3 +975,37 @@ html,
 .reference-tooltip:hover .tooltip-content {
   display: block;
 }
+
+/**Add NB Tooltip*/
+
+.addNB-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.addNB-tooltip-text {
+  cursor: pointer;
+  color: #00c3a6b8;
+}
+
+.addNB-tooltip-text:hover {
+  color: #00c3a5;
+}
+
+.addNB-tooltip-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+  left: -128px; /* Adjust as needed */
+  width: 850px; /* Fixed width */
+  overflow-wrap: break-word; /* Allow breaking long words */
+  border: 1px solid #00c3a5; /* Border added */
+}
+
+.addNB-tooltip:hover .addNB-tooltip-content {
+  display: block;
+}
