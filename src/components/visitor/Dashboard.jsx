@@ -8,7 +8,7 @@ import Leaderboard from "./LeaderBoards";
 import "../utils/style.css";
 import pegasusLogo from "../../assets/images/TROPHY.png";
 import { UseHooks } from "../../hooks/useHooks.jsx";
-import nblistbg from "../../assets/images/nb-list_bg1.png";
+import nblistbg from "../../assets/images/nb-list_bg4.png";
 
 const Dashboard = () => {
   const navigate = useNavigate();

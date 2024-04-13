@@ -454,16 +454,17 @@ input {
 .chat-head .name {
   display: block;
   font-size: 33px;
-  font-weight: bold;
-  font-family: "Dancing Script", cursive;
+  color: #000;
+  font-family: "Lilita One", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
 .dashboard-nav-text {
   font-size: 28px;
-  font-weight: bold;
-  font-family: "Dancing Script", cursive;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   color: #ffffff;
 }
 
@@ -552,13 +553,15 @@ input {
 /* Assessment UI */
 
 .quiz-font {
-  font-weight: bold;
-  font-family: "Dancing Script", cursive;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .no-page-font {
-  font-weight: bold;
-  font-family: "Dancing Script", cursive;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .quiz-content-margin {
