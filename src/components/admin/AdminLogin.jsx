@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import logo from "../../assets/images/CHATNB_LOGO.png";
 import "../utils/style.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import CHATNB from "../../assets/images/AdminNB.png";

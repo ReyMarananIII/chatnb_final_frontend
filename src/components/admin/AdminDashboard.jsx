@@ -1,10 +1,11 @@
-import React from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
 
 const AdminDashboard = () => {
   const anvigate = useNavigate();
+  const location = useLocation();
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
     axios.get("http://localhost:3000/admin/logout").then((result) => {
@@ -14,8 +15,12 @@ const AdminDashboard = () => {
       }
     });
   };
+
   return (
-    <div className="container-fluid h-100vh" style={{ overflow: "hidden" }}>
+    <div
+      className="container-fluid h-100vh bg-white"
+      style={{ overflow: "hidden" }}
+    >
       <div className="row flex-nowrap">
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 admin-dashboard">
           <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
@@ -35,10 +40,15 @@ const AdminDashboard = () => {
                 <Link
                   to="/admin_dashboard"
                   className="nav-links px-0 align-middle text-white"
+                  style={{
+                    backgroundColor:
+                      location.pathname === "/admin_dashboard" ? "#9a6e4b" : "",
+                  }}
                 >
                   <i className="fs-4 bi bi-people ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">
-                    Notable Batangaueños
+                    Notable <span className="m-2">Batangaueños</span>{" "}
+                    {/**Span to align text */}
                   </span>
                 </Link>
               </li>
@@ -46,6 +56,12 @@ const AdminDashboard = () => {
                 <Link
                   to="/admin_dashboard/edit_assessment"
                   className="nav-links px-0 align-middle text-white"
+                  style={{
+                    backgroundColor:
+                      location.pathname === "/admin_dashboard/edit_assessment"
+                        ? "#9a6e4b"
+                        : "",
+                  }}
                 >
                   <i className="fs-4 bi bi-pen ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Assessment</span>
@@ -55,6 +71,12 @@ const AdminDashboard = () => {
                 <Link
                   to="/admin_dashboard/feedback"
                   className="nav-links px-0 align-middle text-white"
+                  style={{
+                    backgroundColor:
+                      location.pathname === "/admin_dashboard/feedback"
+                        ? "#9a6e4b"
+                        : "",
+                  }}
                 >
                   <i className="fs-4 bi bi-envelope-paper ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Feedback</span>
@@ -64,6 +86,12 @@ const AdminDashboard = () => {
                 <Link
                   to="/admin_dashboard/viewLeaderboards"
                   className="nav-links px-0 align-middle text-white"
+                  style={{
+                    backgroundColor:
+                      location.pathname === "/admin_dashboard/viewLeaderboards"
+                        ? "#9a6e4b"
+                        : "",
+                  }}
                 >
                   <i className="fs-4 bi bi-list-columns-reverse ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Leaderboards</span>

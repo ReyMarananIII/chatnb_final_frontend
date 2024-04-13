@@ -2,8 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import pegasusLogo from "../../assets/images/pegasus1.png";
-import CHATNB from "../../assets/images/ChatNB2.png";
-
+import CHATNB from "../../assets/images/AdminNB.png";
 import "../utils/style.css";
 
 const AdminAboutUs = () => {

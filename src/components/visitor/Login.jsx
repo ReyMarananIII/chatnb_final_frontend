@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import LoginFormBG from "../../assets/images/Vintage_login.png";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import LoginBG from "../../assets/images/Login-bg.png";
 import CHATNB from "../../assets/images/ChatNB2.png";
 import LoginBGVideo from "../../assets/images/VideoBG.mp4";
 import { UseHooks } from "../../hooks/useHooks.jsx";
@@ -47,18 +46,16 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="container-fluid "
-    >
-                <video
+    <div className="container-fluid ">
+      <video
         autoPlay
         muted
         loop
         style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
         }}
       >
         <source src={LoginBGVideo} type="video/mp4" />
@@ -87,12 +84,10 @@ const Login = () => {
         <form
           onSubmit={handleSubmit}
           className="auth-inner card bg-white text-black mx-auto "
-
           style={{
             backgroundImage: `url(${LoginFormBG})`,
             backgroundRepeat: "no-repeat",
           }}
-
         >
           <div className="container-fluid">
             <h6 className="Text2">Welcome! Please login to your account</h6>

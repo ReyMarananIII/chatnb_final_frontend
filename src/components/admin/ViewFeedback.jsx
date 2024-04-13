@@ -42,10 +42,6 @@ const ViewFeedback = () => {
 
   return (
     <div className="px-5 mt-3 mb-3">
-      <div className="d-flex justify-content-center">
-        <h4>Feedback</h4>
-      </div>
-
       <div className="mt-3">
         <table className="table table-hover">
           <thead>
