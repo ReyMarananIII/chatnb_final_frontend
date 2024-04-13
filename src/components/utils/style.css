@@ -121,6 +121,23 @@ html,
   box-shadow: none;
 }
 
+/**Radio button background in assessment*/
+.radio-btn {
+  border-color: #604c3c;
+  box-shadow: none;
+}
+
+.radio-btn:focus {
+  border-color: #604c3c;
+  box-shadow: none;
+  outline: none;
+}
+
+.radio-btn:checked {
+  border-color: #604c3c;
+  background-color: #604c3c;
+}
+
 .form-control:focus {
   border-color: #604c3c;
   box-shadow: none;

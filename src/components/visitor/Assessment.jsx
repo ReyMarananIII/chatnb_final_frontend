@@ -120,7 +120,7 @@ function Assessment() {
                 <li key={index}>
                   <div className="form-check quiz-font">
                     <input
-                      className="form-check-input "
+                      className="form-check-input radio-btn"
                       type="radio"
                       id={`choice_${index}`}
                       name={`question_${currentQuestion}`}
