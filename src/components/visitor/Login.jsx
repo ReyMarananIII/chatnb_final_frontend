@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import "../utils/style.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/images/CHATNB_LOGO.png";
+import LoginFormBG from "../../assets/images/Vintage_login.png";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import LoginBG from "../../assets/images/Login-bg.png";
 import CHATNB from "../../assets/images/ChatNB2.png";
+import LoginBGVideo from "../../assets/images/VideoBG.mp4";
 import { UseHooks } from "../../hooks/useHooks.jsx";
 
 const Login = () => {
@@ -48,15 +49,22 @@ const Login = () => {
   return (
     <div
       className="container-fluid "
-      style={{
-        backgroundImage: `url(${LoginBG})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        height: "100vh",
-        overflow: "hidden",
-      }}
     >
+                <video
+        autoPlay
+        muted
+        loop
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+      >
+        <source src={LoginBGVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       <nav className=" Header-login navbar navbar-expand-lg ">
         <div className="container-fluid ">
           <a className="navbar-brand fs-2 text-white">
@@ -64,10 +72,10 @@ const Login = () => {
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ul-link">
-              <Link className="nav-link text-black ms-4" to={"/"}>
+              <Link className="nav-link text-white ms-4" to={"/"}>
                 Home
               </Link>
-              <Link className="nav-link text-black " to={"/AboutUs"}>
+              <Link className="nav-link text-white" to={"/AboutUs"}>
                 About Us
               </Link>
             </div>
@@ -75,15 +83,18 @@ const Login = () => {
         </div>
       </nav>
 
-      <div className="d-flex flex-sm-col justify-content-between ">
+      <div className="d-flex flex-sm-col justify-content-between login-form">
         <form
           onSubmit={handleSubmit}
           className="auth-inner card bg-white text-black mx-auto "
+
+          style={{
+            backgroundImage: `url(${LoginFormBG})`,
+            backgroundRepeat: "no-repeat",
+          }}
+
         >
           <div className="container-fluid">
-            <h1 className="ChatNB text-center fw-bold mb-4 fs-1">
-              LOGIN YOUR ACCOUNT
-            </h1>
             <h6 className="Text2">Welcome! Please login to your account</h6>
             <div className="Input-login mb-3 ">
               <label className="mb-2">Username</label>
@@ -98,7 +109,7 @@ const Login = () => {
                 }
               />
             </div>
-            <div className="Input-login mb-3 ">
+            <div className="Input-login mb-2 ">
               <label className="mb-2">Password</label>
               <input
                 className="form-control"
@@ -111,23 +122,14 @@ const Login = () => {
                 }
               />
             </div>
-            <div className="text-warning">{error}</div>
-            <div className="d-grid">
-              <button type="submit" className="btn btn-primary mt-4">
-                Login
+            <div className="text-danger warning">{error}</div>
+            <div className="container text-center fs-3 mt-3">
+              <button type="submit" className="login-btn">
+                Sign In
               </button>
             </div>
           </div>
         </form>
-        <div className="w-50 h-50">
-          <div className="w-100 h-100 d-flex align-items-center">
-            <img
-              src={logo}
-              alt="ChatNB Logo"
-              className="logoimage img-fluid d-flex"
-            />
-          </div>
-        </div>
       </div>
     </div>
   );

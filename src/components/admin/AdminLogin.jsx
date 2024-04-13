@@ -5,6 +5,7 @@ import logo from "../../assets/images/CHATNB_LOGO.png";
 import "../utils/style.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import CHATNB from "../../assets/images/AdminNB.png";
+import LoginFormBG from "../../assets/images/Vintage_login.png";
 
 const AdminLogin = () => {
   const [values, setValues] = useState({
@@ -65,13 +66,18 @@ const AdminLogin = () => {
         </div>
       </nav>
 
-      <div className="d-flex flex-sm-col justify-content-between ">
+      <div className="d-flex flex-sm-col justify-content-between login-form">
         <form
           onSubmit={handleSubmit}
           className="auth-inner bg-white text-black mx-auto "
+
+          style={{
+            backgroundImage: `url(${LoginFormBG})`,
+            backgroundRepeat: "no-repeat",
+          }}
+
         >
           <div className="container-fluid">
-          <h1 className="ChatNB text-center fw-bold mb-4 fs-1">LOGIN YOUR ACCOUNT</h1>
             <h6 className="Text2">Welcome! Please login to your account</h6>
             <div className="Input-login mb-3 ">
               <label className="mb-2">Username</label>
@@ -86,7 +92,7 @@ const AdminLogin = () => {
                 }
               />
             </div>
-            <div className="Input-login mb-3 ">
+            <div className="Input-login mb-2 ">
               <label className="mb-2">Password</label>
               <input
                 className="form-control"
@@ -99,23 +105,14 @@ const AdminLogin = () => {
                 }
               />
             </div>
-            <div className="text-warning">{error}</div>
-            <div className="d-grid">
-              <button type="submit" className="btn btn-primary mt-4">
-                Login
+            <div className="text-danger warning">{error}</div>
+            <div className="container text-center fs-3 mt-3">
+              <button type="submit" className="login-btn">
+                Sign In
               </button>
             </div>
           </div>
         </form>
-        <div className="w-50 h-50">
-          <div className="w-100 h-100 d-flex align-items-center">
-            <img
-              src={logo}
-              alt="ChatNB Logo"
-              className="logoimage img-fluid d-flex"
-            />
-          </div>
-        </div>
       </div>
     </div>
   );

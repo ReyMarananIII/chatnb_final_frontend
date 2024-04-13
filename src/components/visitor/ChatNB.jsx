@@ -165,9 +165,9 @@ const ChatNB = () => {
                   id="navbarTogglerDemo02"
                 >
                   <ul className="navbar-nav gap-2">
-                    <li className="nav-item button-30" role="button">
+                  <li className="nav-item button-80" role="button">
                       <Link className="nav-link" to={`/dashboard/${visitorID}`}>
-                        Back
+                        Return
                       </Link>
                     </li>
                   </ul>

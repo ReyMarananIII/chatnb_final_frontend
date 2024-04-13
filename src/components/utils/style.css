@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 * {
   box-sizing: border-box;
@@ -20,7 +21,7 @@ body {
     text-transform: uppercase;
     padding: 10px 20px;
     text-decoration: none;
-    color: #262626;
+    color: #0E2740;
     font-family: "Fira Sans", sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -33,7 +34,7 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      border-bottom: 2px solid #123e55;
+      border-bottom: 2px solid rgb(19, 17, 17);
       transform: scaleY(2);
       opacity: 0;
       transition: 0.3s;
@@ -45,14 +46,14 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #00c3a6b8;
+      background-color: #123d55ce;
       transform: scale(0);
       opacity: 0;
       transition: 0.3s;
       z-index: -1;
     }
     &:hover {
-      color: #fff;
+      color: #000000;
       &:before {
         transform: scaleY(1);
         opacity: 1;
@@ -100,11 +101,20 @@ html,
 .Header-login {
   padding: 10px;
 }
+
+.container-fluid video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+}
+
 .auth-inner {
   width: 500px;
-  height: 80vh;
-  border-radius: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 8px;
+  height: 500px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 50px 70px, rgba(0, 0, 0, 0.22) 30px 20px 12px;
   padding: 50px 55px 45px 55px;
 }
 .auth-inner-aboutus {
@@ -144,13 +154,29 @@ html,
 }
 
 .Text2 {
+  margin-top: 31%;
   color: #00000073;
   font-size: 13px;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.warning{
+  font-family: "Lilita One", sans-serif;
+
+}
+
+.login-form label, input{
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #212121;
 }
 
 .Input-login input {
-  background-color: #efefef;
-  border-radius: 2rem;
+  background-color: #cec7c7;
+  border: none;
 }
 
 .logoimage {
@@ -165,14 +191,66 @@ html,
   margin-left: 80px;
 }
 
+.login-btn {
+  background: none;
+  border: none;
+  width: 40%;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #212121;
+  cursor: pointer;
+  transform: translateZ(0) scale(1);
+  transition: transform .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.login-btn:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.login-btn:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(.125rem);
+}
+
+.login-btn:focus {
+  outline: 0 solid transparent;
+}
+
+.login-btn:focus:before {
+  content: "";
+  left: calc(-1*.375rem);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-1*.375rem);
+  transition: border-radius;
+  user-select: none;
+}
+
+.login-btn:focus:not(:focus-visible) {
+  outline: 0 solid transparent;
+}
+
+.login-btn:focus:not(:focus-visible):before {
+  border-width: 0;
+}
+
+.login-btn:not(:disabled):active {
+  transform: translateY(.125rem);
+}
+
+
+
 .btn-primary {
   padding: 10px 20px;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
   outline: none;
-  color: #070707;
-  background-color: #00c3a6b8;
+  color: wheat;
+  background-color: #0E2740;
   border: none;
   border-radius: 10px;
   box-shadow: 0 9px #999;
@@ -180,7 +258,7 @@ html,
 }
 
 .btn-primary:hover {
-  background-color: #00c3a5;
+  background-color: #354c66;
 }
 
 .btn-success {
@@ -255,7 +333,7 @@ html,
 }
 
 .reward-points {
-  background-color: #00c3a5;
+  background-color: #1F232C;
 }
 
 .nav-links {
@@ -357,6 +435,7 @@ html,
   font-size: 28px;
   font-weight: bold;
   font-family: "Dancing Script", cursive;
+  color: #ffffff;
 }
 
 /* NB LIST STYLE */
@@ -470,51 +549,65 @@ html,
 .quiz-text.card .card-body {
   background-color: transparent !important;
 }
-.button-30 {
-  align-items: center;
-  appearance: none;
-  background-color: #00c3a6b8;
-  border-radius: 4px;
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #00c3a5 0 -3px 0 inset;
+.button-80 {
+  background: #fff;
+  backface-visibility: hidden;
+  border-radius: .375rem;
+  border-style: solid;
+  border-width: .125rem;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #212121;
   cursor: pointer;
-  display: inline-flex;
-  font-family: "JetBrains Mono", monospace;
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+  display: inline-block;
+  font-family: Circular,Helvetica,sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+  padding: .875rem 1.125rem;
   position: relative;
   text-align: left;
   text-decoration: none;
-  transition: box-shadow 0.15s, transform 0.15s;
+  transform: translateZ(0) scale(1);
+  transition: transform .2s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow, transform;
-  font-size: 18px;
-}
-.button-30:focus {
-  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-}
-.button-30:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  transform: translateY(-2px);
-}
-.button-30:active {
-  box-shadow: #d6d6e7 0 3px 7px inset;
-  transform: translateY(2px);
 }
 
+.button-80:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.button-80:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(.125rem);
+}
+
+.button-80:focus {
+  outline: 0 solid transparent;
+}
+
+.button-80:focus:before {
+  content: "";
+  left: calc(-1*.375rem);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-1*.375rem);
+  transition: border-radius;
+  user-select: none;
+}
+
+.button-80:focus:not(:focus-visible) {
+  outline: 0 solid transparent;
+}
+
+.button-80:focus:not(:focus-visible):before {
+  border-width: 0;
+}
+
+.button-80:not(:disabled):active {
+  transform: translateY(.125rem);
+}
 /* Assessment UI */
 
 /*Admin*/
@@ -595,7 +688,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  background: #20bf9d;
+  color: wheat;
+  background: #0E2740;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -603,6 +697,7 @@ html,
 }
 .feedback-container .feedback_button:hover {
   width: 200px;
+  color: #000;
   background: white;
 }
 .feedback-container .feedback_button .icon {
@@ -616,7 +711,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .feedback-container .feedback_button:nth-child(1):hover .icon {
-  background: #20bf9d;
+  background: #1F232C;
 }
 .feedback-container .feedback_button:nth-child(2):hover .icon {
   background: #20bf9d;
@@ -670,7 +765,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  background: #20bf9d;
+  color: wheat;
+  background: #0E2740;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -678,6 +774,7 @@ html,
 }
 .Leaderboard-container .Leaderboard_button:hover {
   width: 200px;
+  color: #000;
   background: white;
 }
 .Leaderboard-container .Leaderboard_button .icon {
@@ -691,7 +788,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .Leaderboard-container .Leaderboard_button:nth-child(1):hover .icon {
-  background: #20bf9d;
+  background: #1F232C;
 }
 .Leaderboard-container .Leaderboard_button:nth-child(2):hover .icon {
   background: #20bf9d;
@@ -745,7 +842,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  background: #20bf9d;
+  color: wheat;
+  background: #0E2740;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -753,6 +851,7 @@ html,
 }
 .Assessment-container .Assessment_button:hover {
   width: 200px;
+  color: #000;
   background: white;
 }
 .Assessment-container .Assessment_button .icon {
@@ -766,7 +865,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .Assessment-container .Assessment_button:nth-child(1):hover .icon {
-  background: #20bf9d;
+  background: #1F232C;
 }
 .Assessment-container .Assessment_button:nth-child(2):hover .icon {
   background: #20bf9d;
@@ -820,7 +919,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  background: #20bf9d;
+  color: wheat;
+  background: #0E2740;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -828,6 +928,7 @@ html,
 }
 .Logout-container .Logout_button:hover {
   width: 200px;
+  color: #000;
   background: white;
 }
 .Logout-container .Logout_button .icon {
@@ -841,7 +942,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .Logout-container .Logout_button:nth-child(1):hover .icon {
-  background: #20bf9d;
+  background: #1F232C;
 }
 .Logout-container .Logout_button:nth-child(2):hover .icon {
   background: #20bf9d;
@@ -895,7 +996,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  background: #20bf9d;
+  color: wheat;
+  background: #0E2740;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -903,6 +1005,7 @@ html,
 }
 .Instructions-container .Instructions_button:hover {
   width: 200px;
+  color: #000;
   background: white;
 }
 .Instructions-container .Instructions_button .icon {
@@ -916,11 +1019,9 @@ html,
   transition: all 0.3s ease-out;
 }
 .Instructions-container .Instructions_button:nth-child(1):hover .icon {
-  background: #20bf9d;
+  background: #1F232C;
 }
-.Instructions-container .Instructions_button:nth-child(2):hover .icon {
-  background: #20bf9d;
-}
+
 
 .Instructions-container.Instructions_button .icon i {
   font-size: 25px;
@@ -973,39 +1074,5 @@ html,
 }
 
 .reference-tooltip:hover .tooltip-content {
-  display: block;
-}
-
-/**Add NB Tooltip*/
-
-.addNB-tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.addNB-tooltip-text {
-  cursor: pointer;
-  color: #00c3a6b8;
-}
-
-.addNB-tooltip-text:hover {
-  color: #00c3a5;
-}
-
-.addNB-tooltip-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  color: black;
-  padding: 5px;
-  border-radius: 5px;
-  z-index: 1;
-  left: -128px; /* Adjust as needed */
-  width: 850px; /* Fixed width */
-  overflow-wrap: break-word; /* Allow breaking long words */
-  border: 1px solid #00c3a5; /* Border added */
-}
-
-.addNB-tooltip:hover .addNB-tooltip-content {
   display: block;
 }

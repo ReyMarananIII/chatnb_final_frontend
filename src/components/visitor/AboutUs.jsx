@@ -28,10 +28,10 @@ const AboutUs = () => {
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ul-link">
-              <Link className="nav-link text-black ms-4" to={"/"}>
+              <Link className="nav-link text-white ms-4" to={"/"}>
                 Home
               </Link>
-              <Link className="nav-link text-black" to={"/AboutUs"}>
+              <Link className="nav-link text-white" to={"/AboutUs"}>
                 About Us
               </Link>
             </div>
