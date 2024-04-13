@@ -143,7 +143,7 @@ function Assessment() {
             <div className="d-flex gap-3">
               <button
                 className={
-                  currentQuestion === 0 ? "btn btn-disabled" : "btn btn-primary"
+                  currentQuestion === 0 ? "btn-disabled" : "btn-primary"
                 }
                 onClick={handlePrev}
                 disabled={currentQuestion === 0}
@@ -153,8 +153,8 @@ function Assessment() {
               <button
                 className={
                   currentQuestion === questions.length - 1
-                    ? "btn btn-disabled"
-                    : "btn btn-primary"
+                    ? "btn-disabled"
+                    : "btn-primary"
                 }
                 onClick={handleNext}
                 disabled={currentQuestion === questions.length - 1}
@@ -164,8 +164,8 @@ function Assessment() {
               <button
                 className={
                   currentQuestion !== questions.length - 1
-                    ? "btn btn-disabled"
-                    : "btn btn-success"
+                    ? "btn-disabled"
+                    : "btn-success"
                 }
                 onClick={handleSubmit}
                 disabled={currentQuestion !== questions.length - 1}
@@ -195,7 +195,7 @@ function Assessment() {
                 <p>You have earned {score} reward points in the quiz.</p>
               </div>
               <div className="modal-footer">
-                <button className="btn btn-primary" onClick={closeModal}>
+                <button className="btn-primary" onClick={closeModal}>
                   Return
                 </button>
               </div>

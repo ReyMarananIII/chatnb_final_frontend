@@ -166,142 +166,145 @@ const EditAssessment = () => {
   };
 
   return (
-    <div className="px-5 mt-3 mb-3">
-      <div className="container-fluid">
-        <div className="d-flex justify-content-center">
-          <h4>Assessment</h4>
-        </div>
-        <div className="row">
-          <div className="col-md-4">
-            <div className="card shadow-sm mb-4">
-              <div className="card-header admin-questions">
-                <h4 className="mb-0">Questions</h4>
-              </div>
-              <div className="card-body">
-                <ul className="list-group">
-                  {questions.length === 0
-                    ? "No Question Added"
-                    : questions.map((question) => (
-                        <li
-                          key={question.assessmentID}
-                          className="list-group-item list-group-item-action"
-                          onClick={() => handleQuestionSelect(question)}
-                        >
-                          {question.question}
-                        </li>
-                      ))}
-                </ul>
-              </div>
-            </div>
+    <>
+      <div className="px-5 mt-3 mb-3">
+        <div className="container-fluid">
+          <div className="d-flex justify-content-center">
+            <h4>Assessment</h4>
           </div>
-          <div className="col-md-8">
-            <div className="sticky-top">
-              <div className="p-2"></div>
-              <div className="card shadow-sm">
-                <div className="card-header admin-question">
-                  <h4 className="mb-0">
-                    {selectedQuestion ? "Update Question" : "Add Question"}
-                  </h4>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card shadow-sm mb-4">
+                <div className="card-header admin-questions">
+                  <h4 className="mb-0">Questions</h4>
                 </div>
                 <div className="card-body">
-                  <div className="form-group">
-                    <label htmlFor="question">Question:</label>
-                    <input
-                      type="text"
-                      id="question"
-                      className="form-control"
-                      value={questionText}
-                      onChange={(e) => setQuestionText(e.target.value)}
-                    />
+                  <ul className="list-group">
+                    {questions.length === 0
+                      ? "No Question Added"
+                      : questions.map((question) => (
+                          <li
+                            key={question.assessmentID}
+                            className="list-group-item list-group-item-action"
+                            onClick={() => handleQuestionSelect(question)}
+                          >
+                            {question.question}
+                          </li>
+                        ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-8">
+              <div className="sticky-top">
+                <div className="p-2"></div>
+                <div className="card shadow-sm">
+                  <div className="card-header admin-question">
+                    <h4 className="mb-0">
+                      {selectedQuestion ? "Update Question" : "Add Question"}
+                    </h4>
                   </div>
-                  <h4>Choices:</h4>
-                  {choices.map((choice, index) => (
-                    <div key={index} className="form-group">
+                  <div className="card-body">
+                    <div className="form-group">
+                      <label htmlFor="question">Question:</label>
                       <input
                         type="text"
+                        id="question"
                         className="form-control"
-                        value={choice.choice}
-                        onChange={(e) =>
-                          handleChoiceChange(index, "choice", e.target.value)
-                        }
+                        value={questionText}
+                        onChange={(e) => setQuestionText(e.target.value)}
                       />
-                      <div className="form-check mt-2">
+                    </div>
+                    <h4>Choices:</h4>
+                    {choices.map((choice, index) => (
+                      <div key={index} className="form-group">
                         <input
-                          type="checkbox"
-                          className="form-check-input"
-                          id={`correct-${index}`}
-                          checked={choice.isCorrectChoice}
+                          type="text"
+                          className="form-control"
+                          value={choice.choice}
                           onChange={(e) =>
-                            handleChoiceChange(
-                              index,
-                              "isCorrectChoice",
-                              e.target.checked
-                            )
+                            handleChoiceChange(index, "choice", e.target.value)
                           }
                         />
-                        <label
-                          className="form-check-label"
-                          htmlFor={`correct-${index}`}
-                        >
-                          Correct Choice
-                        </label>
+                        <div className="form-check mt-2">
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id={`correct-${index}`}
+                            checked={choice.isCorrectChoice}
+                            onChange={(e) =>
+                              handleChoiceChange(
+                                index,
+                                "isCorrectChoice",
+                                e.target.checked
+                              )
+                            }
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor={`correct-${index}`}
+                          >
+                            Correct Choice
+                          </label>
+                        </div>
                       </div>
+                    ))}
+                    <div className="d-flex justify-content-between">
+                      <button
+                        className="btn mr-2 admin-button"
+                        onClick={handleAddChoice}
+                      >
+                        Add Choice
+                      </button>
+                      {selectedQuestion ? (
+                        <button
+                          className="btn btn-info mr-2"
+                          onClick={handleUpdateQuestion}
+                        >
+                          Update Question
+                        </button>
+                      ) : (
+                        <button
+                          className="btn btn-info mr-2"
+                          onClick={handleAddQuestion}
+                        >
+                          Add Question
+                        </button>
+                      )}
+                      {selectedQuestion && (
+                        <>
+                          <button
+                            className="btn btn-danger mr-2"
+                            onClick={() => {
+                              setShowConfirmation(true);
+                            }}
+                          >
+                            Delete Question
+                          </button>
+                          <button
+                            className="btn btn-secondary mr-2"
+                            onClick={() => {
+                              setSelectedQuestion(null);
+                              setQuestionText("");
+                              setChoices([
+                                { choice: "", isCorrectChoice: false },
+                              ]);
+                            }}
+                          >
+                            Cancel
+                          </button>
+                        </>
+                      )}
                     </div>
-                  ))}
-                  <div className="d-flex justify-content-between">
-                    <button
-                      className="btn mr-2 admin-button"
-                      onClick={handleAddChoice}
-                    >
-                      Add Choice
-                    </button>
-                    {selectedQuestion ? (
-                      <button
-                        className="btn btn-info mr-2"
-                        onClick={handleUpdateQuestion}
-                      >
-                        Update Question
-                      </button>
-                    ) : (
-                      <button
-                        className="btn btn-info mr-2"
-                        onClick={handleAddQuestion}
-                      >
-                        Add Question
-                      </button>
-                    )}
-                    {selectedQuestion && (
-                      <>
-                        <button
-                          className="btn btn-danger mr-2"
-                          onClick={() => {
-                            setShowConfirmation(true);
-                          }}
-                        >
-                          Delete Question
-                        </button>
-                        <button
-                          className="btn btn-secondary mr-2"
-                          onClick={() => {
-                            setSelectedQuestion(null);
-                            setQuestionText("");
-                            setChoices([
-                              { choice: "", isCorrectChoice: false },
-                            ]);
-                          }}
-                        >
-                          Cancel
-                        </button>
-                      </>
-                    )}
+                    {message && <p className="mt-3 text-success">{message}</p>}
                   </div>
-                  {message && <p className="mt-3 text-success">{message}</p>}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       {/* Confirmation Popup */}
       {showConfirmation && (
         <div className="pop-up-overlay d-flex justify-content-center align-items-center">
@@ -325,7 +328,7 @@ const EditAssessment = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

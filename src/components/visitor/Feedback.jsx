@@ -7,6 +7,7 @@ const Feedback = () => {
   const [feedback, setFeedback] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const { visitorID } = UseHooks();
   const navigate = useNavigate();
@@ -15,7 +16,8 @@ const Feedback = () => {
     e.preventDefault();
 
     if (!feedback.trim()) {
-      alert("Please provide your feedback");
+      setModalMessage("Please provide your feedback");
+      setShowModal(true);
       return;
     }
 
@@ -23,17 +25,20 @@ const Feedback = () => {
       .post("http://localhost:3000/visitor/feedback", { visitorID, feedback })
       .then((result) => {
         if (result.data.Status) {
+          setModalMessage("Your feedback has been successfully sent!");
           setShowModal(true);
           setShowForm(false); // Show the modal
           setFeedback(""); // Reset the feedback text area
         } else {
           console.log(result.data.Error);
-          alert("Please fill in all fields");
+          setModalMessage("Please try agiain!");
+          setShowModal(true);
         }
       })
       .catch((err) => {
         console.log(err);
-        alert("Please fill in all fields");
+        setModalMessage("Please try agiain!");
+        setShowModal(true);
       });
   };
 
@@ -80,7 +85,7 @@ const Feedback = () => {
                 onChange={(e) => setFeedback(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn-primary">
               Send
             </button>
           </form>
@@ -92,7 +97,7 @@ const Feedback = () => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Feedback Sent</h5>
+                <h5 className="modal-title">Feedback</h5>
                 <button
                   type="button"
                   className="btn-close"
@@ -102,10 +107,10 @@ const Feedback = () => {
                 ></button>
               </div>
               <div className="modal-body">
-                <p>Your feedback has been successfully sent!</p>
+                <p>{modalMessage}</p>
               </div>
               <div className="modal-footer">
-                <button className="btn btn-primary" onClick={closeModal}>
+                <button className="btn-primary" onClick={closeModal}>
                   Close
                 </button>
               </div>

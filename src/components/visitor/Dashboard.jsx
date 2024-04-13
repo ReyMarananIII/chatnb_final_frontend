@@ -195,7 +195,7 @@ const Dashboard = () => {
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn-primary"
                   onClick={handleClosePopup}
                 >
                   Got it!

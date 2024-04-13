@@ -23,18 +23,18 @@ const AdminDashboard = () => {
               to="/admin_dashboard"
               className="d-flex align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-black text-decoration-none"
             >
-              <h1 className="fs-5 fw-bolder d-none d-sm-inline">
+              <h1 className="fs-5 fw-bolder d-none d-sm-inline text-white">
                 ChatNB Admin
               </h1>
             </Link>
             <ul
-              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start ul-link"
+              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start ul-link gap-2"
               id="menu"
             >
               <li className="w-100">
                 <Link
                   to="/admin_dashboard"
-                  className="nav-link px-0 align-middle text-black"
+                  className="nav-links px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi bi-people ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
               <li className="w-100">
                 <Link
                   to="/admin_dashboard/edit_assessment"
-                  className="nav-link px-0 align-middle text-black"
+                  className="nav-links px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi bi-pen ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Assessment</span>
@@ -54,7 +54,7 @@ const AdminDashboard = () => {
               <li className="w-100">
                 <Link
                   to="/admin_dashboard/feedback"
-                  className="nav-link px-0 align-middle text-black"
+                  className="nav-links px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi bi-envelope-paper ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Feedback</span>
@@ -63,14 +63,14 @@ const AdminDashboard = () => {
               <li className="w-100">
                 <Link
                   to="/admin_dashboard/viewLeaderboards"
-                  className="nav-link px-0 align-middle text-black"
+                  className="nav-links px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi bi-list-columns-reverse ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Leaderboards</span>
                 </Link>
               </li>
               <li className="w-100" onClick={handleLogout}>
-                <Link className="nav-link px-0 align-middle text-black">
+                <Link className="nav-links px-0 align-middle text-white">
                   <i className="fs-4 bi bi-power ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Logout</span>
                 </Link>

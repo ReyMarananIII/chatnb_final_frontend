@@ -81,8 +81,8 @@ const LeaderBoards = () => {
                             <td
                               className="border"
                               style={{
-                                color: "#223336",
-                                backgroundColor: "#00c3a5",
+                                color: "white",
+                                backgroundColor: "#9a6e4b",
                               }}
                             >
                               {index + 1}
@@ -90,8 +90,8 @@ const LeaderBoards = () => {
                             <td
                               className="border"
                               style={{
-                                color: "#223336",
-                                backgroundColor: "#00c3a5",
+                                color: "white",
+                                backgroundColor: "#9a6e4b",
                               }}
                             >
                               {e.username}
@@ -99,8 +99,8 @@ const LeaderBoards = () => {
                             <td
                               className="border"
                               style={{
-                                color: "#223336",
-                                backgroundColor: "#00c3a5",
+                                color: "white",
+                                backgroundColor: "#9a6e4b",
                               }}
                             >
                               {e.totalPoints}
@@ -118,7 +118,7 @@ const LeaderBoards = () => {
                 </tbody>
               </table>
               <div className="modal-footer">
-                <button className="btn btn-primary" onClick={toggleModal}>
+                <button className="btn-primary" onClick={toggleModal}>
                   Close
                 </button>
               </div>

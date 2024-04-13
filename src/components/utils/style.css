@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 
 * {
   box-sizing: border-box;
@@ -21,24 +21,13 @@ body {
     text-transform: uppercase;
     padding: 10px 20px;
     text-decoration: none;
-    color: #0E2740;
+    color: #604c3c;
     font-family: "Fira Sans", sans-serif;
     font-size: 18px;
     font-weight: 600;
     transition: 0.5s;
     z-index: 1;
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-bottom: 2px solid rgb(19, 17, 17);
-      transform: scaleY(2);
-      opacity: 0;
-      transition: 0.3s;
-    }
+
     &:after {
       content: "";
       position: absolute;
@@ -46,11 +35,12 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #123d55ce;
+      background-color: #9a6e4b;
       transform: scale(0);
       opacity: 0;
       transition: 0.3s;
       z-index: -1;
+      border-radius: 12px;
     }
     &:hover {
       color: #000000;
@@ -114,7 +104,8 @@ html,
 .auth-inner {
   width: 500px;
   height: 500px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 50px 70px, rgba(0, 0, 0, 0.22) 30px 20px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 50px 70px,
+    rgba(0, 0, 0, 0.22) 30px 20px 12px;
   padding: 50px 55px 45px 55px;
 }
 .auth-inner-aboutus {
@@ -125,8 +116,13 @@ html,
   padding: 20px 35px 25px 35px;
 }
 
-.auth-wrapper .form-control:focus {
-  border-color: #167bff;
+.auth-wrapper {
+  border-color: #604c3c;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: #604c3c;
   box-shadow: none;
 }
 
@@ -141,16 +137,16 @@ html,
 }
 
 .ChatNB {
-  color: #123e55;
+  color: #604c3c;
 }
 .ChatNB-Visitor {
   padding-bottom: 5%;
   font-size: 80px;
   font-style: italic;
-  color: #123e55;
+  color: #604c3c;
 }
 .Text1 {
-  color: #123e55;
+  color: #604c3c;
 }
 
 .Text2 {
@@ -162,12 +158,12 @@ html,
   font-style: normal;
 }
 
-.warning{
+.warning {
   font-family: "Lilita One", sans-serif;
-
 }
 
-.login-form label, input{
+.login-form label,
+input {
   font-family: "Lilita One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -198,10 +194,10 @@ html,
   font-family: "Lilita One", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #212121;
+  color: #604c3c;
   cursor: pointer;
   transform: translateZ(0) scale(1);
-  transition: transform .2s;
+  transition: transform 0.2s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -212,7 +208,7 @@ html,
 }
 
 .login-btn:not(:disabled):hover:active {
-  transform: scale(1.05) translateY(.125rem);
+  transform: scale(1.05) translateY(0.125rem);
 }
 
 .login-btn:focus {
@@ -221,10 +217,10 @@ html,
 
 .login-btn:focus:before {
   content: "";
-  left: calc(-1*.375rem);
+  left: calc(-1 * 0.375rem);
   pointer-events: none;
   position: absolute;
-  top: calc(-1*.375rem);
+  top: calc(-1 * 0.375rem);
   transition: border-radius;
   user-select: none;
 }
@@ -238,10 +234,8 @@ html,
 }
 
 .login-btn:not(:disabled):active {
-  transform: translateY(.125rem);
+  transform: translateY(0.125rem);
 }
-
-
 
 .btn-primary {
   padding: 10px 20px;
@@ -249,26 +243,32 @@ html,
   text-align: center;
   cursor: pointer;
   outline: none;
-  color: wheat;
-  background-color: #0E2740;
+  color: white;
+  background-color: #604c3c;
   border: none;
   border-radius: 10px;
   box-shadow: 0 9px #999;
   border-radius: 2rem;
+  transition: background-color 0.3s; /* Adding transition for smooth color change */
 }
 
 .btn-primary:hover {
-  background-color: #354c66;
+  background-color: #9a6e4b;
 }
 
+.btn-primary:active {
+  background-color: #604c3c;
+}
+
+/**For button submit in assesment*/
 .btn-success {
   padding: 10px 20px;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
   outline: none;
-  color: #070707;
-  background-color: #0091ffb8;
+  color: white;
+  background-color: #604c3c;
   border: none;
   border-radius: 10px;
   box-shadow: 0 9px #999;
@@ -276,7 +276,11 @@ html,
 }
 
 .btn-success:hover {
-  background-color: #0486eab8;
+  background-color: #9a6e4b;
+}
+
+.btn-success:active {
+  background-color: #604c3c;
 }
 
 .btn-disabled {
@@ -308,38 +312,45 @@ html,
 }
 
 .textBackgroundStyle {
-  background: #ddcdb35d;
+  background: #604c3c;
   padding: "10px";
   border-radius: "8px";
 }
 
 .admin-dashboard {
-  background: #ddcdb35d;
+  color: white;
+  background: #604c3c;
 }
 
 .admin-question {
   background: #ffffff;
 }
 
-.admin-button {
-  background-color: #00c3a6b8;
-}
 .admin-questions {
   background-color: #ffffff;
 }
 
+.admin-button {
+  color: white;
+  background-color: #604c3c;
+}
+
 .admin-button:hover {
-  background-color: #00c3a5;
+  background-color: #9a6e4b;
+}
+
+.admin-button:active {
+  background-color: #604c3c;
 }
 
 .reward-points {
-  background-color: #1F232C;
+  background-color: #604c3c;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: #604c3c;
   padding: 20px 15px;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -348,7 +359,7 @@ html,
   list-style: none;
   margin: 0 12px;
 }
-.nav-links li a {
+.nav-links li {
   position: relative;
   color: #333;
   font-size: 20px;
@@ -356,7 +367,7 @@ html,
   padding: 6px 0;
   text-decoration: none;
 }
-.nav-links li a:before {
+.nav-links li {
   content: "";
   position: absolute;
   bottom: 0;
@@ -367,29 +378,29 @@ html,
   border-radius: 12px;
   transition: all 0.4s ease;
 }
-.nav-links li a:hover:before {
+.nav-links li {
   width: 100%;
 }
-.nav-links li.center a:before {
+.nav-links li.center {
   left: 50%;
   transform: translateX(-50%);
 }
-.nav-links li.upward a:before {
+.nav-links li.upward {
   width: 100%;
   bottom: -5px;
   opacity: 0;
 }
-.nav-links li.upward a:hover:before {
+.nav-links li.upward {
   bottom: 0px;
   opacity: 1;
 }
-.nav-links li.forward a:before {
+.nav-links li.forward {
   width: 100%;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s ease;
 }
-.nav-links li.forward a:hover:before {
+.nav-links li.forward {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -407,19 +418,20 @@ html,
 }
 
 .chat-head img:hover {
-  border: 5px solid #0e274094;
+  border: 5px solid #604c3c;
 }
 
 .standard-visitor-background {
-  background: #ddcdb35d;
+  background: #604c3c;
 }
 
 .assessment-text-visitor-background {
   padding: 5px;
   position: fixed;
+  color: white;
   left: 0;
   right: 0;
-  background-color: #b9a591;
+  background-color: #604c3c;
 }
 
 .chat-head .name {
@@ -455,7 +467,7 @@ html,
 .messenger-input-container {
   display: flex;
   align-items: center;
-  background-color: #20bf9d;
+  background-color: #604c3c;
   padding: 10px;
   border-radius: 25px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -476,11 +488,11 @@ html,
   outline: none;
   font-size: 16px;
   color: #000;
-  background-color: #20bf9d;
+  background-color: white;
 }
 
 .send-button {
-  background-color: #20bf9d;
+  background-color: #604c3c;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -500,7 +512,7 @@ html,
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-  z-index: 100; /* Ensure the overlay is above other content */
+  z-index: 2000; /* Ensure the overlay is above other content */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -550,26 +562,26 @@ html,
   background-color: transparent !important;
 }
 .button-80 {
-  background: #fff;
+  background: #604c3c;
   backface-visibility: hidden;
-  border-radius: .375rem;
+  border-radius: 0.375rem;
   border-style: solid;
-  border-width: .125rem;
+  border-width: 0.125rem;
   box-sizing: border-box;
-  color: #212121;
+  color: #000;
   cursor: pointer;
   display: inline-block;
-  font-family: Circular,Helvetica,sans-serif;
+  font-family: Circular, Helvetica, sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
-  letter-spacing: -.01em;
+  letter-spacing: -0.01em;
   line-height: 1.3;
-  padding: .875rem 1.125rem;
+  padding: 0.875rem 1.125rem;
   position: relative;
   text-align: left;
   text-decoration: none;
   transform: translateZ(0) scale(1);
-  transition: transform .2s;
+  transition: transform 0.2s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -580,7 +592,7 @@ html,
 }
 
 .button-80:not(:disabled):hover:active {
-  transform: scale(1.05) translateY(.125rem);
+  transform: scale(1.05) translateY(0.125rem);
 }
 
 .button-80:focus {
@@ -589,10 +601,10 @@ html,
 
 .button-80:focus:before {
   content: "";
-  left: calc(-1*.375rem);
+  left: calc(-1 * 0.375rem);
   pointer-events: none;
   position: absolute;
-  top: calc(-1*.375rem);
+  top: calc(-1 * 0.375rem);
   transition: border-radius;
   user-select: none;
 }
@@ -606,14 +618,14 @@ html,
 }
 
 .button-80:not(:disabled):active {
-  transform: translateY(.125rem);
+  transform: translateY(0.125rem);
 }
 /* Assessment UI */
 
 /*Admin*/
 
 .standard-admin-background {
-  background: #ddcdb35d;
+  background: #604c3c;
 }
 
 /*Admin*/
@@ -688,8 +700,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  color: wheat;
-  background: #0E2740;
+  color: white;
+  background: #604c3c;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -711,10 +723,10 @@ html,
   transition: all 0.3s ease-out;
 }
 .feedback-container .feedback_button:nth-child(1):hover .icon {
-  background: #1F232C;
+  background: #9a6e4b;
 }
 .feedback-container .feedback_button:nth-child(2):hover .icon {
-  background: #20bf9d;
+  background: #9a6e4b;
 }
 
 .feedback-container.feedback_button .icon i {
@@ -733,7 +745,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .feedback-container.feedback_button:nth-child(1) span {
-  color: #4267b2;
+  color: #604c3c;
 }
 /*Feedback UI*/
 
@@ -765,8 +777,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  color: wheat;
-  background: #0E2740;
+  color: white;
+  background: #604c3c;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -788,10 +800,10 @@ html,
   transition: all 0.3s ease-out;
 }
 .Leaderboard-container .Leaderboard_button:nth-child(1):hover .icon {
-  background: #1F232C;
+  background: #9a6e4b;
 }
 .Leaderboard-container .Leaderboard_button:nth-child(2):hover .icon {
-  background: #20bf9d;
+  background: #9a6e4b;
 }
 
 .Leaderboard-container.Leaderboard_button .icon i {
@@ -810,7 +822,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .Leaderboard-container.Leaderboard_button:nth-child(1) span {
-  color: #4267b2;
+  color: #604c3c;
 }
 /*Leaderboard UI*/
 
@@ -842,8 +854,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  color: wheat;
-  background: #0E2740;
+  color: white;
+  background: #604c3c;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -865,10 +877,10 @@ html,
   transition: all 0.3s ease-out;
 }
 .Assessment-container .Assessment_button:nth-child(1):hover .icon {
-  background: #1F232C;
+  background: #9a6e4b;
 }
 .Assessment-container .Assessment_button:nth-child(2):hover .icon {
-  background: #20bf9d;
+  background: #9a6e4b;
 }
 
 .Assessment-container.Assessment_button .icon i {
@@ -887,7 +899,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .Assessment-container.Assessment_button:nth-child(1) span {
-  color: #4267b2;
+  color: #604c3c;
 }
 /*Assessment UI*/
 
@@ -919,8 +931,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  color: wheat;
-  background: #0E2740;
+  color: white;
+  background: #604c3c;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -942,10 +954,10 @@ html,
   transition: all 0.3s ease-out;
 }
 .Logout-container .Logout_button:nth-child(1):hover .icon {
-  background: #1F232C;
+  background: #9a6e4b;
 }
 .Logout-container .Logout_button:nth-child(2):hover .icon {
-  background: #20bf9d;
+  background: #9a6e4b;
 }
 
 .Logout-container.Logout_button .icon i {
@@ -964,7 +976,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .Logout-container.Logout_button:nth-child(1) span {
-  color: #4267b2;
+  color: #604c3c;
 }
 /*Logout UI*/
 
@@ -996,8 +1008,8 @@ html,
   width: 60px;
   margin: 0 5px;
   overflow: hidden;
-  color: wheat;
-  background: #0E2740;
+  color: white;
+  background: #604c3c;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -1019,9 +1031,8 @@ html,
   transition: all 0.3s ease-out;
 }
 .Instructions-container .Instructions_button:nth-child(1):hover .icon {
-  background: #1F232C;
+  background: #9a6e4b;
 }
-
 
 .Instructions-container.Instructions_button .icon i {
   font-size: 25px;
@@ -1039,7 +1050,7 @@ html,
   transition: all 0.3s ease-out;
 }
 .Instructions-container.Instructions_button:nth-child(1) span {
-  color: #4267b2;
+  color: #604c3c;
 }
 /*Logout UI*/
 
@@ -1052,11 +1063,11 @@ html,
 
 .tooltip-text {
   cursor: pointer;
-  color: white;
+  color: #604c3c;
 }
 
 .tooltip-text:hover {
-  color: #00c3a5;
+  color: #9a6e4b;
 }
 
 .tooltip-content {
@@ -1070,9 +1081,43 @@ html,
   left: -128px; /* Adjust as needed */
   width: 290px; /* Fixed width */
   overflow-wrap: break-word; /* Allow breaking long words */
-  border: 1px solid #00c3a5; /* Border added */
+  border: 1px solid #604c3c; /* Border added */
 }
 
 .reference-tooltip:hover .tooltip-content {
+  display: block;
+}
+
+/**Add NB Tooltip*/
+
+.addNB-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.addNB-tooltip-text {
+  cursor: pointer;
+  color: #604c3c;
+}
+
+.addNB-tooltip-text:hover {
+  color: #9a6e4b;
+}
+
+.addNB-tooltip-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+  left: -128px; /* Adjust as needed */
+  width: 850px; /* Fixed width */
+  overflow-wrap: break-word; /* Allow breaking long words */
+  border: 1px solid #9a6e4b; /* Border added */
+}
+
+.addNB-tooltip:hover .addNB-tooltip-content {
   display: block;
 }

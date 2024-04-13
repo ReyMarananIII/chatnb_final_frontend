@@ -55,10 +55,10 @@ const AdminLogin = () => {
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ul-link">
-              <Link className="nav-link text-black ms-4" to={"/admin"}>
+              <Link className="nav-link text-white ms-4" to={"/admin"}>
                 Home
               </Link>
-              <Link className="nav-link text-black " to={"/AdminAboutUs"}>
+              <Link className="nav-link text-white " to={"/AdminAboutUs"}>
                 About Us
               </Link>
             </div>
@@ -69,18 +69,16 @@ const AdminLogin = () => {
       <div className="d-flex flex-sm-col justify-content-between login-form">
         <form
           onSubmit={handleSubmit}
-          className="auth-inner bg-white text-black mx-auto "
-
+          className="auth-inner mx-auto "
           style={{
             backgroundImage: `url(${LoginFormBG})`,
             backgroundRepeat: "no-repeat",
           }}
-
         >
           <div className="container-fluid">
             <h6 className="Text2">Welcome! Please login to your account</h6>
-            <div className="Input-login mb-3 ">
-              <label className="mb-2">Username</label>
+            <div className="Input-login mb-3">
+              <label className="mb-2 text-white">Username</label>
               <input
                 className="form-control"
                 type="text"
@@ -105,7 +103,7 @@ const AdminLogin = () => {
                 }
               />
             </div>
-            <div className="text-danger warning">{error}</div>
+            <div className="text-danger">{error}</div>
             <div className="container text-center fs-3 mt-3">
               <button type="submit" className="login-btn">
                 Sign In
