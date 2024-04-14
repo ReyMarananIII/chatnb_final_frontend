@@ -103,7 +103,7 @@ const AdminLogin = () => {
           <div className="container-fluid">
             <h6 className="Text2">Welcome! Please login to your account</h6>
             <div className="Input-login mb-3">
-              <label className="mb-2 text-white">Username</label>
+              <label className="mb-2">Username</label>
               <input
                 className="form-control"
                 type="text"

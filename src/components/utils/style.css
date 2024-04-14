@@ -395,6 +395,10 @@ input {
   transform-origin: left;
 }
 
+.nav-links:hover {
+  background-color: #d3c6b2;
+}
+
 /* NB LIST STYLE */
 
 .chat-head {
