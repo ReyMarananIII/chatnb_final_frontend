@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../utils/style.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import LoginFormBG from "../../assets/images/Vintage_login.png";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -13,6 +13,7 @@ const Login = () => {
   const { visitor, setVisitor } = UseHooks();
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
@@ -69,10 +70,22 @@ const Login = () => {
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ul-link">
-              <Link className="nav-link text-white ms-4" to={"/"}>
+              <Link
+                className="nav-link ms-4"
+                to={"/"}
+                style={{
+                  color: location.pathname === "/" ? "#604c3c" : "white",
+                }}
+              >
                 Home
               </Link>
-              <Link className="nav-link text-white" to={"/AboutUs"}>
+              <Link
+                className="nav-link"
+                to={"/AboutUs"}
+                style={{
+                  color: location.pathname === "/AboutUs" ? "#604c3c" : "white",
+                }}
+              >
                 About Us
               </Link>
             </div>

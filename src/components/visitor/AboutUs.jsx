@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import pegasusLogo from "../../assets/images/pegasus1.png";
 import CHATNB from "../../assets/images/ChatNB2.png";
 import nblistbg from "../../assets/images/nb-list_bg2.png";
@@ -8,6 +8,8 @@ import nblistbg from "../../assets/images/nb-list_bg2.png";
 import "../utils/style.css";
 
 const AboutUs = () => {
+  const location = useLocation();
+
   return (
     <div
       className="container-fluid"
@@ -28,10 +30,22 @@ const AboutUs = () => {
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ul-link">
-              <Link className="nav-link text-white ms-4" to={"/"}>
+              <Link
+                className="nav-link ms-4"
+                to={"/"}
+                style={{
+                  color: location.pathname === "/" ? "#604c3c" : "white",
+                }}
+              >
                 Home
               </Link>
-              <Link className="nav-link text-white" to={"/AboutUs"}>
+              <Link
+                className="nav-link"
+                to={"/AboutUs"}
+                style={{
+                  color: location.pathname === "/AboutUs" ? "#604c3c" : "white",
+                }}
+              >
                 About Us
               </Link>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import "../utils/style.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -14,6 +14,7 @@ const AdminLogin = () => {
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
@@ -66,10 +67,23 @@ const AdminLogin = () => {
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ul-link">
-              <Link className="nav-link text-white ms-4" to={"/admin"}>
+              <Link
+                className="ms-4"
+                to={"/admin"}
+                style={{
+                  color: location.pathname === "/admin" ? "#604c3c" : "white",
+                }}
+              >
                 Home
               </Link>
-              <Link className="nav-link text-white " to={"/AdminAboutUs"}>
+              <Link
+                className="nav-link "
+                to={"/AdminAboutUs"}
+                style={{
+                  color:
+                    location.pathname === "/AdminAboutUs" ? "#604c3c" : "white",
+                }}
+              >
                 About Us
               </Link>
             </div>
