@@ -3,12 +3,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import pegasusLogo from "../../assets/images/pegasus1.png";
 import CHATNB from "../../assets/images/ChatNB2.png";
+import nblistbg from "../../assets/images/nb-list_bg2.png";
 
 import "../utils/style.css";
 
 const AboutUs = () => {
   return (
-    <div className="container-fluid standard-visitor-background">
+    <div
+      className="container-fluid"
+      style={{
+        backgroundImage: `url(${nblistbg})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+      }}
+    >
       <nav className="Header-login navbar navbar-expand-lg">
         <div className="container-fluid">
           <a className="navbar-brand fs-2 text-white">

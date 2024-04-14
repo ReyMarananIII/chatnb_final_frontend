@@ -28,7 +28,7 @@ const AdminDashboard = () => {
               to="/admin_dashboard"
               className="d-flex align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-black text-decoration-none"
             >
-              <h1 className="fs-5 fw-bolder d-none d-sm-inline text-white">
+              <h1 className="fs-5 fw-bolder d-none d-sm-inline">
                 ChatNB Admin
               </h1>
             </Link>
@@ -39,10 +39,14 @@ const AdminDashboard = () => {
               <li className="w-100">
                 <Link
                   to="/admin_dashboard"
-                  className="nav-links px-0 align-middle text-white"
+                  className="nav-links px-0 align-middle"
                   style={{
                     backgroundColor:
-                      location.pathname === "/admin_dashboard" ? "#9a6e4b" : "",
+                      location.pathname === "/admin_dashboard" ? "#604c3c" : "",
+                    color:
+                      location.pathname === "/admin_dashboard"
+                        ? "white"
+                        : "black",
                   }}
                 >
                   <i className="fs-4 bi bi-people ms-2"></i>
@@ -55,12 +59,16 @@ const AdminDashboard = () => {
               <li className="w-100">
                 <Link
                   to="/admin_dashboard/edit_assessment"
-                  className="nav-links px-0 align-middle text-white"
+                  className="nav-links px-0 align-middle"
                   style={{
                     backgroundColor:
                       location.pathname === "/admin_dashboard/edit_assessment"
-                        ? "#9a6e4b"
+                        ? "#604c3c"
                         : "",
+                    color:
+                      location.pathname === "/admin_dashboard/edit_assessment"
+                        ? "white"
+                        : "black",
                   }}
                 >
                   <i className="fs-4 bi bi-pen ms-2"></i>
@@ -70,12 +78,16 @@ const AdminDashboard = () => {
               <li className="w-100">
                 <Link
                   to="/admin_dashboard/feedback"
-                  className="nav-links px-0 align-middle text-white"
+                  className="nav-links px-0 align-middle"
                   style={{
                     backgroundColor:
                       location.pathname === "/admin_dashboard/feedback"
-                        ? "#9a6e4b"
+                        ? "#604c3c"
                         : "",
+                    color:
+                      location.pathname === "/admin_dashboard/feedback"
+                        ? "white"
+                        : "black",
                   }}
                 >
                   <i className="fs-4 bi bi-envelope-paper ms-2"></i>
@@ -85,12 +97,16 @@ const AdminDashboard = () => {
               <li className="w-100">
                 <Link
                   to="/admin_dashboard/viewLeaderboards"
-                  className="nav-links px-0 align-middle text-white"
+                  className="nav-links px-0 align-middle"
                   style={{
                     backgroundColor:
                       location.pathname === "/admin_dashboard/viewLeaderboards"
-                        ? "#9a6e4b"
+                        ? "#604c3c"
                         : "",
+                    color:
+                      location.pathname === "/admin_dashboard/viewLeaderboards"
+                        ? "white"
+                        : "black",
                   }}
                 >
                   <i className="fs-4 bi bi-list-columns-reverse ms-2"></i>
@@ -98,7 +114,7 @@ const AdminDashboard = () => {
                 </Link>
               </li>
               <li className="w-100" onClick={handleLogout}>
-                <Link className="nav-links px-0 align-middle text-white">
+                <Link className="nav-links px-0 align-middle text-black">
                   <i className="fs-4 bi bi-power ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Logout</span>
                 </Link>

@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background: #604c3c !important;
+  background: #c0b3a0 !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -35,7 +35,7 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #9a6e4b;
+      background-color: #604c3c;
       transform: scale(0);
       opacity: 0;
       transition: 0.3s;
@@ -335,7 +335,7 @@ input {
 
 .admin-dashboard {
   color: white;
-  background: #604c3c;
+  background: #c0b3a0;
 }
 
 .admin-question {
@@ -366,7 +366,7 @@ input {
 .nav-links {
   display: flex;
   align-items: center;
-  background: #604c3c;
+  background: #c0b3a0;
   padding: 20px 15px;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -438,7 +438,7 @@ input {
 }
 
 .standard-visitor-background {
-  background: #604c3c;
+  background: #c0b3a0;
 }
 
 .assessment-text-visitor-background {
@@ -644,7 +644,7 @@ input {
 /*Admin*/
 
 .standard-admin-background {
-  background: #604c3c;
+  background: #c0b3a0;
 }
 
 /*Admin*/

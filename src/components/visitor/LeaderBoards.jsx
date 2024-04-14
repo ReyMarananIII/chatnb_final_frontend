@@ -81,8 +81,8 @@ const LeaderBoards = () => {
                             <td
                               className="border"
                               style={{
-                                color: "white",
-                                backgroundColor: "#9a6e4b",
+                                color: "black",
+                                backgroundColor: "#c0b3a0",
                               }}
                             >
                               {index + 1}
@@ -90,8 +90,8 @@ const LeaderBoards = () => {
                             <td
                               className="border"
                               style={{
-                                color: "white",
-                                backgroundColor: "#9a6e4b",
+                                color: "black",
+                                backgroundColor: "#c0b3a0",
                               }}
                             >
                               {e.username}
@@ -99,8 +99,8 @@ const LeaderBoards = () => {
                             <td
                               className="border"
                               style={{
-                                color: "white",
-                                backgroundColor: "#9a6e4b",
+                                color: "black",
+                                backgroundColor: "#c0b3a0",
                               }}
                             >
                               {e.totalPoints}
