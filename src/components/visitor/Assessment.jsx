@@ -13,6 +13,7 @@ function Assessment() {
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showModal, setShowModal] = useState(false); // State for displaying modal
+  const [showError, setShowError] = useState(false); // State for displaying modal
   const [score, setScore] = useState(0); // State
   const { visitor, visitorID, setVisitor } = UseHooks();
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ function Assessment() {
       })
       .catch((error) => {
         console.error("Error fetching questions:", error);
+        setShowError(true);
       });
   }, []);
 
@@ -64,10 +66,14 @@ function Assessment() {
         if (result.data.Status) {
           setShowModal(true); // Show the modal
         } else {
-          alert(result.data.Error);
+          console.log(result.data.Error);
+          setShowError(true);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setShowError(true);
+      });
   };
 
   const handlePrev = () => {
@@ -80,6 +86,11 @@ function Assessment() {
 
   const closeModal = () => {
     setShowModal(false); // Close the modal
+    navigate(`/dashboard/${visitorID}`); // Navigate to dashboard
+  };
+
+  const handleError = () => {
+    setShowError(!showError); // Close the modal
     navigate(`/dashboard/${visitorID}`); // Navigate to dashboard
   };
 
@@ -109,7 +120,9 @@ function Assessment() {
           }}
         >
           <div className="m-5 p-5">
-            <h2 className="quiz-font">{questions[currentQuestion].question}</h2>
+            <h2 className="quiz-font">
+              {currentQuestion + 1}. {questions[currentQuestion].question}
+            </h2>
             <ul
               className="list-group-flush fs-4"
               style={{
@@ -196,6 +209,32 @@ function Assessment() {
               </div>
               <div className="modal-footer">
                 <button className="btn-primary" onClick={closeModal}>
+                  Return
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {showError && (
+        <div className="modal modal-overlay" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Error</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={handleError}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>Something went wrong please try again!</p>
+              </div>
+              <div className="modal-footer">
+                <button className="btn-primary" onClick={handleError}>
                   Return
                 </button>
               </div>

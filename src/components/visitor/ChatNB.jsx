@@ -132,7 +132,23 @@ const ChatNB = () => {
       </div>
       <div className="chat-auth-inner pl-2 bg-white">
         <form onSubmit={handleSubmit}>
-          <h2 className=" Text1">{nb.name}</h2>
+          <div className="d-flex flex-row">
+            <h2 className="Text1">{nb.name}</h2>
+            <div className="reference-tooltip">
+              <span className="tooltip-text p-3">
+                <i className="bi bi-info-circle-fill fs-3"></i>
+              </span>
+              <div className="tooltip-content">
+                <p className="text-center">Reference</p>
+                {nb.reference.length === 0 ? (
+                  <p>No reference</p>
+                ) : (
+                  <p>{nb.reference}</p>
+                )}
+              </div>
+            </div>
+          </div>
+
           <h5 className="Text1">Ask me a question</h5>
           <div className="messenger-input-container">
             <div className="input-wrapper">
@@ -174,19 +190,6 @@ const ChatNB = () => {
                       </Link>
                     </li>
                   </ul>
-                </div>
-                <div className="reference-tooltip">
-                  <span className="tooltip-text p-3">
-                    <i className="bi bi-info-circle-fill fs-2"></i>
-                  </span>
-                  <div className="tooltip-content">
-                    <p className="text-center">Reference</p>
-                    {nb.reference.length === 0 ? (
-                      <p>No reference</p>
-                    ) : (
-                      <p>{nb.reference}</p>
-                    )}
-                  </div>
                 </div>
               </div>
             </nav>

@@ -1075,8 +1075,8 @@ input {
   padding: 10px;
   border-radius: 5px;
   z-index: 1;
-  left: -128px; /* Adjust as needed */
-  width: 290px; /* Fixed width */
+  left: -170px; /* Adjust as needed */
+  width: 400px; /* Fixed width */
   overflow-wrap: break-word; /* Allow breaking long words */
   border: 1px solid #604c3c; /* Border added */
 }
