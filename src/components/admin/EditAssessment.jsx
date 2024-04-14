@@ -11,6 +11,12 @@ const EditAssessment = () => {
   ]);
   const [message, setMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false); // State to manage the visibility of the confirmation popup
+  const [showError, setShowError] = useState(false);
+
+  const handleError = () => {
+    setShowError(!showError); // Close the modal
+    window.location.reload();
+  };
 
   useEffect(() => {
     setMessage("Enter question and choices");
@@ -21,6 +27,7 @@ const EditAssessment = () => {
       })
       .catch((err) => {
         console.error("Error fetching questions:", err);
+        setShowError(true);
       });
   }, []);
 
@@ -301,6 +308,33 @@ const EditAssessment = () => {
           </div>
         </div>
       </div>
+
+      {showError && (
+        <div className="modal modal-overlay" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Error</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={handleError}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>Something went wrong please try again!</p>
+              </div>
+              <div className="modal-footer">
+                <button className="btn-primary" onClick={handleError}>
+                  Ok
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Confirmation Popup */}
       {showConfirmation && (

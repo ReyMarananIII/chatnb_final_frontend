@@ -18,6 +18,8 @@ function Assessment() {
     UseHooks();
   const navigate = useNavigate();
 
+  // const [showError, setShowError] = useState(false);
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/visitor/questions")

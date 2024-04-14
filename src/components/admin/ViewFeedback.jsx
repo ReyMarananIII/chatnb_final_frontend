@@ -6,6 +6,13 @@ const ViewFeedback = () => {
   const [deleteID, setDeleteID] = useState(null); // State to store the ID of the item to delete
   const [showConfirmation, setShowConfirmation] = useState(false); // State to manage the visibility of the confirmation popup
 
+  const [showError, setShowError] = useState(false);
+
+  const handleError = () => {
+    setShowError(!showError); // Close the modal
+    window.location.reload();
+  };
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/admin/feedback")
@@ -13,10 +20,14 @@ const ViewFeedback = () => {
         if (result.data.Status) {
           setFeedback(result.data.Result);
         } else {
-          alert(result.data.Error);
+          console.log(result.data.Error);
+          setShowError(true);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setShowError(true);
+      });
   }, []);
 
   // Function to handle the deletion confirmation
@@ -33,10 +44,14 @@ const ViewFeedback = () => {
         if (result.data.Status) {
           window.location.reload();
         } else {
-          alert(result.data.Error);
+          console.log(result.data.Error);
+          setShowError(true);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setShowError(true);
+      });
     setShowConfirmation(false); // Close the confirmation popup after deletion
   };
 
@@ -93,6 +108,32 @@ const ViewFeedback = () => {
               >
                 Cancel
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {showError && (
+        <div className="modal modal-overlay" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Error</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={handleError}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>Something went wrong please try again!</p>
+              </div>
+              <div className="modal-footer">
+                <button className="btn-primary" onClick={handleError}>
+                  Ok
+                </button>
+              </div>
             </div>
           </div>
         </div>
