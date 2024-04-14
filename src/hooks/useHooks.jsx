@@ -5,6 +5,7 @@ const HooksContext = createContext();
 
 export const HooksProvider = ({ children }) => {
   const [message, setMessage] = useState("");
+  const [showError, setShowError] = useState(false);
   const [visitor, setVisitor] = useState({
     username: "",
     password: "",
@@ -22,29 +23,32 @@ export const HooksProvider = ({ children }) => {
     //Get visitor ID
     // To get the visitor ID and visitor
     axios.defaults.withCredentials = true;
-    axios
-      .get("http://localhost:3000/getUser")
-      .then((result) => {
-        if (result.data.Status) {
-          if (result.data.role === "visitor") {
-            const id = result.data.id;
-            // Get visitor information
-            axios
-              .get("http://localhost:3000/visitor/detail/" + id)
-              .then((result) => {
-                setVisitor({
-                  ...visitor,
-                  username: result.data.Result[0].username,
-                  password: result.data.Result[0].password,
-                  rewardPoints: result.data.Result[0].rewardPoints,
-                });
-                setVisitorID(id);
-              })
-              .catch((err) => console.log(err));
-          }
+    axios.get("http://localhost:3000/getUser").then((result) => {
+      if (result.data.Status) {
+        if (result.data.role === "visitor") {
+          const id = result.data.id;
+          // Get visitor information
+          axios
+            .get("http://localhost:3000/visitor/detail/" + id)
+            .then((result) => {
+              setVisitor({
+                ...visitor,
+                username: result.data.Result[0].username,
+                password: result.data.Result[0].password,
+                rewardPoints: result.data.Result[0].rewardPoints,
+              });
+              setVisitorID(id);
+              setShowError(false);
+            })
+            .catch((err) => {
+              console.log(err);
+              setShowError(true);
+            });
         }
-      })
-      .catch((err) => console.log(err));
+      } else {
+        setShowError(true);
+      }
+    });
   };
 
   return (
@@ -58,6 +62,8 @@ export const HooksProvider = ({ children }) => {
         setVisitorID,
         currentQuestionIndex,
         setCurrentQuestionIndex,
+        showError,
+        setShowError,
         getVisitor,
       }}
     >

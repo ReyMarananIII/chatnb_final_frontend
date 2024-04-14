@@ -13,9 +13,9 @@ function Assessment() {
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showModal, setShowModal] = useState(false); // State for displaying modal
-  const [showError, setShowError] = useState(false); // State for displaying modal
   const [score, setScore] = useState(0); // State
-  const { visitor, visitorID, setVisitor } = UseHooks();
+  const { visitor, visitorID, setVisitor, showError, setShowError } =
+    UseHooks();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -91,7 +91,7 @@ function Assessment() {
 
   const handleError = () => {
     setShowError(!showError); // Close the modal
-    navigate(`/dashboard/${visitorID}`); // Navigate to dashboard
+    window.location.reload();
   };
 
   return (
@@ -238,7 +238,7 @@ function Assessment() {
               </div>
               <div className="modal-footer">
                 <button className="btn-primary" onClick={handleError}>
-                  Ok
+                  Retry
                 </button>
               </div>
             </div>
