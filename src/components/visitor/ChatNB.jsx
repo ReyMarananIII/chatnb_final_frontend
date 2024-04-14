@@ -148,7 +148,7 @@ const ChatNB = () => {
               />
             </div>
             {loading ? (
-              <div className="spinner-grow text-dark pl-5">
+              <div className="spinner-grow text-white mx-1">
                 <span className="visually-hidden">Loading...</span>
               </div>
             ) : (
