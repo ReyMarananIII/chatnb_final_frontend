@@ -56,6 +56,13 @@ const NB = () => {
     setShowConfirmation(false); // Close the confirmation popup after deletion
   };
 
+  const DisplayText = ({ reference }) => {
+    const newReference = reference
+      .split("\n")
+      .map((line, index) => <p key={index}>{line}</p>);
+    return newReference;
+  };
+
   return (
     <div className="px-5 mt-3 mb-3">
       <Link to="/admin_dashboard/add_nb" className="btn admin-button">
@@ -95,8 +102,12 @@ const NB = () => {
                   </td>
                   <td className="border">{e.name}</td>
                   <td className="border text-align-justify">{e.information}</td>
-                  <td className="border text-align-justify">
-                    {e.reference ? e.reference : "No reference"}
+                  <td className="border">
+                    {e.reference ? (
+                      <DisplayText reference={e.reference} />
+                    ) : (
+                      "No Reference"
+                    )}
                   </td>
                   <td className="border">
                     <Link
