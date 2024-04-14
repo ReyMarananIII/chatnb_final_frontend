@@ -10,7 +10,7 @@ import LoginBGVideo from "../../assets/images/VideoBG.mp4";
 import { UseHooks } from "../../hooks/useHooks.jsx";
 
 const Login = () => {
-  const { visitor, setVisitor } = UseHooks();
+  const { visitor, setVisitor, setShowError } = UseHooks();
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,6 +24,7 @@ const Login = () => {
           if (result.data.role === "admin") {
             navigate("/admin_dashboard");
           } else {
+            setShowError(false); // show error is use when there is no visitor since we already have a visitor we need to set this to false
             navigate(`/dashboard/${result.data.id}`); // This is visitor ID from verify. It is called id instead visitorID because it is use for both admin and visitor
           }
         }
@@ -38,6 +39,7 @@ const Login = () => {
       .then((result) => {
         if (result.data.loginStatus) {
           localStorage.setItem("valid", true);
+          setShowError(false); // show error is use when there is no visitor since we already have a visitor we need to set this to false
           navigate(`/dashboard/${result.data.visitorID}`);
         } else {
           setError(result.data.Error);
