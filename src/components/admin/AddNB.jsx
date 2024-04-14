@@ -140,6 +140,7 @@ const AddNB = () => {
               <input
                 type="file"
                 required
+                accept=".png, .jpeg, .jpg"
                 className="form-control rounded-0"
                 id="inputGroupFile01"
                 name="image"
@@ -193,6 +194,7 @@ const AddNB = () => {
               <input
                 type="file"
                 required
+                accept=".glb"
                 className="form-control rounded-0"
                 id="inputGroupFile02"
                 name="model"
@@ -206,6 +208,7 @@ const AddNB = () => {
               <input
                 type="file"
                 required
+                accept=".png, .jpeg, .jpg"
                 className="form-control rounded-0"
                 id="inputGroupFile03"
                 name="bgImage"

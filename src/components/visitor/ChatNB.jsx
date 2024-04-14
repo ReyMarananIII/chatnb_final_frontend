@@ -121,6 +121,11 @@ const ChatNB = () => {
       });
   };
 
+  // To preserve the format of the reference
+  const reference = nb.reference
+    .split("\n")
+    .map((line, index) => <p key={index}>{line}</p>);
+
   return (
     <>
       {!showError ? (
@@ -153,7 +158,7 @@ const ChatNB = () => {
                     {nb.reference.length === 0 ? (
                       <p>No reference</p>
                     ) : (
-                      <p>{nb.reference}</p>
+                      <p>{reference}</p>
                     )}
                   </div>
                 </div>

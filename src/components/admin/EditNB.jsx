@@ -164,6 +164,7 @@ const EditNB = () => {
               </label>
               <input
                 type="file"
+                accept=".png, .jpeg, .jpg"
                 className="form-control rounded-0"
                 id="inputGroupFile01"
                 name="image"
@@ -216,6 +217,7 @@ const EditNB = () => {
               </div>
               <input
                 type="file"
+                accept=".glb"
                 className="form-control rounded-0"
                 id="inputGroupFile02"
                 name="model"
@@ -228,6 +230,7 @@ const EditNB = () => {
               </label>
               <input
                 type="file"
+                accept=".png, .jpeg, .jpg"
                 className="form-control rounded-0"
                 id="inputGroupFile03"
                 name="bgImage"
