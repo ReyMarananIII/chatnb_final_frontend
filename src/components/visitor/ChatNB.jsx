@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../utils/style.css";
 import sendIcon from "../../assets/images/send.png";
 import { Canvas } from "@react-three/fiber";
@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 const ChatNB = () => {
   const { nbID } = useParams();
   const [chat, setChat] = useState("");
+  const [showError, setShowError] = useState(false); // State for displaying modal
   const [nb, setNB] = useState({
     name: "",
     information: "",
@@ -21,8 +22,8 @@ const ChatNB = () => {
     reference: "",
   });
   const [loading, setLoading] = useState(false);
-
-  const { setMessage, visitor, visitorID } = UseHooks();
+  const navigate = useNavigate();
+  const { setMessage, visitorID } = UseHooks();
 
   // To track messages
   // The content needs nb information for creating AI
@@ -60,6 +61,11 @@ const ChatNB = () => {
     );
   };
 
+  const handleError = () => {
+    setShowError(!showError); // Close the modal
+    navigate(`/dashboard/${visitorID}`); // Navigate to dashboard
+  };
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/visitor/nb/" + nbID)
@@ -80,7 +86,10 @@ const ChatNB = () => {
           result.data.Result[0].name
         ); // For chat database
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setShowError(true);
+      });
   }, []);
 
   const handleSubmit = (e) => {
@@ -104,99 +113,131 @@ const ChatNB = () => {
         setLoading(false);
         setChat("");
       })
-
       .catch((err) => {
         setChat("");
         setLoading(false);
         console.log(err);
-        alert("Something wrong please try again later!");
+        setShowError(true);
       });
   };
 
   return (
-    <div
-      className="d-flex flex-col justify-content-between align-items-center"
-      style={{
-        backgroundImage: `url(http://localhost:3000/Uploaded/${nb.bgImage})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        height: "100vh",
-        overflow: "hidden",
-      }}
-    >
-      <div className="w-100 h-100">
-        <Canvas shadows camera={{ position: [0, 0, 8], fov: 26 }}>
-          <Experience nb={nb} />
-        </Canvas>
-      </div>
-      <div className="chat-auth-inner pl-2 bg-white">
-        <form onSubmit={handleSubmit}>
-          <div className="d-flex flex-row">
-            <h2 className="Text1">{nb.name}</h2>
-            <div className="reference-tooltip">
-              <span className="tooltip-text p-3">
-                <i className="bi bi-info-circle-fill fs-3"></i>
-              </span>
-              <div className="tooltip-content">
-                <p className="text-center">Reference</p>
-                {nb.reference.length === 0 ? (
-                  <p>No reference</p>
-                ) : (
-                  <p>{nb.reference}</p>
-                )}
-              </div>
-            </div>
+    <>
+      {!showError ? (
+        <div
+          className="d-flex flex-col justify-content-between align-items-center"
+          style={{
+            backgroundImage: `url(http://localhost:3000/Uploaded/${nb.bgImage})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            height: "100vh",
+            overflow: "hidden",
+          }}
+        >
+          <div className="w-100 h-100">
+            <Canvas shadows camera={{ position: [0, 0, 8], fov: 26 }}>
+              <Experience nb={nb} />
+            </Canvas>
           </div>
-
-          <h5 className="Text1">Ask me a question</h5>
-          <div className="messenger-input-container">
-            <div className="input-wrapper">
-              <input
-                type="text"
-                autoComplete="off"
-                className="form-control-chat"
-                disabled={loading}
-                id="inputName"
-                placeholder="Type something . . ."
-                value={chat}
-                onChange={(e) => setChat(e.target.value)}
-              />
-            </div>
-            {loading ? (
-              <div className="spinner-grow text-white mx-1">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            ) : (
-              <button type="submit" className="send-button" disabled={loading}>
-                <img src={sendIcon} alt="" width={25} height={25} />
-              </button>
-            )}
-          </div>
-          <div className="d-grid">
-            <nav className="navbar navbar-expand-lg navbar-light fixed-top ">
-              <div className="container">
-                <div
-                  className="collapse navbar-collapse"
-                  id="navbarTogglerDemo02"
-                >
-                  <ul className="navbar-nav gap-2">
-                    <li className="nav-item button-80" role="button">
-                      <Link
-                        className="nav-link text-white"
-                        to={`/dashboard/${visitorID}`}
-                      >
-                        Return
-                      </Link>
-                    </li>
-                  </ul>
+          <div className="chat-auth-inner pl-2 bg-white">
+            <form onSubmit={handleSubmit}>
+              <div className="d-flex flex-row">
+                <h2 className="Text1">{nb.name}</h2>
+                <div className="reference-tooltip">
+                  <span className="tooltip-text p-3">
+                    <i className="bi bi-info-circle-fill fs-3"></i>
+                  </span>
+                  <div className="tooltip-content">
+                    <p className="text-center">Reference</p>
+                    {nb.reference.length === 0 ? (
+                      <p>No reference</p>
+                    ) : (
+                      <p>{nb.reference}</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </nav>
+
+              <h5 className="Text1">Ask me a question</h5>
+              <div className="messenger-input-container">
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    autoComplete="off"
+                    className="form-control-chat"
+                    disabled={loading}
+                    id="inputName"
+                    placeholder="Type something . . ."
+                    value={chat}
+                    onChange={(e) => setChat(e.target.value)}
+                  />
+                </div>
+                {loading ? (
+                  <div className="spinner-grow text-white mx-1">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  <button
+                    type="submit"
+                    className="send-button"
+                    disabled={loading}
+                  >
+                    <img src={sendIcon} alt="" width={25} height={25} />
+                  </button>
+                )}
+              </div>
+              <div className="d-grid">
+                <nav className="navbar navbar-expand-lg navbar-light fixed-top ">
+                  <div className="container">
+                    <div
+                      className="collapse navbar-collapse"
+                      id="navbarTogglerDemo02"
+                    >
+                      <ul className="navbar-nav gap-2">
+                        <li className="nav-item button-80" role="button">
+                          <Link
+                            className="nav-link text-white"
+                            to={`/dashboard/${visitorID}`}
+                          >
+                            Return
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      ) : (
+        <div className="modal modal-overlay" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Error</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={handleError}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>Something went wrong please try again!</p>
+              </div>
+              <div className="modal-footer">
+                <button className="btn-primary" onClick={handleError}>
+                  Ok
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

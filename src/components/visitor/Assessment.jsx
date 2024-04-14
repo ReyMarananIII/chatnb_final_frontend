@@ -95,128 +95,131 @@ function Assessment() {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${nblistbg})`,
-        backgroundSize: "cover",
-        backgroundColor: "transparent",
-        border: "none",
-        height: "100vh",
-      }}
-    >
-      <h2 className="quiz-font text-center assessment-text-visitor-background">
-        Notable Batangauenos Assessment
-      </h2>
-      <div className="quiz-text d-flex flex-column justify-content-center align-items-center w-100 h-100">
+    <>
+      {!showError ? (
         <div
-          className="d-flex flex-column justify-content-center"
           style={{
-            backgroundImage: `url(${quiz_bg})`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
+            backgroundImage: `url(${nblistbg})`,
             backgroundSize: "cover",
-            width: "158vh", // Adjust the width
-            height: "69vh",
+            backgroundColor: "transparent",
+            border: "none",
+            height: "100vh",
           }}
         >
-          <div className="m-5 p-5">
-            <h2 className="quiz-font">
-              {currentQuestion + 1}. {questions[currentQuestion].question}
-            </h2>
-            <ul
-              className="list-group-flush fs-4"
+          <h2 className="quiz-font text-center assessment-text-visitor-background">
+            Notable Batangauenos Assessment
+          </h2>
+          <div className="quiz-text d-flex flex-column justify-content-center align-items-center w-100 h-100">
+            <div
+              className="d-flex flex-column justify-content-center"
               style={{
-                listStyleType: "none",
+                backgroundImage: `url(${quiz_bg})`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                width: "158vh", // Adjust the width
+                height: "69vh",
               }}
             >
-              {questions[currentQuestion].choices.map((choice, index) => (
-                <li key={index}>
-                  <div className="form-check quiz-font">
-                    <input
-                      className="form-check-input radio-btn"
-                      type="radio"
-                      id={`choice_${index}`}
-                      name={`question_${currentQuestion}`}
-                      value={index}
-                      checked={answers[currentQuestion] === index}
-                      onChange={() =>
-                        handleAnswerSelect(currentQuestion, index)
-                      }
-                    />
-                    <label
-                      className="quiz-font form-check-label museum-label fs-3"
-                      htmlFor={`choice_${index}`}
-                    >
-                      {choice.choice}
-                    </label>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <div className="d-flex gap-3">
-              <button
-                className={
-                  currentQuestion === 0 ? "btn-disabled" : "btn-primary"
-                }
-                onClick={handlePrev}
-                disabled={currentQuestion === 0}
-              >
-                Prev
-              </button>
-              <button
-                className={
-                  currentQuestion === questions.length - 1
-                    ? "btn-disabled"
-                    : "btn-primary"
-                }
-                onClick={handleNext}
-                disabled={currentQuestion === questions.length - 1}
-              >
-                Next
-              </button>
-              <button
-                className={
-                  currentQuestion !== questions.length - 1
-                    ? "btn-disabled"
-                    : "btn-success"
-                }
-                onClick={handleSubmit}
-                disabled={currentQuestion !== questions.length - 1}
-              >
-                Submit
-              </button>
+              <div className="m-5 p-5">
+                <h2 className="quiz-font">
+                  {currentQuestion + 1}. {questions[currentQuestion].question}
+                </h2>
+                <ul
+                  className="list-group-flush fs-4"
+                  style={{
+                    listStyleType: "none",
+                  }}
+                >
+                  {questions[currentQuestion].choices.map((choice, index) => (
+                    <li key={index}>
+                      <div className="form-check quiz-font">
+                        <input
+                          className="form-check-input radio-btn"
+                          type="radio"
+                          id={`choice_${index}`}
+                          name={`question_${currentQuestion}`}
+                          value={index}
+                          checked={answers[currentQuestion] === index}
+                          onChange={() =>
+                            handleAnswerSelect(currentQuestion, index)
+                          }
+                        />
+                        <label
+                          className="quiz-font form-check-label museum-label fs-3"
+                          htmlFor={`choice_${index}`}
+                        >
+                          {choice.choice}
+                        </label>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="d-flex gap-3">
+                  <button
+                    className={
+                      currentQuestion === 0 ? "btn-disabled" : "btn-primary"
+                    }
+                    onClick={handlePrev}
+                    disabled={currentQuestion === 0}
+                  >
+                    Prev
+                  </button>
+                  <button
+                    className={
+                      currentQuestion === questions.length - 1
+                        ? "btn-disabled"
+                        : "btn-primary"
+                    }
+                    onClick={handleNext}
+                    disabled={currentQuestion === questions.length - 1}
+                  >
+                    Next
+                  </button>
+                  <button
+                    className={
+                      currentQuestion !== questions.length - 1
+                        ? "btn-disabled"
+                        : "btn-success"
+                    }
+                    onClick={handleSubmit}
+                    disabled={currentQuestion !== questions.length - 1}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {showModal && (
-        <div className="modal modal-overlay" tabIndex="-1">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Congratulations!</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                  onClick={closeModal}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <p>You have earned {score} reward points in the quiz.</p>
-              </div>
-              <div className="modal-footer">
-                <button className="btn-primary" onClick={closeModal}>
-                  Return
-                </button>
+          {showModal && (
+            <div className="modal modal-overlay" tabIndex="-1">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title">Congratulations!</h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      onClick={closeModal}
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <p>You have earned {score} reward points in the quiz.</p>
+                  </div>
+                  <div className="modal-footer">
+                    <button className="btn-primary" onClick={closeModal}>
+                      Return
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
-      )}
-      {showError && (
+      ) : (
         <div className="modal modal-overlay" tabIndex="-1">
           <div className="modal-dialog">
             <div className="modal-content">
@@ -235,14 +238,14 @@ function Assessment() {
               </div>
               <div className="modal-footer">
                 <button className="btn-primary" onClick={handleError}>
-                  Return
+                  Ok
                 </button>
               </div>
             </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 export default Assessment;
