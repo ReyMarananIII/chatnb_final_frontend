@@ -51,7 +51,7 @@ const AdminDashboard = () => {
                 >
                   <i className="fs-4 bi bi-people ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">
-                    Notable <span className="m-2">Batangaueños</span>{" "}
+                    Notable <span className="m-2">Batangueños</span>{" "}
                     {/**Span to align text */}
                   </span>
                 </Link>

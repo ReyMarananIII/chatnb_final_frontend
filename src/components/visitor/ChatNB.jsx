@@ -158,7 +158,7 @@ const ChatNB = () => {
                     {nb.reference.length === 0 ? (
                       <p>No reference</p>
                     ) : (
-                      <p>{reference}</p>
+                      <>{reference}</>
                     )}
                   </div>
                 </div>

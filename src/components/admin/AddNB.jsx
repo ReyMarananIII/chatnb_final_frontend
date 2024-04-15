@@ -50,7 +50,7 @@ const AddNB = () => {
     <>
       <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
         <div className="p-3 rounded w-50 border">
-          <h4 className="text-center">Add Notable Batangaueños</h4>
+          <h4 className="text-center">Add Notable Batangueños</h4>
           <form className="row g-1" onSubmit={handleSubmit}>
             <div className="col-12">
               <label htmlFor="inputName" className="form-label">
@@ -180,8 +180,8 @@ const AddNB = () => {
                       "Finish" to complete the process.
                     </li>
                     <li>
-                      Click <i class="bi bi-box-arrow-down"></i> button on the
-                      left side of claim avatar button and copy link
+                      Click <i className="bi bi-box-arrow-down"></i> button on
+                      the left side of claim avatar button and copy link
                     </li>
                     <li>
                       Open new tab and paste the link and add

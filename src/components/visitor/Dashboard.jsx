@@ -158,7 +158,7 @@ const Dashboard = () => {
                       <ul>
                         <li>
                           NB Selection Panel: Browse available Notable
-                          Batanguenos to chat with.
+                          Batangueños to chat with.
                         </li>
                         <li>Scoreboard: Check the currently leading scorer.</li>
                         <li className="mb-2">
@@ -168,7 +168,7 @@ const Dashboard = () => {
                       <li>
                         <strong>
                           <i className="bi bi-chat-square-text-fill"></i>{" "}
-                          Chatting with Notable Batanguenos
+                          Chatting with Notable Batangueños
                         </strong>
                       </li>
                       <ul>
@@ -177,7 +177,7 @@ const Dashboard = () => {
                         </li>
                         <li className="mb-2">
                           Start Chatting: Ask questions about the Notable
-                          Batanguenos' life.
+                          Batangueños' life.
                         </li>
                       </ul>
                       <li>
@@ -201,7 +201,7 @@ const Dashboard = () => {
                       <ul>
                         <li className="text-danger">
                           This is only an AI-driven chatbot it does not
-                          represent the Notable Batanguenos point of view.
+                          represent the Notable Batangueños point of view.
                         </li>
                       </ul>
                     </ul>

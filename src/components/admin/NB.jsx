@@ -66,7 +66,7 @@ const NB = () => {
   return (
     <div className="px-5 mt-3 mb-3">
       <Link to="/admin_dashboard/add_nb" className="btn admin-button">
-        Add Notable Batangaueños
+        Add Notable Batangueños
       </Link>
       <div className="mt-3">
         <table className="table table-hover">
@@ -85,7 +85,7 @@ const NB = () => {
                 <td className="border"></td>
                 <td className="border"></td>
                 <td className="border text-center">
-                  No Notable Batangaueños Added
+                  No Notable Batangueños Added
                 </td>
                 <td className="border"></td>
                 <td className="border"></td>

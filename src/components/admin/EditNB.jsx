@@ -71,7 +71,7 @@ const EditNB = () => {
     <>
       <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
         <div className="p-3 rounded w-50 border">
-          <h3 className="text-center">Edit Notable Batangaueños</h3>
+          <h3 className="text-center">Edit Notable Batangueños</h3>
           <form className="row g-1" onSubmit={handleSubmit}>
             <div className="col-12">
               <label htmlFor="inputName" className="form-label">

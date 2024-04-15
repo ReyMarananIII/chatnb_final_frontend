@@ -109,7 +109,7 @@ function Assessment() {
           }}
         >
           <h2 className="quiz-font text-center assessment-text-visitor-background">
-            Notable Batangauenos Assessment
+            Notable Batangueños Assessment
           </h2>
           <div className="quiz-text d-flex flex-column justify-content-center align-items-center w-100 h-100">
             <div
