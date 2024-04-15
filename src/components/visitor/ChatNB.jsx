@@ -103,6 +103,8 @@ const ChatNB = () => {
       .post("http://localhost:3000/visitor/chat_nb", {
         prompt: updatedAllMessages,
         nb: nb,
+        visitorID: visitorID,
+        chat: chat,
       })
       .then((res) => {
         setAllMessages([

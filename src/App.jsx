@@ -18,6 +18,7 @@ import EditAssessment from "./components/admin/EditAssessment";
 import ViewFeedback from "./components/admin/ViewFeedback";
 import ViewLeaderboards from "./components/admin/ViewLeaderboards";
 import NoPage from "./components/utils/NoPage";
+import Analytics from "./components/admin/Analytics";
 
 function App() {
   return (
@@ -52,7 +53,10 @@ function App() {
             path="/admin_dashboard/feedback"
             element={<ViewFeedback />}
           ></Route>
-
+          <Route
+            path="/admin_dashboard/analytics"
+            element={<Analytics />}
+          ></Route>
           <Route path="/admin_dashboard/add_nb" element={<AddNB />}></Route>
           <Route
             path="/admin_dashboard/edit_nb/:nbID"
