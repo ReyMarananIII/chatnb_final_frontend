@@ -13,6 +13,7 @@ export const HooksProvider = ({ children }) => {
   });
   const [visitorID, setVisitorID] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [showSubtitle, setShowSubtitle] = useState(true);
 
   //To retreive the visitor info
   useEffect(() => {
@@ -65,6 +66,8 @@ export const HooksProvider = ({ children }) => {
         showError,
         setShowError,
         getVisitor,
+        showSubtitle,
+        setShowSubtitle,
       }}
     >
       {children}

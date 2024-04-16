@@ -66,6 +66,7 @@ const Subtitle = (props) => {
 };
 
 export const Experience = (props) => {
+  const { showSubtitle } = UseHooks();
   return (
     <>
       <OrbitControls
@@ -74,9 +75,11 @@ export const Experience = (props) => {
         enableZoom={false}
       />
       <Environment preset="sunset" />
-      <Suspense fallback={null}>
-        <Subtitle nb={props.nb} />
-      </Suspense>
+      {showSubtitle && (
+        <Suspense fallback={null}>
+          <Subtitle nb={props.nb} />
+        </Suspense>
+      )}
       <Avatar nb={props.nb} position={[0, -14.8, -10]} scale={10.2} />
     </>
   );

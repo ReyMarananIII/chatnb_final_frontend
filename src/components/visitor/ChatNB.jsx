@@ -23,7 +23,7 @@ const ChatNB = () => {
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { setMessage, visitorID } = UseHooks();
+  const { setMessage, visitorID, showSubtitle, setShowSubtitle } = UseHooks();
 
   // To track messages
   // The content needs nb information for creating AI
@@ -92,6 +92,29 @@ const ChatNB = () => {
         setShowError(true);
       });
   }, []);
+
+  useEffect(() => {
+    const subtitle = localStorage.getItem("showSubtitle");
+    if (subtitle != null) {
+      if (subtitle === "true") {
+        setShowSubtitle(true);
+      } else {
+        // If the value is not in localStorage, default to false
+        setShowSubtitle(false);
+      }
+    }
+  }, []);
+
+  const handleClickSubtitle = () => {
+    setShowSubtitle(!showSubtitle);
+    // Update localStorage whenever showSubtitle changes
+    const subtitle = !showSubtitle;
+    if (subtitle) {
+      localStorage.setItem("showSubtitle", "true");
+    } else {
+      localStorage.setItem("showSubtitle", "false");
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -163,6 +186,22 @@ const ChatNB = () => {
                     ) : (
                       <>{reference}</>
                     )}
+                  </div>
+                </div>
+                <div className="reference-tooltip">
+                  <span className="tooltip-text" onClick={handleClickSubtitle}>
+                    {!showSubtitle ? (
+                      <i className="bi bi-credit-card-2-front fs-3"></i>
+                    ) : (
+                      <i className="bi bi-credit-card-2-front-fill fs-3"></i>
+                    )}
+                  </span>
+                  <div className="tooltip-content">
+                    <p className="text-center">Subtitle</p>
+                    <p className="text-center">
+                      Click to{" "}
+                      {!showSubtitle ? "show subtitle" : "hide subtitle"}
+                    </p>
                   </div>
                 </div>
               </div>
