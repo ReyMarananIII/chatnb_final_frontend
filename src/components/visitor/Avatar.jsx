@@ -35,7 +35,6 @@ export function Avatar(props) {
     const audio = new Audio("data:audio/mp3;base64," + message.audio);
     audio.play();
     setAudio(audio);
-    setMessage("");
   }, [message]);
 
   const { animations: idleAnimation } = useFBX("/Animations/Idle.fbx");

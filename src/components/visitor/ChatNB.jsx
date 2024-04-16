@@ -67,6 +67,7 @@ const ChatNB = () => {
   };
 
   useEffect(() => {
+    setMessage("");
     axios
       .get("http://localhost:3000/visitor/nb/" + nbID)
       .then((result) => {
@@ -143,7 +144,7 @@ const ChatNB = () => {
           }}
         >
           <div className="w-100 h-100">
-            <Canvas shadows camera={{ position: [0, 0, 8], fov: 26 }}>
+            <Canvas shadows camera={{ position: [0, 0, 8], fov: 25 }}>
               <Experience nb={nb} />
             </Canvas>
           </div>
