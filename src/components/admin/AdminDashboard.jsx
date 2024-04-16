@@ -110,7 +110,7 @@ const AdminDashboard = () => {
                   }}
                 >
                   <i className="fs-4 bi bi-list-columns-reverse ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Leaderboards</span>
+                  <span className="ms-2 d-none d-sm-inline">Leaderboard</span>
                 </Link>
               </li>
               <li className="w-100">
