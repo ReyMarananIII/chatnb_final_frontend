@@ -22,6 +22,7 @@ const Dashboard = () => {
     setShowSubtitle,
   } = UseHooks();
   const [showPopup, setShowPopup] = useState(false);
+  const [instructed, setInstructed] = useState(false);
 
   const [loading, setLoading] = useState(true); // Add loading state
 
@@ -43,6 +44,7 @@ const Dashboard = () => {
           const alreadyInstructed = instructed.some(
             (item) => item.visitorID === visitorID
           );
+          setInstructed(alreadyInstructed);
           setShowPopup(!alreadyInstructed);
         } else {
           console.log(result.data.Error);
@@ -80,22 +82,26 @@ const Dashboard = () => {
   };
 
   const handleClosePopup = () => {
-    axios
-      .post("http://localhost:3000/visitor/set_instructed", {
-        visitorID: visitorID,
-      })
-      .then((result) => {
-        if (result.data.Status) {
-          setShowPopup(false);
-        } else {
-          console.log(result.data.Error);
+    if (!instructed) {
+      axios
+        .post("http://localhost:3000/visitor/set_instructed", {
+          visitorID: visitorID,
+        })
+        .then((result) => {
+          if (result.data.Status) {
+            setShowPopup(false);
+          } else {
+            console.log(result.data.Error);
+            setShowError(true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
           setShowError(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setShowError(true);
-      });
+        });
+    } else {
+      setShowPopup(false);
+    }
   };
 
   return (
