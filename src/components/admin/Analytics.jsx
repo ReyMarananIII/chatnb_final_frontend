@@ -52,7 +52,7 @@ const Analytics = () => {
             {
               label: "Login",
               data: visitorLoginCounts,
-              borderColor: "rgb(75, 192, 192)",
+              borderColor: "#0cc8ec",
               tension: 0.1,
             },
             {
