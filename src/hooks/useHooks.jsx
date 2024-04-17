@@ -71,53 +71,63 @@ Ang mga pamantayang ito ay dapat masunod.`;
     //Get visitor ID
     // To get the visitor ID and visitor
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:3000/getUser").then((result) => {
-      if (result.data.Status) {
-        if (result.data.role === "visitor") {
-          const id = result.data.id;
-          // Get visitor information
-          axios
-            .get("http://localhost:3000/visitor/detail/" + id)
-            .then((result) => {
-              setVisitor({
-                ...visitor,
-                username: result.data.Result[0].username,
-                password: result.data.Result[0].password,
-                rewardPoints: result.data.Result[0].rewardPoints,
+    axios
+      .get("http://localhost:3000/getUser")
+      .then((result) => {
+        if (result.data.Status) {
+          if (result.data.role === "visitor") {
+            const id = result.data.id;
+            // Get visitor information
+            axios
+              .get("http://localhost:3000/visitor/detail/" + id)
+              .then((result) => {
+                setVisitor({
+                  ...visitor,
+                  username: result.data.Result[0].username,
+                  password: result.data.Result[0].password,
+                  rewardPoints: result.data.Result[0].rewardPoints,
+                });
+                setVisitorID(id);
+              })
+              .catch((err) => {
+                console.log(err);
+                setShowError(true);
               });
-              setVisitorID(id);
-              setShowError(false);
-            })
-            .catch((err) => {
-              console.log(err);
-              setShowError(true);
-            });
+          }
+        } else {
+          setShowError(true);
         }
-      } else {
+      })
+      .catch((err) => {
+        console.log(err);
         setShowError(true);
-      }
-    });
+      });
   };
 
   const getNB = (nbID) => {
     axios
       .get("http://localhost:3000/visitor/nb/" + nbID)
       .then((result) => {
-        setNB({
-          ...nb,
-          name: result.data.Result[0].name,
-          information: result.data.Result[0].information,
-          voiceID: result.data.Result[0].voiceID,
-          image: result.data.Result[0].image,
-          model: result.data.Result[0].model,
-          bgImage: result.data.Result[0].bgImage,
-          reference: result.data.Result[0].reference,
-        });
-        addNBInfo(
-          "system",
-          result.data.Result[0].information,
-          result.data.Result[0].name
-        ); // For chat database
+        if (result.data.Status && result.data.Result.length !== 0) {
+          setNB({
+            ...nb,
+            name: result.data.Result[0].name,
+            information: result.data.Result[0].information,
+            voiceID: result.data.Result[0].voiceID,
+            image: result.data.Result[0].image,
+            model: result.data.Result[0].model,
+            bgImage: result.data.Result[0].bgImage,
+            reference: result.data.Result[0].reference,
+          });
+          addNBInfo(
+            "system",
+            result.data.Result[0].information,
+            result.data.Result[0].name
+          ); // For chat database
+        } else {
+          console.log(result.data.Error ? result.data.Error : "Error: No NB");
+          setShowError(true);
+        }
       })
       .catch((err) => {
         console.log(err);

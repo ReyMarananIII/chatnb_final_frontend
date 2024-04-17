@@ -1115,23 +1115,23 @@ input {
   display: block;
 }
 
-/**Add NB Tooltip*/
+/**Admin Tooltip*/
 
-.addNB-tooltip {
+.model-tooltip {
   position: relative;
   display: inline-block;
 }
 
-.addNB-tooltip-text {
+.model-tooltip-text {
   cursor: pointer;
   color: #604c3c;
 }
 
-.addNB-tooltip-text:hover {
+.model-tooltip-text:hover {
   color: #9a6e4b;
 }
 
-.addNB-tooltip-content {
+.model-tooltip-content {
   display: none;
   position: absolute;
   background-color: white;
@@ -1139,12 +1139,49 @@ input {
   padding: 5px;
   border-radius: 5px;
   z-index: 1;
-  left: -128px; /* Adjust as needed */
+  left: -90px; /* Adjust as needed */
   width: 850px; /* Fixed width */
   overflow-wrap: break-word; /* Allow breaking long words */
   border: 1px solid #9a6e4b; /* Border added */
 }
 
-.addNB-tooltip:hover .addNB-tooltip-content {
+.model-tooltip:hover .model-tooltip-content {
   display: block;
+}
+
+.voice-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.voice-tooltip-text {
+  cursor: pointer;
+  color: #604c3c;
+}
+
+.voice-tooltip-text:hover {
+  color: #9a6e4b;
+}
+
+.voice-tooltip-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+  left: -90px; /* Adjust as needed */
+  width: 500px; /* Fixed width */
+  overflow-wrap: break-word; /* Allow breaking long words */
+  border: 1px solid #9a6e4b; /* Border added */
+}
+
+.voice-tooltip:hover .voice-tooltip-content {
+  display: block;
+}
+
+/**Assessment UI*/
+.assessment-text {
+  color: #9a6e4b;
 }

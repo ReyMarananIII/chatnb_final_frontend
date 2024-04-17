@@ -69,10 +69,10 @@ const EditNB = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
-        <div className="p-3 rounded w-50 border">
+      <div className="d-flex justify-content-center align-items-center">
+        <div className="p-3 rounded w-50 border w-100 mx-5 my-3">
           <h3 className="text-center">Edit Notable Batangueños</h3>
-          <form className="row g-1" onSubmit={handleSubmit}>
+          <form className="row g-2" onSubmit={handleSubmit}>
             <div className="col-12">
               <label htmlFor="inputName" className="form-label">
                 Name
@@ -120,11 +120,11 @@ const EditNB = () => {
               <label htmlFor="inputVoiceID" className="form-label">
                 Voice ID
               </label>
-              <div className="addNB-tooltip">
-                <span className="addNB-tooltip-text p-2">
+              <div className="voice-tooltip">
+                <span className="voice-tooltip-text p-2">
                   <i className="bi bi-info-circle-fill fs-5"></i>
                 </span>
-                <div className="addNB-tooltip-content">
+                <div className="voice-tooltip-content">
                   <h6>
                     To create or get your Voice ID in Elevenlabs , follow these
                     steps:
@@ -175,11 +175,11 @@ const EditNB = () => {
               <label className="form-label" htmlFor="inputGroupFile02">
                 Add New Model
               </label>
-              <div className="addNB-tooltip">
-                <span className="addNB-tooltip-text p-2">
+              <div className="model-tooltip">
+                <span className="model-tooltip-text p-2">
                   <i className="bi bi-info-circle-fill fs-5"></i>
                 </span>
-                <div className="addNB-tooltip-content">
+                <div className="model-tooltip-content">
                   <h6>
                     To create your avatar in Ready Player Me, follow these
                     steps:
@@ -237,8 +237,8 @@ const EditNB = () => {
                 onChange={(e) => setNB({ ...nb, bgImage: e.target.files[0] })}
               />
             </div>
-            <div className="col-12">
-              <button type="submit" className="btn admin-button w-100">
+            <div className="col-12 px-2">
+              <button type="submit" className="btn admin-button">
                 Save
               </button>
             </div>

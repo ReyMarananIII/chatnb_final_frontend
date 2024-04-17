@@ -38,7 +38,7 @@ const ChatNB = () => {
     ]);
     // To get NB details
     getNB(nbID);
-  }, [nbID]);
+  }, []);
 
   const handleError = () => {
     setShowError(!showError); // Close the modal

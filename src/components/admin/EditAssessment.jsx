@@ -307,7 +307,9 @@ const EditAssessment = () => {
                         </>
                       )}
                     </div>
-                    {message && <p className="mt-3 text-success">{message}</p>}
+                    {message && (
+                      <p className="mt-3 assessment-text">{message}</p>
+                    )}
                   </div>
                 </div>
               </div>

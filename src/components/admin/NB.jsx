@@ -56,13 +56,6 @@ const NB = () => {
     setShowConfirmation(false); // Close the confirmation popup after deletion
   };
 
-  const DisplayText = ({ reference }) => {
-    const newReference = reference
-      .split("\n")
-      .map((line, index) => <p key={index}>{line}</p>);
-    return newReference;
-  };
-
   return (
     <div className="px-5 mt-3 mb-3">
       <Link to="/admin_dashboard/add_nb" className="btn admin-button">
@@ -72,10 +65,8 @@ const NB = () => {
         <table className="table table-hover">
           <thead>
             <tr>
-              <th className="border">Image</th>
               <th className="border">Name</th>
               <th className="border">Information</th>
-              <th className="border">Reference</th>
               <th className="border">Action</th>
             </tr>
           </thead>
@@ -83,36 +74,20 @@ const NB = () => {
             {nb.length === 0 ? (
               <tr>
                 <td className="border"></td>
-                <td className="border"></td>
                 <td className="border text-center">
                   No Notable Batangueños Added
                 </td>
-                <td className="border"></td>
                 <td className="border"></td>
               </tr>
             ) : (
               nb.map((e) => (
                 <tr key={e.nbID}>
-                  <td className="border">
-                    <img
-                      src={`http://localhost:3000/Uploaded/` + e.image}
-                      className="nb_image"
-                      alt={e.name}
-                    />
-                  </td>
                   <td className="border">{e.name}</td>
                   <td className="border text-align-justify">{e.information}</td>
-                  <td className="border">
-                    {e.reference ? (
-                      <DisplayText reference={e.reference} />
-                    ) : (
-                      "No Reference"
-                    )}
-                  </td>
-                  <td className="border">
+                  <td className="border text-center">
                     <Link
                       to={`/admin_dashboard/edit_nb/` + e.nbID}
-                      className="btn admin-button btn-sm me-2 my-2"
+                      className="btn admin-button btn-sm mx-2"
                     >
                       Edit
                     </Link>
