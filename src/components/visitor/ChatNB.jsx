@@ -28,7 +28,15 @@ const ChatNB = () => {
   } = UseHooks();
 
   useEffect(() => {
+    // To delete message history
     setMessage("");
+    setAllMessages([
+      {
+        role: "system",
+        content: "", // nb information needed for question and answering data
+      },
+    ]);
+    // To get NB details
     getNB(nbID);
   }, [nbID]);
 

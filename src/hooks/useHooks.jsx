@@ -36,17 +36,19 @@ export const HooksProvider = ({ children }) => {
   // For chatnb information
   const addNBInfo = (role, information, name) => {
     // To tell the pretrained model how  to response
-    const nbInformation = `Ito ang mga pamantayan mo sa pagsasagot:
-  
-    Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}. 
-    Kapag ang tanong sayo ay wala sa mga detalye na babangitin mamaya, dapat ang sagot mo ay "Paumanhin, wala akong masasabi."
-    Huwag na huwag kang magbibigay ng inpormasyon o sasagot ng wala sa mga detalye na babangitin mamaya.
-    Ang sagot mo sa mga tanong sayo ay dapat sobrang maikli lamang, direkta sa punto at hindi hihigit sa isang pangungusap.
-    Ang mga pamantayang ito ay dapat masunod.
+    const nbInformation = `Mga Detalye ni ${name}:
+${information}
     
-    Mga Detalye:\n
-    ${information}
-    `;
+Mga pamantayan mo sa pagsasagot:
+1. Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}. 
+2. Kapag ang tanong sayo ay wala sa mga detalye ni ${name}, dapat ang sagot mo dapat ay "Paumanhin, hindi ko masasagot iyan." o "Sorry, I can't answer that."
+3. Huwag na huwag kang magbibigay ng inpormasyon o sasagot ng wala sa mga detalye ni ${name}.
+4. Dapat ang sagot mo ay sobrang maikli lamang at direkta sa punto.
+5. Kung ano ang tanong sayo dapat iyon lang ang sasagotin mo.
+6. Dapat ang sagot ay buong pangungusap.
+7. Ang sagot mo dapat ay hindi hihigit sa labing-dalawang salita.
+8. Kung ano ang lengguwahe na ginamit ng nagtatanong dapat ganoong lengguwahe din ang gamit mo sa pagsasagot.
+Ang mga pamantayang ito ay dapat masunod.`;
 
     setAllMessages((prevItems) =>
       prevItems.map((item) =>
