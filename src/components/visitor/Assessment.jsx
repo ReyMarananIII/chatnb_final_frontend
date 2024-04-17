@@ -123,7 +123,7 @@ function Assessment() {
                 height: "69vh",
               }}
             >
-              <div className="m-5 p-5">
+              <div className="m-5" style={{ padding: "100px" }}>
                 <h2 className="quiz-font">
                   {currentQuestion + 1}. {questions[currentQuestion].question}
                 </h2>
