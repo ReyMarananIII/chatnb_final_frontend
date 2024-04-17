@@ -5,8 +5,7 @@ import { UseHooks } from "../../hooks/useHooks";
 
 const Subtitle = (props) => {
   const { message } = UseHooks();
-  const subtitle = message.message;
-  if (!subtitle) return null;
+  if (!message.message) return null;
 
   // Calculate the maximum width of the subtitle to fit within the visible area
   const maxWidth = 8; // Adjust as needed
@@ -16,7 +15,7 @@ const Subtitle = (props) => {
   // Break the subtitle into multiple lines if it exceeds the maximum width
   const lines = [];
   let line = "";
-  const words = subtitle.split(" ");
+  const words = message.message.split(" ");
   for (const word of words) {
     const testLine = line ? `${line} ${word}` : word;
     const testWidth = testLine.length * widthFactor;

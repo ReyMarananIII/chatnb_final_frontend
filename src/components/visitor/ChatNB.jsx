@@ -67,7 +67,6 @@ const ChatNB = () => {
   };
 
   useEffect(() => {
-    setMessage("");
     axios
       .get("http://localhost:3000/visitor/nb/" + nbID)
       .then((result) => {
