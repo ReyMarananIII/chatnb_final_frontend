@@ -10,7 +10,7 @@ const Subtitle = (props) => {
 
   // Calculate the maximum width of the subtitle to fit within the visible area
   const maxWidth = 8; // Adjust as needed
-  const widthFactor = 0.08; // Adjust as needed
+  const widthFactor = 0.09; // Adjust as needed
   const gap = 0.1; // Gap between each line
 
   // Break the subtitle into multiple lines if it exceeds the maximum width
