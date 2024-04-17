@@ -64,8 +64,12 @@ const EditAssessment = () => {
   };
 
   const handleAddQuestion = async () => {
-    if (questionText.length === 0 || choices.length === 1) {
-      setMessage("Please fill in all input fields");
+    if (
+      questionText.length === 0 ||
+      choices.length === 0 ||
+      choices[0]?.choice === ""
+    ) {
+      setMessage("Please enter question and/or choice");
       return;
     }
 
@@ -100,7 +104,8 @@ const EditAssessment = () => {
       setQuestionText("");
       setChoices([{ choice: "", isCorrectChoice: false }]);
     } catch (error) {
-      setMessage("Error adding question");
+      console.log(error);
+      setMessage("Oops, Something went wrong. Please try again!");
     }
   };
 
@@ -143,7 +148,8 @@ const EditAssessment = () => {
       setSelectedQuestion(null);
       setQuestionText("");
     } catch (error) {
-      setMessage("Error updating question");
+      console.log(error);
+      setMessage("Oops, Something went wrong. Please try again!");
     }
   };
 
@@ -168,7 +174,8 @@ const EditAssessment = () => {
       setShowConfirmation(false);
     } catch (error) {
       setShowConfirmation(false);
-      setMessage("Error deleting question");
+      console.log(error);
+      setMessage("Oops, Something went wrong. Please try again!");
     }
   };
 
@@ -314,7 +321,7 @@ const EditAssessment = () => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Error</h5>
+                <h5 className="modal-title">Oops!</h5>
                 <button
                   type="button"
                   className="btn-close"
@@ -324,7 +331,7 @@ const EditAssessment = () => {
                 ></button>
               </div>
               <div className="modal-body">
-                <p>Something went wrong please try again!</p>
+                <p>Oops, Something went wrong. Please try again!</p>
               </div>
               <div className="modal-footer">
                 <button className="btn-primary" onClick={handleError}>

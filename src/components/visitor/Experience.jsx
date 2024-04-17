@@ -76,10 +76,10 @@ export const Experience = (props) => {
       <Environment preset="sunset" />
       {showSubtitle && (
         <Suspense fallback={null}>
-          <Subtitle nb={props.nb} />
+          <Subtitle />
         </Suspense>
       )}
-      <Avatar nb={props.nb} position={[0, -14.8, -10]} scale={10.2} />
+      <Avatar position={[0, -14.8, -10]} scale={10.2} />
     </>
   );
 };

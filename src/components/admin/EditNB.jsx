@@ -250,7 +250,7 @@ const EditNB = () => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Error</h5>
+                <h5 className="modal-title">Oops!</h5>
                 <button
                   type="button"
                   className="btn-close"
@@ -260,7 +260,7 @@ const EditNB = () => {
                 ></button>
               </div>
               <div className="modal-body">
-                <p>Something went wrong please try again!</p>
+                <p>Oops, Something went wrong. Please try again!</p>
               </div>
               <div className="modal-footer">
                 <button className="btn-primary" onClick={handleError}>

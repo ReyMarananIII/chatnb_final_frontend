@@ -11,86 +11,31 @@ import { Link } from "react-router-dom";
 const ChatNB = () => {
   const { nbID } = useParams();
   const [chat, setChat] = useState("");
-  const [showError, setShowError] = useState(false); // State for displaying modal
-  const [nb, setNB] = useState({
-    name: "",
-    information: "",
-    voiceID: "",
-    image: "",
-    model: "",
-    bgImage: "",
-    reference: "",
-  });
+
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { setMessage, visitorID, showSubtitle, setShowSubtitle } = UseHooks();
+  const {
+    setMessage,
+    visitorID,
+    showSubtitle,
+    setShowSubtitle,
+    nb,
+    getNB,
+    showError,
+    setShowError,
+    allMessages,
+    setAllMessages,
+  } = UseHooks();
 
-  // To track messages
-  // The content needs nb information for creating AI
-  const [allMessages, setAllMessages] = useState([
-    {
-      role: "system",
-      content: "", // nb information needed for question and answering data
-    },
-  ]);
-
-  // For chatnb information
-  const addNBInfo = (role, information, name) => {
-    // To tell the pretrained model how  to response
-    const nbInformation = `Ito ang mga pamantayan mo sa pagsasagot:
-
-  Magpanggap kang ikaw si ${name}. Ang user ay tatanungin ka bilang si ${name}. Dapat ang iyong sagot ay parang ikaw si ${name}. 
-  Kapag ang tanong sayo ay wala sa mga detalye na babangitin mamaya, dapat ang sagot mo ay "Paumanhin, wala akong masasabi."
-  Huwag na huwag kang magbibigay ng inpormasyon o sasagot ng wala sa mga detalye na babangitin mamaya.
-  Ang sagot mo sa mga tanong sayo ay dapat sobrang maikli lamang, direkta sa punto at hindi hihigit sa isang pangungusap.
-  Ang mga pamantayang ito ay dapat masunod.
-  
-  Mga Detalye:\n
-  ${information}
-  `;
-
-    setAllMessages((prevItems) =>
-      prevItems.map((item) =>
-        item.role === role
-          ? {
-              ...item,
-              content: nbInformation,
-            }
-          : item
-      )
-    );
-  };
+  useEffect(() => {
+    setMessage("");
+    getNB(nbID);
+  }, [nbID]);
 
   const handleError = () => {
     setShowError(!showError); // Close the modal
     navigate(`/dashboard/${visitorID}`); // Navigate to dashboard
   };
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/visitor/nb/" + nbID)
-      .then((result) => {
-        setNB({
-          ...nb,
-          name: result.data.Result[0].name,
-          information: result.data.Result[0].information,
-          voiceID: result.data.Result[0].voiceID,
-          image: result.data.Result[0].image,
-          model: result.data.Result[0].model,
-          bgImage: result.data.Result[0].bgImage,
-          reference: result.data.Result[0].reference,
-        });
-        addNBInfo(
-          "system",
-          result.data.Result[0].information,
-          result.data.Result[0].name
-        ); // For chat database
-      })
-      .catch((err) => {
-        console.log(err);
-        setShowError(true);
-      });
-  }, []);
 
   useEffect(() => {
     const subtitle = localStorage.getItem("showSubtitle");
@@ -167,7 +112,7 @@ const ChatNB = () => {
         >
           <div className="w-100 h-100 px-2">
             <Canvas shadows camera={{ position: [0, 0, 8], fov: 25 }}>
-              <Experience nb={nb} />
+              <Experience />
             </Canvas>
           </div>
           <div className="chat-auth-inner bg-white">
@@ -268,7 +213,7 @@ const ChatNB = () => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Error</h5>
+                <h5 className="modal-title">Oops!</h5>
                 <button
                   type="button"
                   className="btn-close"
@@ -278,7 +223,7 @@ const ChatNB = () => {
                 ></button>
               </div>
               <div className="modal-body">
-                <p>Something went wrong please try again!</p>
+                <p>Oops, Something went wrong. Please try again!</p>
               </div>
               <div className="modal-footer">
                 <button className="btn-primary" onClick={handleError}>

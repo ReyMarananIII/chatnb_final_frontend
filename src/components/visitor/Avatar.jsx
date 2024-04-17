@@ -17,9 +17,9 @@ const corresponding = {
 };
 
 export function Avatar(props) {
-  const { message, setMessage } = UseHooks();
+  const { message, setMessage, nb } = UseHooks();
   const { nodes, materials, scene } = useGLTF(
-    `http://localhost:3000/Uploaded/${props.nb.model}`
+    `http://localhost:3000/Uploaded/${nb.model}`
   );
   const [lipsync, setLipsync] = useState();
   const [audio, setAudio] = useState();
@@ -28,13 +28,15 @@ export function Avatar(props) {
   const [winkRight, setWinkRight] = useState(false);
 
   useEffect(() => {
-    if (message == "") {
+    if (message === "") {
       return;
     }
+
     setLipsync(message.lipsync);
     const audio = new Audio("data:audio/mp3;base64," + message.audio);
     audio.play();
     setAudio(audio);
+
     // Set message to null when audio finishes playing
     audio.addEventListener("ended", () => {
       setTimeout(() => {
@@ -43,9 +45,8 @@ export function Avatar(props) {
     });
 
     return () => {
-      audio.removeEventListener("ended", () => {
-        setMessage("");
-      });
+      audio.pause();
+      audio.currentTime = 0;
     };
   }, [message]);
 
