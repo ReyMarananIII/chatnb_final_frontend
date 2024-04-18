@@ -12,19 +12,18 @@ const AboutUs = () => {
 
   return (
     <div
-      className="container-fluid"
+      className="container-fluid p-0 position-relative overflow-hidden"
       style={{
         backgroundImage: `url(${nblistbg})`,
+        width: "100vw",
+        height: "100vh",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        width: "100vw",
-        height: "100vh",
-        overflow: "hidden",
       }}
     >
-      <nav className="Header-login navbar navbar-expand-lg">
-        <div className="container-fluid">
+      <nav className=" Header-login navbar navbar-expand-lg position-absolute">
+        <div className="container">
           <a className="navbar-brand fs-2 text-white">
             <img src={CHATNB} alt="" />
           </a>
@@ -52,11 +51,20 @@ const AboutUs = () => {
           </div>
         </div>
       </nav>
+
       {/* Main Content */}
-      <div className="d-flex flex-sm-col justify-content-between align-items-center">
+      <div className="d-flex justify-content-center align-items-center h-100">
         <div className="auth-inner-aboutus card bg-white text-black ms-5">
           <div className="container-fluid">
-            <h1 className="ChatNB text-center fw-bold">About Us</h1>
+            <div className="d-flex align-items-center justify-content-between pb-3">
+              <h1 className="ChatNB text-center fw-bold">About Us</h1>
+              <img
+                src={pegasusLogo}
+                alt="ChatNB Logo"
+                style={{ height: "100px" }}
+              />
+            </div>
+
             <p className="text-align-justify">
               Pegasus group has developed a web-based application for the Thesis
               Project Defense of the College of Information Technology and
@@ -76,13 +84,6 @@ const AboutUs = () => {
               applying the modern way of evaluating through on-line.
             </p>
           </div>
-        </div>
-        <div className="w-50 h-50  d-flex justify-content-center align-items-center">
-          <img
-            src={pegasusLogo}
-            alt="ChatNB Logo"
-            className="pegasus-logo img-fluid"
-          />
         </div>
       </div>
     </div>

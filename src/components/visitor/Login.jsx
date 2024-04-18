@@ -24,8 +24,8 @@ const Login = () => {
           if (result.data.role === "admin") {
             navigate("/admin_dashboard");
           } else {
-            setShowError(false); // show error is use when there is no visitor since we already have a visitor we need to set this to false
-            navigate(`/dashboard/${result.data.id}`); // This is visitor ID from verify. It is called id instead visitorID because it is use for both admin and visitor
+            setShowError(false);
+            navigate(`/dashboard/${result.data.id}`);
           }
         }
       })
@@ -39,7 +39,7 @@ const Login = () => {
       .then((result) => {
         if (result.data.loginStatus) {
           localStorage.setItem("valid", true);
-          setShowError(false); // show error is use when there is no visitor since we already have a visitor we need to set this to false
+          setShowError(false);
           navigate(`/dashboard/${result.data.visitorID}`);
         } else {
           setError(result.data.Error);
@@ -49,24 +49,23 @@ const Login = () => {
   };
 
   return (
-    <div className="container-fluid ">
+    <div className="container-fluid p-0 position-relative overflow-hidden">
       <video
         autoPlay
         muted
         loop
         style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
           objectFit: "cover",
+          width: "100vw",
+          height: "100vh",
         }}
       >
         <source src={LoginBGVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <nav className=" Header-login navbar navbar-expand-lg ">
-        <div className="container-fluid ">
+      <nav className=" Header-login navbar navbar-expand-lg position-absolute">
+        <div className="container">
           <a className="navbar-brand fs-2 text-white">
             <img src={CHATNB} alt="" />
           </a>
@@ -94,8 +93,10 @@ const Login = () => {
           </div>
         </div>
       </nav>
-
-      <div className="d-flex flex-sm-col justify-content-between login-form">
+      <div
+        className="d-flex flex-column justify-content-center align-items-center login-form"
+        style={{ height: "100vh" }}
+      >
         <form
           onSubmit={handleSubmit}
           className="auth-inner card bg-white text-black mx-auto "

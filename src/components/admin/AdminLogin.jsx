@@ -49,26 +49,25 @@ const AdminLogin = () => {
 
   return (
     <div
-      className="container-fluid"
+      className="container-fluid p-0 position-relative overflow-hidden"
       style={{
         backgroundImage: `url(${nblistbg})`,
+        width: "100vw",
+        height: "100vh",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        width: "100vw",
-        height: "100vh",
-        overflow: "hidden",
       }}
     >
-      <nav className=" Header-login navbar navbar-expand-lg ">
-        <div className="container-fluid ">
+      <nav className=" Header-login navbar navbar-expand-lg position-absolute">
+        <div className="container">
           <a className="navbar-brand fs-2 text-white">
             <img src={CHATNB} alt="" />
           </a>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ul-link">
               <Link
-                className="ms-4"
+                className="nav-link ms-4"
                 to={"/admin"}
                 style={{
                   color: location.pathname === "/admin" ? "#604c3c" : "white",
@@ -77,7 +76,7 @@ const AdminLogin = () => {
                 Home
               </Link>
               <Link
-                className="nav-link "
+                className="nav-link"
                 to={"/AdminAboutUs"}
                 style={{
                   color:
@@ -91,10 +90,13 @@ const AdminLogin = () => {
         </div>
       </nav>
 
-      <div className="d-flex flex-sm-col justify-content-between login-form">
+      <div
+        className="d-flex flex-column justify-content-center align-items-center login-form"
+        style={{ height: "100vh" }}
+      >
         <form
           onSubmit={handleSubmit}
-          className="auth-inner mx-auto "
+          className="auth-inner card bg-white text-black mx-auto "
           style={{
             backgroundImage: `url(${LoginFormBG})`,
             backgroundRepeat: "no-repeat",
@@ -102,7 +104,7 @@ const AdminLogin = () => {
         >
           <div className="container-fluid">
             <h6 className="Text2">Welcome! Please login to your account</h6>
-            <div className="Input-login mb-3">
+            <div className="Input-login mb-3 ">
               <label className="mb-2">Username</label>
               <input
                 className="form-control"
@@ -128,7 +130,7 @@ const AdminLogin = () => {
                 }
               />
             </div>
-            <div className="text-danger">{error}</div>
+            <div className="text-danger warning">{error}</div>
             <div className="container text-center fs-3 mt-3">
               <button type="submit" className="login-btn">
                 Sign In

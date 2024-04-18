@@ -168,7 +168,6 @@ const Dashboard = () => {
               className="modal show pop-up-overlay"
               tabIndex="-1"
               role="dialog"
-              style={{ display: "block", overflow: "hidden" }}
             >
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
