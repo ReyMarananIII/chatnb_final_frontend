@@ -337,6 +337,24 @@ input {
   background-color: #604c3c;
 }
 
+@media (max-width: 991px) {
+  .Header-login .navbar-nav {
+    flex-direction: row !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-inner-aboutus .p-3 p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .auth-inner-aboutus .p-3 p {
+    font-size: 12px;
+  }
+}
+
 .nav-links {
   display: flex;
   align-items: center;

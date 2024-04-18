@@ -21,15 +21,18 @@ const AdminAboutUs = () => {
         backgroundPosition: "center",
       }}
     >
-      <nav className=" Header-login navbar navbar-expand-lg position-absolute">
+      <nav className="Header-login navbar navbar-expand-lg navbar-light position-absolute">
         <div className="container">
-          <a className="navbar-brand fs-2 text-white">
-            <img src={CHATNB} alt="" />
-          </a>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav ul-link">
+          <div className="d-flex align-items-center">
+            <a
+              className="navbar-brand fs-2 text-white"
+              style={{ marginRight: "auto" }}
+            >
+              <img src={CHATNB} alt="" style={{ height: "50px" }} />
+            </a>
+            <div className="navbar-nav ul-link d-lg-flex align-items-center">
               <Link
-                className="nav-link ms-4"
+                className="nav-link ms-lg-4"
                 to={"/admin"}
                 style={{
                   color: location.pathname === "/admin" ? "#604c3c" : "white",
@@ -54,9 +57,9 @@ const AdminAboutUs = () => {
 
       {/* Main Content */}
       <div className="d-flex justify-content-center align-items-center h-100">
-        <div className="auth-inner-aboutus card bg-white text-black ms-5">
+        <div className="auth-inner-aboutus card bg-white text-black">
           <div className="container-fluid">
-            <div className="d-flex align-items-center justify-content-between pb-3">
+            <div className="d-flex align-items-center justify-content-between">
               <h1 className="ChatNB text-center fw-bold">About Us</h1>
               <img
                 src={pegasusLogo}
@@ -65,24 +68,33 @@ const AdminAboutUs = () => {
               />
             </div>
 
-            <p className="text-align-justify">
-              Pegasus group has developed a web-based application for the Thesis
-              Project Defense of the College of Information Technology and
-              Communication at University of Batangas. The system is accessible
-              through any forms of technology that has an internet connection
-              and allows panelists and advisers to evaluate the graduating
-              students and their Thesis/Capstone Projects through an innovative
-              way of grading. The system was developed using Agile Development
-              Methodology to simplify the software development scheme of the
-              system. The system was evaluated based on ISO 9126 standard which
-              showed that the criteria on efficiency ranked as the highest,
-              followed by the functionality and maintainability, criteria for
-              portability and lastly criteria for the reliability and usability
-              of the system ranks as the lowest. The result of the evaluation of
-              Online Thesis/ Capstone Project Defense Evaluation System showed
-              that the developed system achieved its functional requirements in
-              applying the modern way of evaluating through on-line.
-            </p>
+            <div className="py-3" style={{ wordWrap: "break-word" }}>
+              <p
+                className="text-align-justify"
+                style={{
+                  fontSize:
+                    "calc(12px + (16 - 12) * ((100vw - 300px) / (1600 - 300)))",
+                }}
+              >
+                Pegasus group has developed a web-based application for the
+                Thesis Project Defense of the College of Information Technology
+                and Communication at University of Batangas. The system is
+                accessible through any forms of technology that has an internet
+                connection and allows panelists and advisers to evaluate the
+                graduating students and their Thesis/Capstone Projects through
+                an innovative way of grading. The system was developed using
+                Agile Development Methodology to simplify the software
+                development scheme of the system. The system was evaluated based
+                on ISO 9126 standard which showed that the criteria on
+                efficiency ranked as the highest, followed by the functionality
+                and maintainability, criteria for portability and lastly
+                criteria for the reliability and usability of the system ranks
+                as the lowest. The result of the evaluation of Online Thesis/
+                Capstone Project Defense Evaluation System showed that the
+                developed system achieved its functional requirements in
+                applying the modern way of evaluating through on-line.
+              </p>
+            </div>
           </div>
         </div>
       </div>

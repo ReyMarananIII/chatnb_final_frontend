@@ -59,15 +59,18 @@ const AdminLogin = () => {
         backgroundPosition: "center",
       }}
     >
-      <nav className=" Header-login navbar navbar-expand-lg position-absolute">
+      <nav className="Header-login navbar navbar-expand-lg navbar-light position-absolute">
         <div className="container">
-          <a className="navbar-brand fs-2 text-white">
-            <img src={CHATNB} alt="" />
-          </a>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav ul-link">
+          <div className="d-flex align-items-center">
+            <a
+              className="navbar-brand fs-2 text-white"
+              style={{ marginRight: "auto" }}
+            >
+              <img src={CHATNB} alt="" style={{ height: "50px" }} />
+            </a>
+            <div className="navbar-nav ul-link d-lg-flex align-items-center">
               <Link
-                className="nav-link ms-4"
+                className="nav-link ms-lg-4"
                 to={"/admin"}
                 style={{
                   color: location.pathname === "/admin" ? "#604c3c" : "white",

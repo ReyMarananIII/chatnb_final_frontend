@@ -22,15 +22,19 @@ const AboutUs = () => {
         backgroundPosition: "center",
       }}
     >
-      <nav className=" Header-login navbar navbar-expand-lg position-absolute">
+      <nav className="Header-login navbar navbar-expand-lg navbar-light position-absolute">
         <div className="container">
-          <a className="navbar-brand fs-2 text-white">
-            <img src={CHATNB} alt="" />
-          </a>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav ul-link">
+          <div className="container d-flex align-items-center justify-content-between">
+            <a
+              className="navbar-brand fs-2 text-white d-flex align-items-center"
+              style={{ marginRight: "auto" }}
+            >
+              {" "}
+              <img src={CHATNB} alt="" style={{ height: "25px" }} />
+            </a>
+            <div className="navbar-nav ul-link d-lg-flex align-items-center">
               <Link
-                className="nav-link ms-4"
+                className="nav-link ms-lg-4"
                 to={"/"}
                 style={{
                   color: location.pathname === "/" ? "#604c3c" : "white",
@@ -40,9 +44,9 @@ const AboutUs = () => {
               </Link>
               <Link
                 className="nav-link"
-                to={"/AboutUs"}
+                to={"/aboutUs"}
                 style={{
-                  color: location.pathname === "/AboutUs" ? "#604c3c" : "white",
+                  color: location.pathname === "/aboutUs" ? "#604c3c" : "white",
                 }}
               >
                 About Us
@@ -65,7 +69,13 @@ const AboutUs = () => {
               />
             </div>
 
-            <p className="text-align-justify">
+            <p
+              className="text-align-justify"
+              style={{
+                fontSize:
+                  "calc(12px + (16 - 12) * ((100vw - 300px) / (1600 - 300)))",
+              }}
+            >
               Pegasus group has developed a web-based application for the Thesis
               Project Defense of the College of Information Technology and
               Communication at University of Batangas. The system is accessible
