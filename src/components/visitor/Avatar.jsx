@@ -41,7 +41,7 @@ export function Avatar(props) {
     audio.addEventListener("ended", () => {
       setTimeout(() => {
         setMessage(""); // Set message to null after 2 seconds
-      }, 2000);
+      }, 1000);
     });
 
     return () => {
