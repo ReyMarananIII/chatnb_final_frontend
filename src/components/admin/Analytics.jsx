@@ -50,7 +50,7 @@ const Analytics = () => {
           labels: dates.map((date) => date.toDateString()),
           datasets: [
             {
-              label: "Login",
+              label: "Logins",
               data: visitorLoginCounts,
               borderColor: "#0cc8ec",
               tension: 0.1,
