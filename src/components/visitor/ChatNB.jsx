@@ -14,6 +14,7 @@ const ChatNB = () => {
 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [avatarFetched, setAvatarFetched] = useState(false);
   const {
     setMessage,
     visitorID,
@@ -38,6 +39,7 @@ const ChatNB = () => {
     ]);
     // To get NB details
     getNB(nbID);
+    setAvatarFetched(true);
   }, []);
 
   const handleError = () => {
@@ -106,141 +108,147 @@ const ChatNB = () => {
 
   return (
     <>
-      {!showError ? (
-        <div
-          className="d-flex flex-col justify-content-between align-items-center"
-          style={{
-            backgroundImage: `url(http://localhost:3000/Uploaded/${nb.bgImage})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            height: "100vh",
-            overflow: "hidden",
-          }}
-        >
-          <div className="w-100 h-100 px-2">
-            <Canvas shadows camera={{ position: [0, 0, 8], fov: 25 }}>
-              <Experience />
-            </Canvas>
-          </div>
-          <div className="chat-auth-inner bg-white">
-            <form onSubmit={handleSubmit} className="w-100 h-100">
-              <div className="d-flex flex-column justify-content-center w-100 h-100 p-4 py-5 gap-2">
-                <div className="d-flex flex-row">
-                  <h2 className="Text1">{nb.name}</h2>
-                  <div className="reference-tooltip">
-                    <span className="tooltip-text p-3">
-                      <i className="bi bi-info-circle-fill fs-3"></i>
-                    </span>
-                    <div className="tooltip-content">
-                      <p className="text-center">Reference</p>
-                      {nb.reference.length === 0 ? (
-                        <p>No reference</p>
-                      ) : (
-                        <>{reference}</>
-                      )}
-                    </div>
-                  </div>
-                  <div className="subtitle-tooltip">
-                    <span
-                      className="subtitle-tooltip-text"
-                      onClick={handleClickSubtitle}
-                    >
-                      {!showSubtitle ? (
-                        <i className="bi bi-credit-card-2-front fs-3"></i>
-                      ) : (
-                        <i className="bi bi-credit-card-2-front-fill fs-3"></i>
-                      )}
-                    </span>
-                    <div className="subtitle-tooltip-content">
-                      <p className="text-center">Subtitle</p>
-                      <p className="text-center">
-                        Click to{" "}
-                        {!showSubtitle ? "show subtitle" : "hide subtitle"}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h5 className="Text1">Ask me a question</h5>
-                  <div className="messenger-input-container">
-                    <div className="input-wrapper">
-                      <input
-                        type="text"
-                        autoComplete="off"
-                        className="form-control-chat"
-                        disabled={loading}
-                        id="inputName"
-                        placeholder="Type something . . ."
-                        value={chat}
-                        onChange={(e) => setChat(e.target.value)}
-                      />
-                    </div>
-                    {loading ? (
-                      <div className="spinner-grow text-white mx-1">
-                        <span className="visually-hidden">Loading...</span>
+      {avatarFetched ? (
+        <>
+          {!showError ? (
+            <div
+              className="d-flex flex-col justify-content-between align-items-center"
+              style={{
+                backgroundImage: `url(http://localhost:3000/Uploaded/${nb.bgImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                height: "100vh",
+                overflow: "hidden",
+              }}
+            >
+              <div className="w-100 h-100 px-2">
+                <Canvas shadows camera={{ position: [0, 0, 8], fov: 25 }}>
+                  <Experience />
+                </Canvas>
+              </div>
+              <div className="chat-auth-inner bg-white">
+                <form onSubmit={handleSubmit} className="w-100 h-100">
+                  <div className="d-flex flex-column justify-content-center w-100 h-100 p-4 py-5 gap-2">
+                    <div className="d-flex flex-row">
+                      <h2 className="Text1">{nb.name}</h2>
+                      <div className="reference-tooltip">
+                        <span className="tooltip-text p-3">
+                          <i className="bi bi-info-circle-fill fs-3"></i>
+                        </span>
+                        <div className="tooltip-content">
+                          <p className="text-center">Reference</p>
+                          {nb.reference.length === 0 ? (
+                            <p>No reference</p>
+                          ) : (
+                            <>{reference}</>
+                          )}
+                        </div>
                       </div>
-                    ) : (
-                      <button
-                        type="submit"
-                        className="send-button"
-                        disabled={loading}
-                      >
-                        <img src={sendIcon} alt="" width={25} height={25} />
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="d-grid">
-                <nav className="navbar navbar-expand-lg navbar-light position-absolute top-0 start-0">
-                  <div className="container">
-                    <div
-                      className="collapse navbar-collapse"
-                      id="navbarTogglerDemo02"
-                    >
-                      <ul className="navbar-nav gap-2">
-                        <li className="nav-item button-80" role="button">
-                          <Link
-                            className="nav-link text-white"
-                            to={`/dashboard/${visitorID}`}
+                      <div className="subtitle-tooltip">
+                        <span
+                          className="subtitle-tooltip-text"
+                          onClick={handleClickSubtitle}
+                        >
+                          {!showSubtitle ? (
+                            <i className="bi bi-credit-card-2-front fs-3"></i>
+                          ) : (
+                            <i className="bi bi-credit-card-2-front-fill fs-3"></i>
+                          )}
+                        </span>
+                        <div className="subtitle-tooltip-content">
+                          <p className="text-center">Subtitle</p>
+                          <p className="text-center">
+                            Click to{" "}
+                            {!showSubtitle ? "show subtitle" : "hide subtitle"}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="Text1">Ask me a question</h5>
+                      <div className="messenger-input-container">
+                        <div className="input-wrapper">
+                          <input
+                            type="text"
+                            autoComplete="off"
+                            className="form-control-chat"
+                            disabled={loading}
+                            id="inputName"
+                            placeholder="Type something . . ."
+                            value={chat}
+                            onChange={(e) => setChat(e.target.value)}
+                          />
+                        </div>
+                        {loading ? (
+                          <div className="spinner-grow text-white mx-1">
+                            <span className="visually-hidden">Loading...</span>
+                          </div>
+                        ) : (
+                          <button
+                            type="submit"
+                            className="send-button"
+                            disabled={loading}
                           >
-                            Return
-                          </Link>
-                        </li>
-                      </ul>
+                            <img src={sendIcon} alt="" width={25} height={25} />
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </nav>
-              </div>
-            </form>
-          </div>
-        </div>
-      ) : (
-        <div className="modal modal-overlay" tabIndex="-1">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Oops!</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                  onClick={handleError}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <p>Oops, Something went wrong. Please try again!</p>
-              </div>
-              <div className="modal-footer">
-                <button className="btn-primary" onClick={handleError}>
-                  Ok
-                </button>
+                  <div className="d-grid">
+                    <nav className="navbar navbar-expand-lg navbar-light position-absolute top-0 start-0">
+                      <div className="container">
+                        <div
+                          className="collapse navbar-collapse"
+                          id="navbarTogglerDemo02"
+                        >
+                          <ul className="navbar-nav gap-2">
+                            <li className="nav-item button-80" role="button">
+                              <Link
+                                className="nav-link text-white"
+                                to={`/dashboard/${visitorID}`}
+                              >
+                                Return
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </nav>
+                  </div>
+                </form>
               </div>
             </div>
-          </div>
-        </div>
+          ) : (
+            <div className="modal modal-overlay" tabIndex="-1">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title">Oops!</h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      onClick={handleError}
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <p>Oops, Something went wrong. Please try again!</p>
+                  </div>
+                  <div className="modal-footer">
+                    <button className="btn-primary" onClick={handleError}>
+                      Ok
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        ""
       )}
     </>
   );
