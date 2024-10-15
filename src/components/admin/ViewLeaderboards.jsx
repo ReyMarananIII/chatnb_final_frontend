@@ -13,7 +13,7 @@ const ViewLeaderboards = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/admin/rewardPoints")
+      .get("http://localhost:4000/admin/rewardPoints")
       .then((result) => {
         if (result.data.Status) {
           setRewardPoint(result.data.Result);

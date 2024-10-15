@@ -13,7 +13,7 @@ const NBList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/visitor/nb")
+      .get("http://localhost:4000/visitor/nb")
       .then((result) => {
         if (result.data.Status) {
           setNB(result.data.Result);
@@ -65,7 +65,7 @@ const NBList = () => {
                   boxShadow: "none",
                 }}
               >
-                <img src={`http://localhost:3000/Uploaded/${nb.image}`} />
+                <img src={`http://localhost:4000/Uploaded/${nb.image}`} />
               </button>
               <span className="name">{nb.name}</span>
             </div>

@@ -16,7 +16,7 @@ const NB = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/admin/nb")
+      .get("http://localhost:4000/admin/nb")
       .then((result) => {
         if (result.data.Status) {
           setNB(result.data.Result);
@@ -40,7 +40,7 @@ const NB = () => {
   // Function to delete the item
   const handleDelete = () => {
     axios
-      .delete("http://localhost:3000/admin/delete_nb/" + deleteID)
+      .delete("http://localhost:4000/admin/delete_nb/" + deleteID)
       .then((result) => {
         if (result.data.Status) {
           window.location.reload();

@@ -22,7 +22,7 @@ function Assessment() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/visitor/questions")
+      .get("http://localhost:4000/visitor/questions")
       .then((response) => {
         setQuestions(response.data);
         setAnswers(new Array(response.data.length).fill(null));
@@ -61,7 +61,7 @@ function Assessment() {
 
     axios
       .put(
-        "http://localhost:3000/visitor/edit_visitor/" + visitorID,
+        "http://localhost:4000/visitor/edit_visitor/" + visitorID,
         newVisitor
       )
       .then((result) => {

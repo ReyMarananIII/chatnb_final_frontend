@@ -71,14 +71,14 @@ Ang mga pamantayang ito ay dapat masunod.`;
     // To get the visitor ID and visitor
     axios.defaults.withCredentials = true;
     axios
-      .get("http://localhost:3000/getUser")
+      .get("http://localhost:4000/getUser")
       .then((result) => {
         if (result.data.Status) {
           if (result.data.role === "visitor") {
             const id = result.data.id;
             // Get visitor information
             axios
-              .get("http://localhost:3000/visitor/detail/" + id)
+              .get("http://localhost:4000/visitor/detail/" + id)
               .then((result) => {
                 setVisitor({
                   ...visitor,
@@ -105,7 +105,7 @@ Ang mga pamantayang ito ay dapat masunod.`;
 
   const getNB = (nbID) => {
     axios
-      .get("http://localhost:3000/visitor/nb/" + nbID)
+      .get("http://localhost:4000/visitor/nb/" + nbID)
       .then((result) => {
         if (result.data.Status && result.data.Result.length !== 0) {
           setNB({

@@ -22,7 +22,7 @@ const EditNB = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/admin/nb/" + nbID)
+      .get("http://localhost:4000/admin/nb/" + nbID)
       .then((result) => {
         setNB({
           ...nb,
@@ -52,7 +52,7 @@ const EditNB = () => {
     formData.append("bgImage", nb.bgImage);
     formData.append("reference", nb.reference);
     axios
-      .put("http://localhost:3000/admin/edit_nb/" + nbID, formData)
+      .put("http://localhost:4000/admin/edit_nb/" + nbID, formData)
       .then((result) => {
         if (result.data.Status) {
           navigate("/admin_dashboard");

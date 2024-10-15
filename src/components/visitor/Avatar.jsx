@@ -19,7 +19,7 @@ const corresponding = {
 export function Avatar(props) {
   const { message, setMessage, nb } = UseHooks();
   const { nodes, materials, scene } = useGLTF(
-    `http://localhost:3000/Uploaded/${nb.model}`
+    `http://localhost:4000/Uploaded/${nb.model}`
   );
   const [lipsync, setLipsync] = useState();
   const [audio, setAudio] = useState();

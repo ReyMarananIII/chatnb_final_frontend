@@ -8,7 +8,7 @@ const AdminDashboard = () => {
   const location = useLocation();
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
-    axios.get("http://localhost:3000/admin/logout").then((result) => {
+    axios.get("http://localhost:4000/admin/logout").then((result) => {
       if (result.data.Status) {
         localStorage.removeItem("admin_valid");
         anvigate("/admin");

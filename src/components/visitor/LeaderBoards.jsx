@@ -18,7 +18,7 @@ const LeaderBoards = () => {
 
   const getRewardPoints = () => {
     axios
-      .get("http://localhost:3000/visitor/rewardPoints")
+      .get("http://localhost:4000/visitor/rewardPoints")
       .then((result) => {
         if (result.data.Status) {
           setRewardPoint(result.data.Result);

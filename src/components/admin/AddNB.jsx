@@ -31,7 +31,7 @@ const AddNB = () => {
     formData.append("reference", nb.reference);
 
     axios
-      .post("http://localhost:3000/admin/add_nb", formData)
+      .post("http://localhost:4000/admin/add_nb", formData)
       .then((result) => {
         if (result.data.Status) {
           navigate("/admin_dashboard");

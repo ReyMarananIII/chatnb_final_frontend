@@ -19,7 +19,7 @@ const AdminLogin = () => {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:3000/getUser")
+      .get("http://localhost:4000/getUser")
       .then((result) => {
         if (result.data.Status) {
           if (result.data.role === "admin") {
@@ -35,7 +35,7 @@ const AdminLogin = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/admin/admin_login", values)
+      .post("http://localhost:4000/admin/admin_login", values)
       .then((result) => {
         if (result.data.loginStatus) {
           localStorage.setItem("admin_valid", true);

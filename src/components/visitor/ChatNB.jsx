@@ -78,7 +78,7 @@ const ChatNB = () => {
       { role: "user", content: chat },
     ];
     axios
-      .post("http://localhost:3000/visitor/chat_nb", {
+      .post("http://localhost:4000/visitor/chat_nb", {
         prompt: updatedAllMessages,
         nb: nb,
         visitorID: visitorID,
@@ -114,7 +114,7 @@ const ChatNB = () => {
             <div
               className="d-flex flex-col justify-content-between align-items-center"
               style={{
-                backgroundImage: `url(http://localhost:3000/Uploaded/${nb.bgImage})`,
+                backgroundImage: `url(http://localhost:4000/Uploaded/${nb.bgImage})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",

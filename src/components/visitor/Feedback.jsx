@@ -22,7 +22,7 @@ const Feedback = () => {
     }
 
     axios
-      .post("http://localhost:3000/visitor/feedback", { visitorID, feedback })
+      .post("http://localhost:4000/visitor/feedback", { visitorID, feedback })
       .then((result) => {
         if (result.data.Status) {
           setModalMessage("Your feedback has been successfully sent!");

@@ -17,10 +17,10 @@ const Analytics = () => {
     const fetchData = async () => {
       try {
         const visitorLoginsResponse = await axios.get(
-          "http://localhost:3000/admin/visitor-logins"
+          "http://localhost:4000/admin/visitor-logins"
         );
         const chatsResponse = await axios.get(
-          "http://localhost:3000/admin/visitor-chats"
+          "http://localhost:4000/admin/visitor-chats"
         );
 
         renderChart(visitorLoginsResponse.data, chatsResponse.data);

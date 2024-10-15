@@ -18,7 +18,7 @@ const Login = () => {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:3000/getUser")
+      .get("http://localhost:4000/getUser")
       .then((result) => {
         if (result.data.Status) {
           if (result.data.role === "admin") {
@@ -35,7 +35,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/visitor/visitor_login", visitor)
+      .post("http://localhost:4000/visitor/visitor_login", visitor)
       .then((result) => {
         if (result.data.loginStatus) {
           localStorage.setItem("valid", true);
@@ -111,7 +111,7 @@ const Login = () => {
           }}
         >
           <div className="container-fluid">
-            <h6 className="Text2">Welcome! Please login to your account</h6>
+            <h6 className="Text2">Welcome! Login using bahay bahayan account</h6>
             <div className="Input-login mb-3 ">
               <label className="mb-2">Username</label>
               <input

@@ -15,7 +15,7 @@ const ViewFeedback = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/admin/feedback")
+      .get("http://localhost:4000/admin/feedback")
       .then((result) => {
         if (result.data.Status) {
           setFeedback(result.data.Result);
@@ -39,7 +39,7 @@ const ViewFeedback = () => {
   // Function to delete the item
   const handleDelete = () => {
     axios
-      .delete("http://localhost:3000/admin/delete_feedback/" + deleteID)
+      .delete("http://localhost:4000/admin/delete_feedback/" + deleteID)
       .then((result) => {
         if (result.data.Status) {
           window.location.reload();

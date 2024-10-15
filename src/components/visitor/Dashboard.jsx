@@ -35,7 +35,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/visitor/get_instructed")
+      .get("http://localhost:4000/visitor/get_instructed")
       .then((result) => {
         if (result.data.Status) {
           const instructed = result.data.Result;
@@ -60,7 +60,7 @@ const Dashboard = () => {
 
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
-    axios.get("http://localhost:3000/visitor/logout").then((result) => {
+    axios.get("http://localhost:4000/visitor/logout").then((result) => {
       if (result.data.Status) {
         localStorage.removeItem("valid");
         localStorage.removeItem("showSubtitle");
@@ -78,7 +78,7 @@ const Dashboard = () => {
   const handleClosePopup = () => {
     if (!instructed) {
       axios
-        .post("http://localhost:3000/visitor/set_instructed", {
+        .post("http://localhost:4000/visitor/set_instructed", {
           visitorID: visitorID,
         })
         .then((result) => {

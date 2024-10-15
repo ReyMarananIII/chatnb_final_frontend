@@ -21,7 +21,7 @@ const EditAssessment = () => {
   useEffect(() => {
     setMessage("Enter question and choices");
     axios
-      .get("http://localhost:3000/admin/questions", {})
+      .get("http://localhost:4000/admin/questions", {})
       .then((res) => {
         setQuestions(res.data);
       })
@@ -80,7 +80,7 @@ const EditAssessment = () => {
 
     try {
       await axios
-        .post("http://localhost:3000/admin/questions", {
+        .post("http://localhost:4000/admin/questions", {
           question: questionText,
           choices: filteredChoices.map((choice) => ({
             choice: choice.choice,
@@ -119,7 +119,7 @@ const EditAssessment = () => {
 
     try {
       await axios.put(
-        `http://localhost:3000/admin/questions/${selectedQuestion.assessmentID}`,
+        `http://localhost:4000/admin/questions/${selectedQuestion.assessmentID}`,
         {
           question: questionText,
           choices: filteredChoices.map((choice) => ({
@@ -158,7 +158,7 @@ const EditAssessment = () => {
 
     try {
       await axios.delete(
-        `http://localhost:3000/admin/questions/${selectedQuestion.assessmentID}`
+        `http://localhost:4000/admin/questions/${selectedQuestion.assessmentID}`
       );
 
       setChoices([{ choice: "", isCorrectChoice: false }]);
