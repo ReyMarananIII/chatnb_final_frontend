@@ -111,7 +111,7 @@ const Login = () => {
           }}
         >
           <div className="container-fluid">
-            <h6 className="Text2">Welcome! Login using bahay bahayan account</h6>
+            <h6 className="Text2">Welcome! Login using your Bahay Bahayan account</h6>
             <div className="Input-login mb-3 ">
               <label className="mb-2">Username</label>
               <input
