@@ -51,6 +51,16 @@ const AboutUs = () => {
               >
                 About Us
               </Link>
+              <Link
+                className="nav-link"
+                to="#"
+                onClick={() => window.location.href = "http://localhost:3000/arcades"}
+                style={{
+                  color: location.pathname === "/arcades" ? "#604c3c" : "white",
+                }}
+              >
+                Arcades
+              </Link>
             </div>
           </div>
         </div>
