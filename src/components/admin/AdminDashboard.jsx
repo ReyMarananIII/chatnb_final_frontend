@@ -113,25 +113,7 @@ const AdminDashboard = () => {
                   <span className="ms-2 d-none d-sm-inline">Leaderboard</span>
                 </Link>
               </li>
-              <li className="w-100">
-                <Link
-                  to="/admin_dashboard/analytics"
-                  className="nav-links px-0 align-middle"
-                  style={{
-                    backgroundColor:
-                      location.pathname === "/admin_dashboard/analytics"
-                        ? "#604c3c"
-                        : "",
-                    color:
-                      location.pathname === "/admin_dashboard/analytics"
-                        ? "white"
-                        : "black",
-                  }}
-                >
-                  <i className="fs-4 bi bi-graph-up ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Analytics</span>
-                </Link>
-              </li>
+              
               <li className="w-100" onClick={handleLogout}>
                 <Link className="nav-links px-0 align-middle text-black">
                   <i className="fs-4 bi bi-power ms-2"></i>
